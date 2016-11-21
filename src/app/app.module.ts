@@ -8,7 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MastheadComponent } from './masthead/masthead.component';
 import { PostComponent } from './post/post.component';
-import { AboutComponent } from './about/about.component';
+import { PageComponent } from './page/page.component';
+
+
+import { MarkdownService } from './markdown.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,7 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     MastheadComponent,
     PostComponent,
-    AboutComponent
+    PageComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,7 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule
   ],
   providers: [
+    MarkdownService
   ],
   bootstrap: [AppComponent]
 })

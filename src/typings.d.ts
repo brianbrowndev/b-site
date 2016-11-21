@@ -2,3 +2,4 @@
 // https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
 // ignore require errors
 declare var require: any;
+declare module 'markdown-it';
