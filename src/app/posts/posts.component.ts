@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+import { Post, Posts } from '../posts';
+
+@Component({
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.scss']
+})
+export class PostsComponent implements OnInit {
+  private posts: Post[]; 
+  private number: boolean = 0;
+  constructor() { }
+
+
+  ngOnInit() {
+
+  }
+
+}

@@ -12,6 +12,7 @@ import { PageComponent } from './page/page.component';
 
 
 import { MarkdownService } from './markdown.service';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MarkdownService } from './markdown.service';
     HomeComponent,
     MastheadComponent,
     PostComponent,
-    PageComponent
+    PageComponent,
+    PostsComponent
   ],
   imports: [
     CommonModule,
