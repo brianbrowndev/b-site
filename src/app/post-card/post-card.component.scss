@@ -1,0 +1,53 @@
+@import '../../styles/variables.scss';
+
+.post-card {
+  display:flex;
+  flex-direction:column;
+  margin-bottom:$break-small;
+  padding: $break-medium;
+  background: $color-background;
+  border-radius:3px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition:box-shadow .3s ease;
+  width:900px;
+  &:hover {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3)
+  }
+}
+
+.post-header {
+  margin-bottom: $break-small;
+}
+.post-title {
+  display:inline-block;
+  font-size:3rem;
+  color: $color-primary;
+  margin: 0;
+}
+.post-section {
+  display: flex;
+  flex: 0 1 10em;
+  flex-direction: row;
+}
+
+.post-cover {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: .3em;
+}
+
+.post-image {
+  width:100%;
+  height:100%;
+  background-repeat: no-repeat;
+  background-position:center;
+}
+
+
+.upper {
+  text-transform:uppercase;
+}
+
+

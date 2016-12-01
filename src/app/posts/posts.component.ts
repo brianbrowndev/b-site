@@ -8,12 +8,10 @@ import { Post, Posts } from '../posts';
 })
 export class PostsComponent implements OnInit {
   private posts: Post[]; 
-  private number: boolean = 0;
   constructor() { }
 
 
   ngOnInit() {
-
+    this.posts = Object.keys(Posts).map(k => Posts[k])
   }
-
 }

@@ -1,0 +1,18 @@
+<a class="post-card">
+  <div class="post-header">
+    <h3 class="post-title">{{post.title}}</h3>
+    <div class="post-meta upper">
+      <span class="">Date</span>
+      <span class="post-meta-break">/</span>
+      <div class="post-meta-category--{{post.category}} post-meta-icon">
+      </div>
+      <span class="post-meta-category upper">{{post.category}}</span>
+    </div>
+
+  </div>
+  <div class="post-section">
+    <div class="post-cover">
+      <div class="post-image" [ngStyle]="{ 'background-image': 'url(' + post.cover + ')'}"></div>
+    </div>
+  </div>
+</a>

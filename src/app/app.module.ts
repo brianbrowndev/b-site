@@ -13,6 +13,7 @@ import { PageComponent } from './page/page.component';
 
 import { MarkdownService } from './markdown.service';
 import { PostsComponent } from './posts/posts.component';
+import { PostCardComponent } from './post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PostsComponent } from './posts/posts.component';
     MastheadComponent,
     PostComponent,
     PageComponent,
-    PostsComponent
+    PostsComponent,
+    PostCardComponent
   ],
   imports: [
     CommonModule,
