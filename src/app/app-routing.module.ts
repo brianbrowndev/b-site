@@ -10,9 +10,8 @@ import { Posts } from './posts';
 
 const post: string = 'assets/post/'; 
 const appRoutes: Routes = [
-  { path: 'posts', component: PostsComponent},  
+  { path: 'posts', component: HomeComponent },  
   { path: 'about', component: PageComponent, data: Pages.About },
-  { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
 ];
 

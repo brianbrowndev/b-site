@@ -14,6 +14,7 @@ import { PageComponent } from './page/page.component';
 import { MarkdownService } from './markdown.service';
 import { PostsComponent } from './posts/posts.component';
 import { PostCardComponent } from './post-card/post-card.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PostCardComponent } from './post-card/post-card.component';
     PostComponent,
     PageComponent,
     PostsComponent,
-    PostCardComponent
+    PostCardComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,

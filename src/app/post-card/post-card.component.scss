@@ -9,7 +9,7 @@
   border-radius:3px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   transition:box-shadow .3s ease;
-  width:900px;
+  max-width:900px;
   &:hover {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3)
   }
