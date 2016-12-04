@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Data } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from '../markdown.service';
-import 'rxjs/add/operator/switchMap';
 
-import { Page } from '../page';
+import { Page } from '../pages';
 
 @Component({
   selector: 'page',

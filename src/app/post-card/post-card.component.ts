@@ -8,6 +8,8 @@ import { Post } from '../posts';
 })
 export class PostCardComponent implements OnInit {
   @Input() post:Post;
+  private date;
+
   constructor() { }
 
   ngOnInit() {

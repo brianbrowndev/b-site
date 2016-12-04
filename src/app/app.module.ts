@@ -15,6 +15,7 @@ import { MarkdownService } from './markdown.service';
 import { PostsComponent } from './posts/posts.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { MomentPipePipe } from './moment-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     PageComponent,
     PostsComponent,
     PostCardComponent,
-    SidebarComponent
+    SidebarComponent,
+    MomentPipePipe
   ],
   imports: [
     CommonModule,

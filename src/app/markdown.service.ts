@@ -3,8 +3,23 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import * as hljs from 'highlightjs';
 
-const md = require('markdown-it')({html: true});
+const md = require('markdown-it')({
+  html: true,
+
+  linkify:true, 
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (__) {}
+    }
+
+    return ''; // use external default escaping
+  }
+});
+
 
 @Injectable()
 export class MarkdownService {

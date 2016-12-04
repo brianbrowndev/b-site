@@ -12,6 +12,23 @@ export class PostsComponent implements OnInit {
 
 
   ngOnInit() {
+  }
+
+  setPosts() {
     this.posts = Object.keys(Posts).map(k => Posts[k])
+
+  }
+
+  filterPosts(category:string) {
+    if (!category) {
+      this.setPosts();
+      return;
+    }
+    this.posts = [];
+    Object.keys(Posts).map(k => {
+      if (Posts[k].category == category) {
+        this.posts.push(Posts[k]);
+      }
+    })
   }
 }

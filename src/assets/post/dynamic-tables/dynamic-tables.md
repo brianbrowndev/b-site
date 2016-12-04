@@ -24,11 +24,11 @@ This was amplified by the fact that the impacts to the wetlands could change any
 So I made some dynamic maps:
  
 <div class="img-wrapper">
-    <img src="/images/posts/dynamic_tables/page_1.jpg">
+    <img src="/assets/post/dynamic-tables/page_1.jpg">
     <span class="img-title">The Impact Area Summary indicates all impacts on the map</span>
 </div>
 <div class="img-wrapper">
-    <img src="/images/posts/dynamic_tables/page_2.jpg">
+    <img src="/assets/post/dynamic-tables/page_2.jpg">
     <span class="img-title">In the next map, the table is updated to reflect impacts in the new extents</span>
 </div>
 
@@ -166,8 +166,7 @@ map_doc = arcpy.mapping.MapDocument(path_to_mxd)
 arcpy.mapping.ListLayoutElements(map_doc, element_type)
 ```
 
-First we initialize our mxd and then use [ListLayoutElements](http://resources.arcgis.com/en/help/main/10.1/index
-.html#//00s30000003w000000) to list all elements of a given "element_type". There are a number of element types but 
+First we initialize our mxd and then use [ListLayoutElements](http://resources.arcgis.com/en/help/main/10.1/index.html#//00s30000003w000000) to list all elements of a given "element_type". There are a number of element types but 
 the one we want to list is the "TEXT_ELEMENT."
 
 This gives of a list of all objects associated with that element. In this way, with the help of some python 
@@ -221,8 +220,8 @@ clone = <text object>.clone()
 We call the clone method to clone our text element. Just like copying and pasting in ArcMap.
 
 To move our cell down all we must needs do is find the height of our cell and subtract it from the Y-coordinate of 
-our element. Fortunately, [accessing properties](http://resources.arcgis.com/en/help/main/10.1/index
-.html#//00s300000040000000) is straight foward.
+our element. Fortunately, [accessing properties](http://resources.arcgis.com/en/help/main/10.1/index.html#//00s300000040000000) 
+is straight forward.
 
 
 ```python

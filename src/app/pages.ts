@@ -1,4 +1,4 @@
-class Page {
+export class Page {
     title: string;
     url: string;
     constructor(options: {
