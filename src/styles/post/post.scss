@@ -1,1 +1,117 @@
 @import 'commute.scss';
+
+.post-content {
+
+    h4 {
+        margin: 0 0 .5em;
+        opacity:0.8;
+    }
+
+    a {
+        color:$color-primary;
+        background-image: $link-underline;
+    }
+
+
+    .img-wrapper {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    
+
+    table {
+        display:block;
+        overflow:auto;
+        width:100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        word-break: keep-all;
+        margin-bottom:$break-large;
+    }
+    table tr th {
+        padding:6px 13px;
+        border: $border-default;
+    }
+    table tr {
+        border-top: $border-default;
+    }
+    table tr td {
+        padding: 6px 13px;
+        border: 1px solid $color-secondary;
+    }
+    table tr:nth-child(2n) {
+        background-color: $color-secondary-light;
+    }
+   img {
+        display:block;
+        width: 100%;
+        height: 100%;
+    }
+    .img-title {
+        text-align:center;
+        font-size: 1.4rem;
+        vertical-align:middle;
+        margin-bottom: $break-large;
+    }
+
+
+    pre {
+        overflow:auto;
+        padding: $break-medium;
+        margin-left:-1.3em;
+        margin-bottom: $break-large;
+        margin-top:0;
+        border-left: .3em solid $color-text-weak;
+        background-color:$color-secondary-light;
+    }
+    code {
+        font-family:$font-light;
+        font-size: 1.5rem;
+    }
+    .hljs-keyword { color: rgba(242,56,92,1); }
+    .hljs-string { color: rgb(39,174,96); }
+    .hljs-number { color: rgba(54,177,191,1); }
+    .hljs-built_in { color: rgba(242,56,92,1); }
+    .hljs-variable { color: rgb(241,196,15); }
+
+    .map {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    .post-map {
+        display:flex;
+        flex-direction:row;
+        height:500px;
+    }
+    .map-title {
+        height:45px;
+        text-align:center;
+        font-size: 1.4rem;
+        vertical-align:middle;
+        margin-top:$break-small;
+        margin-bottom:$break-large;
+    }
+
+
+    .flex { display:flex; }
+    .flex-column{ flex-direction:column; }
+    .flex-max { flex:1; }
+    .flex-between { justify-content:space-between; }
+    .flex-center {
+        justify-content:center;
+        align-items:center;
+    }
+    .flex-center--content { justify-content:center; }
+    .flex-center--items { align-items:center; }
+    .flex-end {
+        align-self:flex-end;
+    }
+
+
+    .marker { border-radius:999px; }
+
+
+
+}

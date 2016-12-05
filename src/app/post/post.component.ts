@@ -11,7 +11,7 @@ import { Post, Posts } from '../posts';
 export class PostComponent implements OnInit {
 
   private post:Post;
-  private article;
+  private markdown;
   constructor(
     private mds: MarkdownService,
     private route: ActivatedRoute
@@ -25,7 +25,7 @@ export class PostComponent implements OnInit {
          if (post.key === params['post']) {
             this.post = post;
             this.mds.getContent(post.url).subscribe(res =>
-              this.article = res
+              this.markdown = res
             )
             return true;
          }

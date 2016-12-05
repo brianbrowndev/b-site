@@ -9,8 +9,11 @@ import { PostComponent } from './post/post.component';
 import { Pages } from './pages';
 import { Posts } from './posts';
 
+import { BikeCommuteComponent } from './post/bike-commute/bike-commute.component';
+
 const post: string = 'assets/post/'; 
 const appRoutes: Routes = [
+  { path: 'post/bike-commute', component: BikeCommuteComponent },
   { path: 'post/:post', component: PostComponent },
   { path: 'posts/filter/:category', component: HomeComponent },
   { path: 'posts', component: HomeComponent },  

@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+:host {
+  width:100%;
+  text-align:center;
+  margin-top: $break-large;
+  margin-bottom: $break-medium;
+}
+.tldr {
+    border-top: $border-default;
+    border-bottom: $border-default;
+    padding-top:$break-large;
+    padding-bottom:$break-large;
+}
+.tldr-text {
+    opacity:.8;
+}
+ 

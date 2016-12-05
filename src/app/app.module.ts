@@ -16,6 +16,9 @@ import { PostsComponent } from './posts/posts.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MomentPipePipe } from './moment-pipe.pipe';
+import { BikeCommuteComponent } from './post/bike-commute/bike-commute.component';
+import { PostHeaderComponent } from './post-header/post-header.component';
+import { PostFooterComponent } from './post-footer/post-footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MomentPipePipe } from './moment-pipe.pipe';
     PostsComponent,
     PostCardComponent,
     SidebarComponent,
-    MomentPipePipe
+    MomentPipePipe,
+    BikeCommuteComponent,
+    PostHeaderComponent,
+    PostFooterComponent
   ],
   imports: [
     CommonModule,
