@@ -1,5 +1,6 @@
 <div class="layout-wrapper">
     <post-header [post]="post"></post-header>
-    <article id="{{post.key}}" class="post-content" [innerHTML]="markdown"></article>
+    <div #map class="post-map full-width"></div> 
+    <article #article id="{{post.key}}" class="post-content"></article>
     <post-footer [post]="post"></post-footer>
 </div>

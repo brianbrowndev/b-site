@@ -16,9 +16,21 @@ export class PostsComponent implements OnInit {
 
   setPosts() {
     this.posts = Object.keys(Posts).map(k => Posts[k])
+    this.sortPosts();
 
   }
 
+  sortPosts() {
+    this.posts = this.posts.sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date > b.date) {
+        return -1;
+      }
+      return 0;
+    })
+  }
   filterPosts(category:string) {
     if (!category) {
       this.setPosts();
@@ -30,5 +42,7 @@ export class PostsComponent implements OnInit {
         this.posts.push(Posts[k]);
       }
     })
+    this.sortPosts();
   }
+
 }

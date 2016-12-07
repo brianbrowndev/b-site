@@ -18,7 +18,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles/styles.scss"
+        "styles/styles.scss",
+        "styles/leaflet/leaflet.css"
       ],
       "scripts": [
       ],

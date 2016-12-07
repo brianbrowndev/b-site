@@ -4,14 +4,13 @@ import { MapService } from '../map.service';
 import { MarkdownService } from '../markdown.service';
 import { Post, Posts } from '../posts';
 
-@Component({
-  selector: 'post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
-})
-export class PostComponent implements OnInit {
 
-  @ViewChild('article') article;
+@Component({
+  selector: 'map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss']
+})
+export class MapComponent implements OnInit {
   @ViewChild('map') map;
   private post:Post;
   constructor(
@@ -25,7 +24,7 @@ export class PostComponent implements OnInit {
     this.route.params.subscribe(params =>  
        Object.keys(Posts).some(k => {
          let post = Posts[k];
-         if (post.key === params['post']) {
+         if (post.key === params['map']) {
             this.post = post;
             if (this.post.map) {
               this.mds.getContent(post.map).subscribe(res => {
@@ -33,9 +32,6 @@ export class PostComponent implements OnInit {
                this.ms.draw(this.post.key);
               })
             }
-            this.mds.getContent(post.url).subscribe(res =>
-              this.article.nativeElement.innerHTML = res
-            )
             return true;
          }
          return false;
@@ -44,5 +40,6 @@ export class PostComponent implements OnInit {
     )
  
   }
+
 
 }

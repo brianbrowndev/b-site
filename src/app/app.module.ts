@@ -10,15 +10,17 @@ import { MastheadComponent } from './masthead/masthead.component';
 import { PostComponent } from './post/post.component';
 import { PageComponent } from './page/page.component';
 
-
 import { MarkdownService } from './markdown.service';
 import { PostsComponent } from './posts/posts.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MomentPipePipe } from './moment-pipe.pipe';
-import { BikeCommuteComponent } from './post/bike-commute/bike-commute.component';
 import { PostHeaderComponent } from './post-header/post-header.component';
 import { PostFooterComponent } from './post-footer/post-footer.component';
+import { MapComponent } from './map/map.component';
+
+import { MapService } from './map.service';
+import { BikeCommute } from './maps/bike-commute';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,9 @@ import { PostFooterComponent } from './post-footer/post-footer.component';
     PostCardComponent,
     SidebarComponent,
     MomentPipePipe,
-    BikeCommuteComponent,
     PostHeaderComponent,
-    PostFooterComponent
+    PostFooterComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,8 @@ import { PostFooterComponent } from './post-footer/post-footer.component';
     AppRoutingModule
   ],
   providers: [
+    BikeCommute,
+    MapService, 
     MarkdownService
   ],
   bootstrap: [AppComponent]
