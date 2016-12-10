@@ -19,9 +19,11 @@
       "mobile": false,
       "styles": [
         "styles/styles.scss",
-        "styles/leaflet/leaflet.css"
+        "../node_modules/mapbox-gl/dist/mapbox-gl.css",
+        "../node_modules//leaflet/dist/leaflet.css"
       ],
       "scripts": [
+        "../node_modules/mapbox-gl/dist/mapbox-gl.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

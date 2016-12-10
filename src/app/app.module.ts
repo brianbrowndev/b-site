@@ -21,6 +21,7 @@ import { MapComponent } from './map/map.component';
 
 import { MapService } from './map.service';
 import { BikeCommute } from './maps/bike-commute';
+import { VectorTiles } from './maps/vector-tiles';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { BikeCommute } from './maps/bike-commute';
     AppRoutingModule
   ],
   providers: [
+    VectorTiles,
     BikeCommute,
     MapService, 
     MarkdownService

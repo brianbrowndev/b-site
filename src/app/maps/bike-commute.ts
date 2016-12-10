@@ -27,7 +27,6 @@ export class BikeCommute {
 
 
     constructor() {
-
     }
 
     drawMap() {
@@ -96,7 +95,7 @@ export class BikeCommute {
             .y1(d => {
                 return y(d["elevation"])
             })
-        d3.csv(this.mapData["graph"], (error, data) => {
+        d3.csv(this.mapData["graph"], (error, data:any) => {
             data.forEach(d => {
                 d["distance"] = parseFloat(d["distance"]).toFixed(2);
                 d["elevation"] = +d["elevation"];
@@ -105,14 +104,14 @@ export class BikeCommute {
                 return d["route"] == "work"
             })
                 .sort((a, b) => {
-                    return d3.descending([a["distance"], b["distance"])
+                    return d3.descending(a["distance"], b["distance"])
                 });
             let homeCommute = data.filter(d => {
                 return d["route"] == "home"
             })
-                .sort((a, b) => {
-                    return d3.ascending([a["distance"], b["distance"])
-                });
+                .sort((a, b) => 
+                    d3.ascending(a["distance"], b["distance"])
+                );
             data = [...homeCommute, ...workCommute];
             let g = svg.append("g");
             x.domain(d3.extent(data, d => {
@@ -147,9 +146,10 @@ export class BikeCommute {
                 .call(d3.axisBottom(x).ticks(5));
 
             svg.selectAll(".tick")
-                .each(function (d, i) {
+                .each((d, i, g ) => {
                     if (d == 0) {
-                        this.remove();
+                        let elem: any = g[i];
+                        elem.remove();
                     }
                 });
 

@@ -49,7 +49,8 @@ export const Posts = {
         category: 'maps',
         date: '2016-01-14',
         cover: `${url}/vector-tiles/cover.jpg`,
-        url: `${url}/vector-tiles/post.md`}),
+        url: `${url}/vector-tiles/post.md`,
+        map: `${url}/vector-tiles/map.md`}),
    Commute: new Post({
         key: 'bike-commute',
         title: 'Mapping a Bike Commute',
