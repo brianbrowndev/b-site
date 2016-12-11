@@ -1,0 +1,18 @@
+:host {
+    display:flex;
+    flex:1
+}
+
+#map {
+  overflow:visible;
+  margin-bottom:1rem;
+}
+:host /deep/ {
+
+.boundary {
+  stroke: #303e4d;
+  stroke-width:2px;
+  fill-opacity:0;
+}
+
+}

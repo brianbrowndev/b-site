@@ -1,54 +1,42 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MarkdownService } from '../../markdown.service';
-import { Post, Posts } from '../../posts';
+import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from 'jquery';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 
+
 @Component({
-  selector: 'post-bike-commute',
+  selector: 'app-bike-commute',
   templateUrl: './bike-commute.component.html',
   styleUrls: ['./bike-commute.component.scss']
 })
 export class BikeCommuteComponent implements OnInit {
 
-  @ViewChild('article') article;
-  private post: Post;
-
-  //  map components
-  private graph;
-  private map;
-  private mapColors: {} = {
-    work: "#2980b9",
-    home: "#e74c3c",
-    poi: "#8e44ad",
-    overlap: "#8e44ad"
-  };
-  private mapData: {} = {
-    commute: "/assets/post/commute/commute.topo.json",
-    poi: "/assets/post/commute/poi.geo.json",
-    graph: "/assets/post/commute/graph.csv"
-  };
-  private mapContainer: string = "map";
-  private graphContainer: string = ".graph-container";
-  private eventDefault = { opacity: ".5" };
-  private selectDefault = { opacity: ".9" };
+    //  map components
+    private graph;
+    private map;
+    private mapColors: {} = {
+        work: "#2980b9",
+        home: "#e74c3c",
+        poi: "#8e44ad",
+        overlap: "#8e44ad"
+    };
+    private mapData: {} = {
+        commute: "/assets/post/commute/commute.topo.json",
+        poi: "/assets/post/commute/poi.geo.json",
+        graph: "/assets/post/commute/graph.csv"
+    };
+    private mapContainer: string = "map";
+    private graphContainer: string = ".graph-container";
+    private eventDefault = { opacity: ".5" };
+    private selectDefault = { opacity: ".9" };
 
 
-  constructor(
-
-    private mds: MarkdownService,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.post = Posts['Commute'];
-    this.mds.getContent(this.post.url).subscribe(res => {
-      this.article.nativeElement.innerHTML = res;
-      this.drawMap();
-      this.drawGraphic();
-    }
-    )
+    this.drawMap();
+    this.drawGraphic();
   }
 
   drawMap() {
@@ -83,20 +71,20 @@ export class BikeCommuteComponent implements OnInit {
       let key = f.feature.properties.dest.toLowerCase();
       f.setStyle(defaultStyle)
         .setStyle({ color: this.mapColors[key] });
-      // $(f._container).attr('id', key);
-      // $(f._container).css("opacity", ".5");
-      // f.on("mouseover", () => {
-      //   (f => { MapMouseOver(f) })(f);
-      // });
-      // f.on("mouseout", () => {
-      //   (f => { MapMouseOut(f) })(f);
-      // });
+      $(f._container).attr('id', key);
+      $(f._container).css("opacity", ".5");
+      f.on("mouseover", () => {
+        (f => { this.mapMouseOver(f) })(f);
+      });
+      f.on("mouseout", () => {
+        (f => { this.mapMouseOut(f) })(f);
+      });
     })
   }
   drawGraphic() {
     this.graph = $(this.graphContainer);
     this.drawGraph();
-    window.onresize = this.drawGraph;
+    window.onresize = this.drawGraph.bind(this);
   }
   drawGraph() {
     let width = this.graph.width();
@@ -117,7 +105,7 @@ export class BikeCommuteComponent implements OnInit {
       .y1(d => {
         return y(d["elevation"])
       })
-    d3.csv(this.mapData["graph"], (error, data) => {
+    d3.csv(this.mapData["graph"], (error, data: any) => {
       data.forEach(d => {
         d["distance"] = parseFloat(d["distance"]).toFixed(2);
         d["elevation"] = +d["elevation"];
@@ -126,15 +114,15 @@ export class BikeCommuteComponent implements OnInit {
         return d["route"] == "work"
       })
         .sort((a, b) => {
-          return d3.descending([a["distance"], b["distance"])
+          return d3.descending(a["distance"], b["distance"])
         });
       let homeCommute = data.filter(d => {
         return d["route"] == "home"
       })
-        .sort((a, b) => {
-          return d3.ascending([a["distance"], b["distance"])
-        });
-      data = homeCommute.concat(workCommute);
+        .sort((a, b) =>
+          d3.ascending(a["distance"], b["distance"])
+        );
+      data = [...homeCommute, ...workCommute];
       let g = svg.append("g");
       x.domain(d3.extent(data, d => {
         return d["distance"]
@@ -153,13 +141,14 @@ export class BikeCommuteComponent implements OnInit {
           .attr("d", area(d.values))
           .attr("fill", this.mapColors[d.key])
           .attr("id", d.key)
-        // .on("mouseover", GraphMouseOver)
-        // .on("mouseout", GraphMouseOut);
+          .on("mouseover", this.graphMouseOver.bind(this, g))
+          .on("mouseout", this.graphMouseOut.bind(this, g));
 
       }
       svg.append("g")
         .attr("class", "y axis")
-        .call(d3.axisRight(y).ticks(5, 0));
+        .call(d3.axisRight(y).ticks(5, 0)
+          .tickFormat(d3.format(",.0f")));
 
       svg.append("g")
         .attr("class", "x axis")
@@ -167,9 +156,10 @@ export class BikeCommuteComponent implements OnInit {
         .call(d3.axisBottom(x).ticks(5));
 
       svg.selectAll(".tick")
-        .each(function (d, i) {
+        .each((d, i, g) => {
           if (d == 0) {
-            this.remove();
+            let elem: any = g[i];
+            elem.remove();
           }
         });
 
@@ -188,17 +178,17 @@ export class BikeCommuteComponent implements OnInit {
     });
   }
 
-  MapMouseOver(f) {
+  mapMouseOver(f) {
     var key = f.feature.properties.dest.toLowerCase();
     for (var prop of Object.keys(this.selectDefault)) {
       $(f._container).css(prop, this.selectDefault[prop]);
       $(`.area#${key}`).css(prop, this.selectDefault[prop]);
       $(`.legend-item#${key}`).css(prop, this.selectDefault[prop]);
     }
-    d3.select(`.area#${key}`).moveToFront();
+    // d3.select(`.area#${key}`).moveToFront();
     f.bringToFront();
   }
-  MapMouseOut(f) {
+  mapMouseOut(f) {
     var key = f.feature.properties.dest.toLowerCase();
     for (var prop of Object.keys(this.eventDefault)) {
       $(f._container).css(prop, this.eventDefault[prop]);
@@ -207,17 +197,17 @@ export class BikeCommuteComponent implements OnInit {
     }
   }
 
-  GraphMouseOver() {
-    var s = `#${this.id}`;
-    for (var prop of Object.keys(this.selectDefault)) {
-      $(this).css(prop, this.selectDefault[prop]);
+  graphMouseOver(g) {
+    let s = `#${g.id}`;
+    for (let prop of Object.keys(this.selectDefault)) {
+      $(g).css(prop, this.selectDefault[prop]);
       $(`g${s}`).css(prop, this.selectDefault[prop]);
       $(`.legend-item${s}`).css(prop, this.selectDefault[prop]);
     }
-    d3.select(this).moveToFront();
+    // d3.select(g).moveToFront();
   }
-  GraphMouseOut() {
-    var s = `#${this.id}`;
+  graphMouseOut() {
+    var s = `#${this["id"]}`;
     for (var prop of Object.keys(this.selectDefault)) {
       $(this).css(prop, this.eventDefault[prop]);
       $(`g${s}`).css(prop, this.eventDefault[prop]);
@@ -225,5 +215,6 @@ export class BikeCommuteComponent implements OnInit {
     }
   }
 
-}
 
+
+}

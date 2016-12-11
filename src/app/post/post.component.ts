@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MapService } from '../map.service';
 import { MarkdownService } from '../markdown.service';
 import { Post, Posts } from '../posts';
 
@@ -15,7 +14,6 @@ export class PostComponent implements OnInit {
   private post:Post;
   private map;
   constructor(
-    private ms: MapService,
     private mds: MarkdownService,
     private route: ActivatedRoute
   ) { }

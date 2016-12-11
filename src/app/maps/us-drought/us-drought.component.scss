@@ -1,0 +1,76 @@
+:host {
+    display:flex;
+    flex:1;
+    justify-content:center;
+    align-items:center;
+}
+
+.map-cover {
+    background: #FFFFFF;
+}
+
+#map {
+    display:flex;
+    flex:1;
+    justify-content:center;
+    align-items:center;
+}
+.legend {
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  margin: 0 auto;
+  justify-content:center;
+}
+.legend-wrapper{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  align-content:center;
+  justify-content:space-around;
+  div {
+      margin: 0 1em 0 2em;
+  }
+   
+  .legend-patch {
+      height:1.5em;
+      width: 1.5em;
+  }
+  .extreme {
+      background-color:#7F003F;
+  }
+  .severe {
+      background-color: #FE0000;
+  }
+  .moderate {
+      background-color: #FEAF44;
+  }
+}
+
+.buttons {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  align-content:center;
+  justify-content:space-around;
+  flex:1;
+  i {
+      font-size:5rem;
+      cursor:pointer;
+      &:hover {
+          color:rgb(241, 196, 15);
+      }
+      &:focus {
+          color:rgb(241, 196, 15);
+      }
+  }
+}
+
+.boundary {
+    stroke-width: .5px;
+    stroke-linejoin:round;
+    stroke-linecap: round;
+}
+.divisions {
+    stroke:none;
+}
