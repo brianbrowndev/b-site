@@ -22,6 +22,8 @@ export class UsDroughtComponent implements OnInit {
   private projection;
 
   private droughtYear: string = "2015";
+  private drought;
+  private features;
   constructor() { }
 
   ngOnInit() {
@@ -45,40 +47,43 @@ export class UsDroughtComponent implements OnInit {
   }
 
   run(e, divisions, drought) {
-    let droughtYear = this.droughtByYear(drought, this.droughtYear);
-    let features = topojson.feature(divisions, divisions.objects.divisions).features;
+    this.drought = drought;
+    let droughtData = this.droughtByYear(drought, this.droughtYear);
+    this.features = topojson.feature(divisions, divisions.objects.divisions).features;
     this.svg.append("g")
       .attr("class", "divisions")
       .selectAll("path")
-      .data(features)
+      .data(this.features)
       .enter().append("path")
-      .style("fill", d =>  this.styles(droughtYear.get(d.id)))
+      .style("fill", d => this.styles(droughtData.get(d.id)))
       .style("stroke", d => {
-        return this.styles(droughtYear.get(d.id))
+        return this.styles(droughtData.get(d.id))
       }).attr("d", this.path);
-
-    // $("#right, #left").click(event => {
-    //   let direction = $(event.currentTarget).data().direction;
-    //   let year = ($("#map-year").data().year);
-    //   if ((direction === "right" && year === 2015) ||
-    //     (direction === "left" && year === 1895)) {
-    //     return
-    //   }
-    //   direction === "left" ? year -= 1 : year += 1;
-    //   $("#map-year").data("year", year);
-    //   $("#map-year").text("" + year);
-    //   let yearStr = year.toString();
-    //   droughtYear = droughtByYear(drought, yearStr);
-    //   svg.selectAll("path")
-    //     .data(features)
-    //     .style("fill", d => {
-    //       return color(droughtYear.get(d.id))
-    //     })
-    //     .style("stroke", d => {
-    //       return color(droughtYear.get(d.id))
-    //     })
-    // });
   }
+  rightClick(event) {
+    if (this.droughtYear === '2015') { return;}
+    this.droughtYear = (+this.droughtYear + 1).toString()
+    this.updateDrought();
+  }
+
+  leftClick(event) {
+    console.log('click')
+    if (this.droughtYear === '1895') { return;}
+    this.droughtYear = (+this.droughtYear - 1).toString()
+    this.updateDrought();
+  }
+  updateDrought() {
+    let droughtData = this.droughtByYear(this.drought, this.droughtYear);
+    this.svg.selectAll("path")
+      .data(this.features)
+      .style("fill", d => {
+        return this.styles(droughtData.get(d.id))
+      })
+      .style("stroke", d => {
+        return this.styles(droughtData.get(d.id))
+      })
+  } 
+
   droughtByYear(drought, year) {
     let droughtByDiv = d3.map();
     drought.forEach(d => {
