@@ -14,5 +14,7 @@ export class VectorTiles {
             zoom: 13,
             style: '/assets/post/vector-tiles/osm_tiles.json'
         });
+        let nav = new mapboxgl.NavigationControl();
+        map.addControl(nav, 'top-left');
     }
 }

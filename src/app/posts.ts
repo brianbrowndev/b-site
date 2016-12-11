@@ -1,3 +1,5 @@
+import { Component } from '@angular/core';
+import { VectorTilesComponent } from './maps/vector-tiles/vector-tiles.component';
 export class Post {
     key: string;
     title: string;
@@ -7,7 +9,7 @@ export class Post {
     tags: string[];
     cover : string;
     url: string;
-    map: string;
+    map: Component;
     constructor(options: {
         key?: string,
         title?: string,
@@ -17,7 +19,7 @@ export class Post {
         tags?: string[],
         cover?: string,
         url?: string,
-        map?: string
+        map?: Component 
     } = {}) {
         this.key = options.key || '';
         this.title = options.title || '';
@@ -27,7 +29,7 @@ export class Post {
         this.tags = options.tags || [];
         this.cover = options.cover || '';
         this.url = options.url || '';
-        this.map = options.map || '';
+        this.map = options.map || Component; 
     }
 }
 
@@ -50,7 +52,7 @@ export const Posts = {
         date: '2016-01-14',
         cover: `${url}/vector-tiles/cover.jpg`,
         url: `${url}/vector-tiles/post.md`,
-        map: `${url}/vector-tiles/map.md`}),
+        map: VectorTilesComponent}),
    Commute: new Post({
         key: 'bike-commute',
         title: 'Mapping a Bike Commute',

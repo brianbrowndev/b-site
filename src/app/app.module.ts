@@ -14,14 +14,16 @@ import { MarkdownService } from './markdown.service';
 import { PostsComponent } from './posts/posts.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { MomentPipePipe } from './moment-pipe.pipe';
+import { MomentPipe } from './moment.pipe';
 import { PostHeaderComponent } from './post-header/post-header.component';
 import { PostFooterComponent } from './post-footer/post-footer.component';
 import { MapComponent } from './map/map.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 import { MapService } from './map.service';
 import { BikeCommute } from './maps/bike-commute';
-import { VectorTiles } from './maps/vector-tiles';
+import { DclWrapperComponent } from './dcl-wrapper/dcl-wrapper.component';
+import { VectorTilesComponent } from './maps/vector-tiles/vector-tiles.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,13 @@ import { VectorTiles } from './maps/vector-tiles';
     PostsComponent,
     PostCardComponent,
     SidebarComponent,
-    MomentPipePipe,
+    MomentPipe,
     PostHeaderComponent,
     PostFooterComponent,
-    MapComponent
+    MapComponent,
+    NotfoundComponent,
+    DclWrapperComponent,
+    VectorTilesComponent,
   ],
   imports: [
     CommonModule,
@@ -45,10 +50,12 @@ import { VectorTiles } from './maps/vector-tiles';
     AppRoutingModule
   ],
   providers: [
-    VectorTiles,
     BikeCommute,
     MapService, 
     MarkdownService
+  ],
+  entryComponents: [
+    VectorTilesComponent,
   ],
   bootstrap: [AppComponent]
 })

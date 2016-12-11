@@ -1,0 +1,15 @@
+# BUILD DIST
+
+
+# NGINX
+server {
+    listen 0.0.0.0:80;
+
+    server_name bgeo.io;
+
+    location / {
+        root   /var/www/bgeo;
+        index  index.html index.htm;
+        try_files $uri$args $uri$args/ $uri $uri/ /index.html =404;
+        }
+}

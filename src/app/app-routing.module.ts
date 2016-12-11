@@ -6,6 +6,7 @@ import { PageComponent } from './page/page.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
 import { MapComponent } from './map/map.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { Pages } from './pages';
 
 
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'posts', component: HomeComponent },  
   { path: 'about', component: PageComponent, data: Pages.About },
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
+  { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

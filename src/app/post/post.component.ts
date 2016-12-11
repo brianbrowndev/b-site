@@ -12,8 +12,8 @@ import { Post, Posts } from '../posts';
 export class PostComponent implements OnInit {
 
   @ViewChild('article') article;
-  @ViewChild('map') map;
   private post:Post;
+  private map;
   constructor(
     private ms: MapService,
     private mds: MarkdownService,
@@ -28,10 +28,7 @@ export class PostComponent implements OnInit {
          if (post.key === params['post']) {
             this.post = post;
             if (this.post.map) {
-              this.mds.getContent(post.map).subscribe(res => {
-               this.map.nativeElement.innerHTML = res;
-               this.ms.draw(this.post.key);
-              })
+              this.map = this.post.map
             }
             this.mds.getContent(post.url).subscribe(res =>
               this.article.nativeElement.innerHTML = res
