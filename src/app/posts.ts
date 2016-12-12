@@ -31,7 +31,7 @@ export class Post {
         this.tags = options.tags || [];
         this.cover = options.cover || '';
         this.url = options.url || '';
-        this.map = options.map || Component;
+        this.map = options.map || null;
     }
 }
 
@@ -41,7 +41,7 @@ export const Posts = {
     UsDrought: new Post({
         key: 'us-drought',
         title: 'US Drought',
-        tldr: '',
+        tldr: 'Mapped droughts across the US since 1895, adding a very useful slider is in the backlog grave',
         category: 'maps',
         date: '2016-12-11',
         cover: '',
