@@ -5,10 +5,17 @@
   flex-direction:column;
   align-items:center;
   flex:1;
+  background: #FAFAFA;
 }
 .posts-layout {
   margin-top: $break-medium;
   margin-bottom: $break-medium;
   display:flex;
+  flex:1;
+}
+
+.posts {
+  display:flex;
+  flex-direction:column;
   flex:1;
 }

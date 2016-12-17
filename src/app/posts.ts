@@ -21,7 +21,7 @@ export class Post {
         tags?: string[],
         cover?: string,
         url?: string,
-        map?: Component
+        map?: Component,
     } = {}) {
         this.key = options.key || '';
         this.title = options.title || '';
@@ -35,18 +35,41 @@ export class Post {
     }
 }
 
+
+const Tags: {
+    Mapbox: string,
+    Leaflet: string,
+    D3: string,
+    TopoJSON: string,
+    ArcPy: string,
+    ArcGIS: string,
+    VectorTiles: string,
+    Express: string
+} = {
+    Mapbox: "Mapbox",
+    Leaflet: "Leaflet",
+    D3: "D3",
+    TopoJSON: "TopoJSON",
+    ArcPy: "ArcPy",
+    ArcGIS: "ArcGIS",
+    VectorTiles: "Vector Tiles",
+    Express: "Express.js"
+
+}
+
 const url: string = 'assets/post';
 
 export const Posts = {
     UsDrought: new Post({
         key: 'us-drought',
-        title: 'US Drought',
+        title: 'History of Drought in the US',
         tldr: 'Mapped droughts across the US since 1895, adding a very useful slider is in the backlog grave',
         category: 'maps',
         date: '2016-12-11',
-        cover: '',
+        cover: `${url}/us-drought/cover.png`,
         url: `${url}/us-drought/post.md`,
-        map: UsDroughtComponent
+        map: UsDroughtComponent,
+        tags: [Tags.D3, Tags.TopoJSON]
     }),
     DynamicTables: new Post({
         key: 'dynamic-tables',
@@ -55,7 +78,8 @@ export const Posts = {
         category: 'esri',
         date: '2015-12-24',
         cover: `${url}/dynamic-tables/cover.jpg`,
-        url: `${url}/dynamic-tables/post.md`
+        url: `${url}/dynamic-tables/post.md`,
+        tags: [Tags.ArcGIS, Tags.ArcPy]
     }),
     VectorTiles: new Post({
         key: 'vector-tiles',
@@ -65,7 +89,8 @@ export const Posts = {
         date: '2016-01-14',
         cover: `${url}/vector-tiles/cover.jpg`,
         url: `${url}/vector-tiles/post.md`,
-        map: VectorTilesComponent
+        map: VectorTilesComponent,
+        tags: [Tags.Mapbox, Tags.Express, Tags.VectorTiles]
     }),
     Commute: new Post({
         key: 'bike-commute',
@@ -75,6 +100,8 @@ export const Posts = {
         date: '2015-12-26',
         cover: `${url}/commute/cover.jpg`,
         url: `${url}/commute/post.md`,
-        map: BikeCommuteComponent
+        map: BikeCommuteComponent,
+        tags: [Tags.Leaflet, Tags.D3]
+
     })
 }

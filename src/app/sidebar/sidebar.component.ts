@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener, Inject, ViewChild } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 
 import { Post, Posts } from '../posts';
@@ -8,23 +9,18 @@ import { Post, Posts } from '../posts';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
-  @ViewChild('sidebar') sidebar;
-  private categories: string[] = [];
+  private tags: string[];
+  private categories: string[];
   private winHeight: number;
   constructor(@Inject(DOCUMENT) private document:Document) { }
 
-  ngOnInit() {
-    Object.keys(Posts).map(k => {
-      let category = Posts[k].category;
-      if (this.categories.indexOf(category) === -1) {
-        this.categories.push(category);
-      }
-      this.setHeight();
-    });
+  set(categories: string[], tags?: string[]) {
+    this.categories = categories;
+    this.tags = tags.sort();
   }
-
+  
   setHeight() {
     this.winHeight = this.document.documentElement.scrollTop || this.document.body.scrollTop;
   }

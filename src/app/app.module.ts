@@ -13,7 +13,6 @@ import { MarkdownService } from './markdown.service';
 import { PageComponent } from './page/page.component';
 import { PostComponent } from './post/post.component';
 // front page posts
-import { PostsComponent } from './posts/posts.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MomentPipe } from './moment.pipe';
@@ -28,6 +27,7 @@ import { VectorTilesComponent } from './maps/vector-tiles/vector-tiles.component
 import { BikeCommuteComponent } from './maps/bike-commute/bike-commute.component';
 import { StatesComponent } from './maps/states/states.component';
 import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,6 @@ import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
     MastheadComponent,
     PostComponent,
     PageComponent,
-    PostsComponent,
     PostCardComponent,
     SidebarComponent,
     MomentPipe,
@@ -48,7 +47,8 @@ import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
     VectorTilesComponent,
     BikeCommuteComponent,
     StatesComponent,
-    UsDroughtComponent
+    UsDroughtComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
