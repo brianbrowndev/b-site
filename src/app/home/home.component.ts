@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { Post, Posts } from '../posts';
+import { Post } from '../models/post';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'home',
@@ -16,7 +17,10 @@ export class HomeComponent implements OnInit {
   private posts: Post[];
   private tags: string[];
   private categories: string[];
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private ps: PostsService
+    ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -57,8 +61,8 @@ export class HomeComponent implements OnInit {
     this.tags = [];
     this.categories = [];
 
-    Object.keys(Posts).map(k => {
-      let post: Post = Posts[k];
+    Object.keys(this.ps.posts).map(k => {
+      let post: Post = this.ps.posts[k];
       // track all categories in sidebar
       if (this.categories.indexOf(post.category) == -1) {
         this.categories.push(post.category);

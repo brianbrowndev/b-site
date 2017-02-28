@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { config } from '../../../config/config';
+// import { config } from '../../../config/config';
 declare var mapboxgl: any;
 @Component({
   selector: 'app-vector-tiles',
@@ -59,7 +59,7 @@ export class VectorTilesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    mapboxgl.accessToken = config.mapboxAccessToken;
+    // mapboxgl.accessToken = config.mapboxAccessToken;
     let ll = new mapboxgl.LngLat(8.5500000, 47.3666700);
 
     let map = new mapboxgl.Map({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from '../markdown.service';
-
-import { Page } from '../pages';
+import { PagesService } from '../pages.service';
+import { Page } from '../models/page';
 
 @Component({
   selector: 'page',
@@ -15,14 +15,17 @@ export class PageComponent implements OnInit {
 
   constructor(
     private mds: MarkdownService,
+    private ps: PagesService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe((page: Page) => 
+    this.route.data.subscribe((d) => { 
+        let page: Page = this.ps.getPage(d['pageName']);
         this.mds.getContent(page.url).subscribe(res =>
           this.data = res
         )
-    )
+    }
+    );
   }
 }

@@ -124,12 +124,12 @@ export class BikeCommuteComponent implements OnInit {
         );
       data = [...homeCommute, ...workCommute];
       let g = svg.append("g");
-      x.domain(d3.extent(data, d => {
-        return d["distance"]
-      }));
-      y.domain([0, d3.max(data, d => {
-        return d["elevation"]
-      })]);
+      // x.domain(d3.extent(data, d => {
+      //   return d["distance"]
+      // }));
+      // y.domain([0, d3.max(data, d => {
+      //   return d["elevation"]
+      // })]);
       let dataNest = d3.nest()
         .key(d => {
           return d["route"];

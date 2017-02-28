@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from '../markdown.service';
-import { Post, Posts } from '../posts';
+import { Post } from '../models/post';
+import { PostsService } from '../posts.service';
+
 
 @Component({
   selector: 'post',
@@ -15,14 +17,15 @@ export class PostComponent implements OnInit {
   private map;
   constructor(
     private mds: MarkdownService,
+    private ps: PostsService,
     private route: ActivatedRoute
   ) { }
 
 
   ngOnInit() {
     this.route.params.subscribe(params =>  
-       Object.keys(Posts).some(k => {
-         let post = Posts[k];
+       Object.keys(this.ps.posts).some(k => {
+         let post = this.ps.posts[k];
          if (post.key === params['post']) {
             this.post = post;
             if (this.post.map) {

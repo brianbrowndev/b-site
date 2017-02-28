@@ -2,8 +2,6 @@ import { Component, HostListener, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 
-import { Post, Posts } from '../posts';
-
 @Component({
   selector: 'sidebar',
   templateUrl: './sidebar.component.html',
@@ -14,7 +12,7 @@ export class SidebarComponent {
   private tags: string[];
   private categories: string[];
   private winHeight: number;
-  constructor(@Inject(DOCUMENT) private document:Document) { }
+  constructor(@Inject(DOCUMENT) private document:any) { }
 
   set(categories: string[], tags?: string[]) {
     this.categories = categories;

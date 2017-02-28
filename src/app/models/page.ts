@@ -9,9 +9,3 @@ export class Page {
         this.url = options.url || '';
     }
 }
-
-const url: string = 'assets/page/';
-
-export const Pages = {
-    About: new Page({url: `${url}/about/about.md`})
-}

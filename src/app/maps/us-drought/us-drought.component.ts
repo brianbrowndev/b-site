@@ -36,9 +36,9 @@ export class UsDroughtComponent implements OnInit {
 
     this.path = d3.geoPath(this.projection);
 
-    this.styles = d3.scaleQuantize()
-      .domain([-4.00, -3.00, -2.00, 0])
-      .range(["#7F003F", "#FE0000", "#FEAF44", "#bdc3c7"]);
+    // this.styles = d3.scaleQuantize()
+    //   .domain([-4.00, -3.00, -2.00, 0])
+    //   .range(["#7F003F", "#FE0000", "#FEAF44", "#bdc3c7"]);
 
     d3.queue()
       .defer(d3.json, this.data.divisions)
@@ -67,7 +67,6 @@ export class UsDroughtComponent implements OnInit {
   }
 
   leftClick(event) {
-    console.log('click')
     if (this.droughtYear === '1895') { return;}
     this.droughtYear = (+this.droughtYear - 1).toString()
     this.updateDrought();
@@ -86,11 +85,11 @@ export class UsDroughtComponent implements OnInit {
 
   droughtByYear(drought, year) {
     let droughtByDiv = d3.map();
-    drought.forEach(d => {
-      if (d.year === year) {
-        droughtByDiv.set(+d.key, +d.pdsi)
-      }
-    });
+    // drought.forEach(d => {
+    //   if (d.year === year) {
+    //     droughtByDiv.set(+d.key, +d.pdsi)
+    //   }
+    // });
     return droughtByDiv;
 
   }

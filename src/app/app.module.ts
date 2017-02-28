@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MastheadComponent } from './masthead/masthead.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { PagesService } from './pages.service';
+import { PostsService } from './posts.service';
 // markdown loaders
 import { MarkdownService } from './markdown.service';
 import { PageComponent } from './page/page.component';
@@ -58,6 +60,8 @@ import { LoadingComponent } from './loading/loading.component';
   ],
   providers: [
     MarkdownService,
+    PagesService,
+    PostsService,
     MapUtilities
   ],
   entryComponents: [

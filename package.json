@@ -33,8 +33,8 @@
     "zone.js": "^0.6.23"
   },
   "devDependencies": {
+    "@angular/cli": "^1.0.0-rc.0",
     "@angular/compiler-cli": "^2.1.0",
-    "angular-cli": "1.0.0-beta.20-4",
     "codelyzer": "~1.0.0-beta.3",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
