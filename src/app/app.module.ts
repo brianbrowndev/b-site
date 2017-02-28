@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MastheadComponent } from './masthead/masthead.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { APP_SETTINGS, AppSettings } from './app.settings';
+
 import { PagesService } from './pages.service';
 import { PostsService } from './posts.service';
 // markdown loaders
@@ -62,7 +64,9 @@ import { LoadingComponent } from './loading/loading.component';
     MarkdownService,
     PagesService,
     PostsService,
-    MapUtilities
+    MapUtilities,
+    { provide: APP_SETTINGS, useValue: AppSettings }
+
   ],
   entryComponents: [
     BikeCommuteComponent,

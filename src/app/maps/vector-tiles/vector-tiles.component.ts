@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-// import { config } from '../../../config/config';
+import { Component, OnInit, Inject } from '@angular/core';
+import { APP_SETTINGS } from '../../app.settings';
 declare var mapboxgl: any;
+
 @Component({
   selector: 'app-vector-tiles',
   templateUrl: './vector-tiles.component.html',
@@ -14,7 +15,7 @@ export class VectorTilesComponent implements OnInit {
       "world": {
         "type": "vector",
         "tiles": [
-          "http://tiles.bgeo.io/zurich/{z}/{x}/{y}.vector.pbf"
+          `${this.settings.tilesEndpoint}/zurich/{z}/{x}/{y}.vector.pbf`
         ],
         "minzoom": 0,
         "maxzoom": 20
@@ -56,10 +57,13 @@ export class VectorTilesComponent implements OnInit {
     }
     ]
   }
-  constructor() { }
+  constructor(
+    @Inject(APP_SETTINGS) private settings 
+
+  ) { }
 
   ngOnInit() {
-    // mapboxgl.accessToken = config.mapboxAccessToken;
+    mapboxgl.accessToken = this.settings.mapboxAccessToken;
     let ll = new mapboxgl.LngLat(8.5500000, 47.3666700);
 
     let map = new mapboxgl.Map({
