@@ -9,17 +9,19 @@ import { MapUtilities } from '../map-utilities';
 })
 export class StatesComponent implements OnInit {
   //  map components
-  private map;
-  private data: { states: string } = {
+  map;
+  data: { states: string } = {
     states: "/assets/page/notfound/states.topo.json",
   };
-  private width: number = 500;
-  private height: number = 340;
-  private svg;
-  private path;
-  private g;
-  private projection;
-  constructor(private mu: MapUtilities) { }
+  width: number = 500;
+  height: number = 340;
+  svg;
+  path;
+  g;
+  projection;
+  constructor(
+    public mu: MapUtilities
+  ) { }
 
   ngOnInit() {
     this.svg = d3.select("#map").append("svg")

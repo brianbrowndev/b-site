@@ -1,5 +1,7 @@
-import { OpaqueToken } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 import { environment } from '../environments/environment';
+
+
 export interface IAppSettings {
     readonly production: boolean;
     readonly mapboxAccessToken: string;
@@ -12,4 +14,5 @@ export const AppSettings: IAppSettings = {
     tilesEndpoint: environment.tilesEndpoint
 }
 
-export let APP_SETTINGS = new OpaqueToken("app.settings")
+
+export let APP_SETTINGS = new InjectionToken<IAppSettings>("app.settings")

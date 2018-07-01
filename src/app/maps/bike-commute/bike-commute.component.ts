@@ -13,23 +13,23 @@ import * as topojson from 'topojson-client';
 export class BikeCommuteComponent implements OnInit {
 
     //  map components
-    private graph;
-    private map;
-    private mapColors: {} = {
+    graph;
+    map;
+    mapColors: {} = {
         work: "#2980b9",
         home: "#e74c3c",
         poi: "#8e44ad",
         overlap: "#8e44ad"
     };
-    private mapData: {} = {
+    mapData: {} = {
         commute: "/assets/post/commute/commute.topo.json",
         poi: "/assets/post/commute/poi.geo.json",
         graph: "/assets/post/commute/graph.csv"
     };
-    private mapContainer: string = "map";
-    private graphContainer: string = ".graph-container";
-    private eventDefault = { opacity: ".5" };
-    private selectDefault = { opacity: ".9" };
+    mapContainer: string = "map";
+    graphContainer: string = ".graph-container";
+    eventDefault = { opacity: ".5" };
+    selectDefault = { opacity: ".9" };
 
 
   constructor() { }

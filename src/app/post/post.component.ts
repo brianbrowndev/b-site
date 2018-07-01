@@ -13,12 +13,12 @@ import { PostsService } from '../posts.service';
 export class PostComponent implements OnInit {
 
   @ViewChild('article') article;
-  private post:Post;
-  private map;
+  post:Post;
+  map;
   constructor(
-    private mds: MarkdownService,
-    private ps: PostsService,
-    private route: ActivatedRoute
+    public mds: MarkdownService,
+    public ps: PostsService,
+    public route: ActivatedRoute
   ) { }
 
 

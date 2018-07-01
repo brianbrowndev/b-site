@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule }   from '@angular/common';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 // app components
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,7 @@ import { MomentPipe } from './moment.pipe';
 import { PostHeaderComponent } from './post-header/post-header.component';
 import { PostFooterComponent } from './post-footer/post-footer.component';
 // Maps
-import { DclWrapperComponent } from './dcl-wrapper/dcl-wrapper.component';
+import { DclWrapper } from './dcl-wrapper/dcl-wrapper.component';
 import { MapUtilities } from './maps/map-utilities';
 import { MapComponent } from './map/map.component';
 import { VectorTilesComponent } from './maps/vector-tiles/vector-tiles.component';
@@ -47,7 +48,7 @@ import { LoadingComponent } from './loading/loading.component';
     PostFooterComponent,
     MapComponent,
     NotfoundComponent,
-    DclWrapperComponent,
+    DclWrapper,
     VectorTilesComponent,
     BikeCommuteComponent,
     StatesComponent,
@@ -57,7 +58,7 @@ import { LoadingComponent } from './loading/loading.component';
   imports: [
     CommonModule,
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [

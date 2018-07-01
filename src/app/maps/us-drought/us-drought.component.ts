@@ -8,22 +8,22 @@ import * as topojson from 'topojson-client';
   styleUrls: ['./us-drought.component.scss']
 })
 export class UsDroughtComponent implements OnInit {
-  private map;
-  private data: { divisions: string, drought: string } = {
+  map;
+  data: { divisions: string, drought: string } = {
     divisions: "/assets/post/us-drought/divisions-merged.topo.json",
     drought: "/assets/post/us-drought/drought.csv"
   };
-  private styles;
-  private width: number = 960;
-  private height: number = 500;
-  private svg;
-  private path;
-  private g;
-  private projection;
+  styles;
+  width: number = 960;
+  height: number = 500;
+  svg;
+  path;
+  g;
+  projection;
 
-  private droughtYear: string = "2015";
-  private drought;
-  private features;
+  droughtYear: string = "2015";
+  drought;
+  features;
   constructor() { }
 
   ngOnInit() {
@@ -36,9 +36,9 @@ export class UsDroughtComponent implements OnInit {
 
     this.path = d3.geoPath(this.projection);
 
-    // this.styles = d3.scaleQuantize()
-    //   .domain([-4.00, -3.00, -2.00, 0])
-    //   .range(["#7F003F", "#FE0000", "#FEAF44", "#bdc3c7"]);
+    this.styles = d3.scaleQuantile<string>()
+      .domain([-4.00, -3.00, -2.00, 0])
+      .range(["#7F003F", "#FE0000", "#FEAF44", "#bdc3c7"]);
 
     d3.queue()
       .defer(d3.json, this.data.divisions)
@@ -85,11 +85,11 @@ export class UsDroughtComponent implements OnInit {
 
   droughtByYear(drought, year) {
     let droughtByDiv = d3.map();
-    // drought.forEach(d => {
-    //   if (d.year === year) {
-    //     droughtByDiv.set(+d.key, +d.pdsi)
-    //   }
-    // });
+    drought.forEach(d => {
+      if (d.year === year) {
+        droughtByDiv.set(d.key, +d.pdsi)
+      }
+    });
     return droughtByDiv;
 
   }

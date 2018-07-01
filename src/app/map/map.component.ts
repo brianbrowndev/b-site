@@ -11,10 +11,10 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  private map;
+  map;
   constructor(
-    private route: ActivatedRoute,
-    private ps: PostsService
+    public route: ActivatedRoute,
+    public ps: PostsService
   ) { }
 
 

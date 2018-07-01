@@ -11,12 +11,12 @@ import { Page } from '../models/page';
 })
 export class PageComponent implements OnInit {
 
-  private data;
+  data;
 
   constructor(
-    private mds: MarkdownService,
-    private ps: PagesService,
-    private route: ActivatedRoute
+    public mds: MarkdownService,
+    public ps: PagesService,
+    public route: ActivatedRoute
   ) { }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { Post } from '../models/post';
 })
 export class PostCardComponent implements OnInit {
   @Input() post:Post;
-  private date;
+  date;
 
   constructor() { }
 

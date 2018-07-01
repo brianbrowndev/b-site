@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
 import * as hljs from 'highlightjs';
 
 const md = require('markdown-it')({
@@ -24,20 +26,34 @@ const md = require('markdown-it')({
 @Injectable()
 export class MarkdownService {
 
-  constructor(private http: Http) { 
-
+  constructor(
+    public http: HttpClient
+  ) { 
   }
   getContent(path): Observable<any> {
-    return this.http.get(path)
-      .map(this.extractData)
-      .catch(this.handleError);
+    return this.http.get(path, {responseType: 'text'})
+      .pipe(
+          map(this.extractData),
+          catchError(this.handleError)
+      );
+
   }
 
-  private extractData(res: Response) {
-    return md.render(res.text()) || {};
+  extractData(res: Response) {
+    return md.render(res) || {};
   }
 
-  private handleError(error: Response) {
-    return Observable.throw(error.json().errors || 'Server error');
-  }
+  handleError(error: HttpErrorResponse) {
+      if (error.error instanceof ErrorEvent) {
+          // A client-side or network error occurred. Handle it accordingly.
+          return throwError('An error occurred:' + error.error.message);
+      }
+      else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          return throwError(`Backend returned code ${error.status}, ` +
+              `error: ${error.error}`);
+      }
+  };
+
 }

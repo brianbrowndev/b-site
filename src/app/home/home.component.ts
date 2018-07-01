@@ -12,14 +12,14 @@ import { PostsService } from '../posts.service';
 export class HomeComponent implements OnInit {
 
   @ViewChild(SidebarComponent)
-  private sidebarComponent: SidebarComponent;
+  sidebarComponent: SidebarComponent;
 
-  private posts: Post[];
-  private tags: string[];
-  private categories: string[];
+  posts: Post[];
+  tags: string[];
+  categories: string[];
   constructor(
-    private route: ActivatedRoute,
-    private ps: PostsService
+    public route: ActivatedRoute,
+    public ps: PostsService
     ) { }
 
   ngOnInit() {

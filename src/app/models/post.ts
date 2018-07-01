@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ComponentRef } from '@angular/core';
 export class Post {
     key: string;
     title: string;
@@ -8,7 +8,7 @@ export class Post {
     tags: string[];
     cover: string;
     url: string;
-    map: Component;
+    map: any;
     constructor(options: {
         key?: string,
         title?: string,
@@ -18,7 +18,7 @@ export class Post {
         tags?: string[],
         cover?: string,
         url?: string,
-        map?: Component,
+        map?: any,
     } = {}) {
         this.key = options.key || '';
         this.title = options.title || '';

@@ -9,10 +9,10 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 export class SidebarComponent {
 
-  private tags: string[];
-  private categories: string[];
-  private winHeight: number;
-  constructor(@Inject(DOCUMENT) private document:any) { }
+  tags: string[];
+  categories: string[];
+  winHeight: number;
+  constructor(@Inject(DOCUMENT) public document:any) { }
 
   set(categories: string[], tags?: string[]) {
     this.categories = categories;
