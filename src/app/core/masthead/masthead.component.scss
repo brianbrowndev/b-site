@@ -13,7 +13,12 @@
   padding: 0 $break-medium;
   color:$color-primary;
   background:$color-background;
-  border-bottom:$masthead-border solid $color-secondary;
+}
+.masthead-container {
+  position:fixed;
+  top:1.5rem;
+  left:1.5rem;
+  width:5rem;
 }
 .masthead-logo {
   display:flex;
@@ -21,17 +26,43 @@
   justify-content:center;
   flex:0 1;
   margin:0;
-  font-size:3.6rem;
+  font-size:2.6rem;
+  width:40px;
+  height:40px;
   letter-spacing:-1px;
+  border-radius:999px;
+  border: 3.5px solid $color-logo;
+  // transform:rotate(15deg);
+  color:$color-logo;
+  opacity:0.8;
+
+  &:hover {
+    opacity:1;
+  }
+  &:focus {
+    opacity:1;
+  }
+}
+
+.masthead-nav-container {
+  display:flex;
+  flex:1;
+  align-items:center;
+  justify-content:center;
 }
 
 nav {
   .masthead-link {
     font-size:1.3rem;
     letter-spacing:0.1em;
+    padding:0.2rem;
     text-transform:uppercase;
-    font-family:$font-light;
+    font-family:$font-header;
     margin-left:$break-large;
+
+    &:first-child {
+      margin-left:0;
+    }
 
     &:focus {
       background-image: $link-underline;    
