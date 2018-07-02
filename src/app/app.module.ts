@@ -6,33 +6,37 @@ import { HttpClientModule } from '@angular/common/http';
 // app components
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { MastheadComponent } from './masthead/masthead.component';
-import { NotfoundComponent } from './notfound/notfound.component';
+import { HomeComponent } from './core/home/home.component';
+import { MastheadComponent } from './core/masthead/masthead.component';
+import { NotfoundComponent } from './core/notfound/notfound.component';
 import { APP_SETTINGS, AppSettings } from './app.settings';
 
-import { PagesService } from './pages.service';
-import { PostsService } from './posts.service';
-// markdown loaders
-import { MarkdownService } from './markdown.service';
-import { PageComponent } from './page/page.component';
-import { PostComponent } from './post/post.component';
+// services
+import { PagesService } from './services/pages.service';
+import { PostsService } from './services/posts.service';
+import { MarkdownService } from './services/markdown.service';
+
+
 // front page posts
-import { PostCardComponent } from './post-card/post-card.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { PostCardComponent } from './posts/post-card/post-card.component';
+import { PostSidebarComponent } from './posts/post-sidebar/sidebar.component';
 import { MomentPipe } from './moment.pipe';
-// single post
-import { PostHeaderComponent } from './post-header/post-header.component';
-import { PostFooterComponent } from './post-footer/post-footer.component';
+
+// single post/page
+import { PostHeaderComponent } from './posts/post-header/post-header.component';
+import { PostFooterComponent } from './posts/post-footer/post-footer.component';
+import { PageComponent } from './page/page.component';
+import { PostComponent } from './posts/post/post.component';
+
 // Maps
-import { DclWrapper } from './dcl-wrapper/dcl-wrapper.component';
+import { DclWrapper } from './maps/dcl-wrapper/dcl-wrapper.component';
 import { MapUtilities } from './maps/map-utilities';
-import { MapComponent } from './map/map.component';
+import { MapComponent } from './maps/map/map.component';
 import { VectorTilesComponent } from './maps/vector-tiles/vector-tiles.component';
 import { BikeCommuteComponent } from './maps/bike-commute/bike-commute.component';
 import { StatesComponent } from './maps/states/states.component';
 import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
-import { LoadingComponent } from './loading/loading.component';
+import { LoadingComponent } from './core/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,7 @@ import { LoadingComponent } from './loading/loading.component';
     PostComponent,
     PageComponent,
     PostCardComponent,
-    SidebarComponent,
+    PostSidebarComponent,
     MomentPipe,
     PostHeaderComponent,
     PostFooterComponent,

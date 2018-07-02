@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MarkdownService } from '../markdown.service';
-import { PagesService } from '../pages.service';
+import { MarkdownService } from '../services/markdown.service';
+import { PagesService } from '../services/pages.service';
 import { Page } from '../models/page';
 
 @Component({

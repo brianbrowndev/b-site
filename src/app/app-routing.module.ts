@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './core/home/home.component';
 import { PageComponent } from './page/page.component';
-import { PostComponent } from './post/post.component';
-import { MapComponent } from './map/map.component';
-import { NotfoundComponent } from './notfound/notfound.component';
+import { PostComponent } from './posts/post/post.component';
+import { MapComponent } from './maps/map/map.component';
+import { NotfoundComponent } from './core/notfound/notfound.component';
 
 
 const appRoutes: Routes = [

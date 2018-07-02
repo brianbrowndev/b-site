@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Post } from './models/post';
-import { BikeCommuteComponent } from './maps/bike-commute/bike-commute.component';
-import { VectorTilesComponent } from './maps/vector-tiles/vector-tiles.component';
-import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
+import { Post } from '../models/post';
+import { BikeCommuteComponent } from '../maps/bike-commute/bike-commute.component';
+import { VectorTilesComponent } from '../maps/vector-tiles/vector-tiles.component';
+import { UsDroughtComponent } from '../maps/us-drought/us-drought.component';
 
 @Injectable()
 export class PostsService {

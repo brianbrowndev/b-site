@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { Post } from '../models/post';
-import { PostsService } from '../posts.service';
+import { PostSidebarComponent } from '../../posts/post-sidebar/sidebar.component';
+import { Post } from '../../models/post';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'home',
@@ -11,8 +11,8 @@ import { PostsService } from '../posts.service';
 })
 export class HomeComponent implements OnInit {
 
-  @ViewChild(SidebarComponent)
-  sidebarComponent: SidebarComponent;
+  @ViewChild(PostSidebarComponent)
+  sidebarComponent: PostSidebarComponent;
 
   posts: Post[];
   tags: string[];

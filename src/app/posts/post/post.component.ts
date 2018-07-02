@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MarkdownService } from '../markdown.service';
-import { Post } from '../models/post';
-import { PostsService } from '../posts.service';
+import { MarkdownService } from '../../services/markdown.service';
+import { Post } from '../../models/post';
+import { PostsService } from '../../services/posts.service';
 
 
 @Component({
