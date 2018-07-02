@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from '../../services/markdown.service';
 import { Post } from '../../models/post';
 import { PostsService } from '../../services/posts.service';
+import { Title }     from '@angular/platform-browser';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class PostComponent implements OnInit {
   constructor(
     public mds: MarkdownService,
     public ps: PostsService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public titleService: Title
   ) { }
 
 
@@ -26,6 +28,7 @@ export class PostComponent implements OnInit {
     this.route.params.subscribe(params =>  
        Object.keys(this.ps.posts).some(k => {
          let post = this.ps.posts[k];
+         this.titleService.setTitle(`${post.title} | bgeo`);
          if (post.key === params['post']) {
             this.post = post;
             if (this.post.map) {

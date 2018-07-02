@@ -9,13 +9,13 @@ import { NotfoundComponent } from './core/notfound/notfound.component';
 
 
 const appRoutes: Routes = [
-  { path: 'map/:map', component: MapComponent },
-  { path: 'post/:post', component: PostComponent },
-  { path: 'posts/category/:category', component: HomeComponent },
-  { path: 'posts', component: HomeComponent },  
-  { path: 'about', component: PageComponent, data: {pageName:'about'}},
-  { path: '', redirectTo: 'posts', pathMatch: 'full' },
-  { path: '**', component: NotfoundComponent }
+  { path: 'map/:map', component: MapComponent, data: {title: 'Map'}},
+  { path: 'post/:post', component: PostComponent, data: {title: 'Post'}},
+  { path: 'posts/category/:category', component: HomeComponent, data: {title: 'Posts'}},
+  { path: 'posts', component: HomeComponent ,data: {title: 'Posts'}},
+  { path: 'about', component: PageComponent, data: {pageName:'about', title: 'About'}},
+  { path: '', redirectTo: '/about', pathMatch: 'full'},
+  { path: '**', component: NotfoundComponent, data: {title: 'Not Found'}}
 ];
 
 @NgModule({
