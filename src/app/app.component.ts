@@ -20,15 +20,15 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.router.events
       .pipe(
-        filter(e => e instanceof NavigationEnd)
+        filter(e => e instanceof NavigationEnd),
         map(() => {
           // traverse down tree and get child
           let route = this.route;
           while (route.firstChild) route = route.firstChild;
           return route;
-        })
-        filter((route) => route.outlet === 'primary')
-        mergeMap((route) => route.data)
+        }),
+        filter((route) => route.outlet === 'primary'),
+        mergeMap((route) => route.data),
         map((data) => {
           return data.title
         })

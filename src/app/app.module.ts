@@ -37,6 +37,7 @@ import { BikeCommuteComponent } from './maps/bike-commute/bike-commute.component
 import { StatesComponent } from './maps/states/states.component';
 import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
 import { LoadingComponent } from './core/loading/loading.component';
+import { AboutComponent } from './core/about/about.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { LoadingComponent } from './core/loading/loading.component';
     BikeCommuteComponent,
     StatesComponent,
     UsDroughtComponent,
-    LoadingComponent
+    LoadingComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,

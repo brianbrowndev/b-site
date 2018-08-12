@@ -9,6 +9,12 @@
     a {
         color:$color-primary;
         background-image: $link-underline;
+        &:hover {
+            background-image: $link-underline-hover;
+        }
+        &:focus {
+            background-image: $link-underline-hover;
+        }
     }
 
 

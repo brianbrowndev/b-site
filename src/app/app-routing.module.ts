@@ -6,6 +6,7 @@ import { PageComponent } from './page/page.component';
 import { PostComponent } from './posts/post/post.component';
 import { MapComponent } from './maps/map/map.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
+import { AboutComponent } from './core/about/about.component';
 
 
 const appRoutes: Routes = [
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'post/:post', component: PostComponent, data: {title: 'Post'}},
   { path: 'posts/category/:category', component: HomeComponent, data: {title: 'Posts'}},
   { path: 'posts', component: HomeComponent ,data: {title: 'Posts'}},
-  { path: 'about', component: PageComponent, data: {pageName:'about', title: 'About'}},
+  { path: 'about', component: AboutComponent, data: {title: 'About'}},
   { path: '', redirectTo: '/about', pathMatch: 'full'},
   { path: '**', component: NotfoundComponent, data: {title: 'Not Found'}}
 ];
