@@ -18,6 +18,9 @@ $color-primary: $asphalt;
 $color-secondary: $iron;
 $color-secondary-light: $grey;
 $color-layout: $grey;
+// $color-link: #3498db#2f7bbd;
+$color-link: #3498db;
+$color-link-focus:#8a959e;
 
 $color-category-maps: $orange;
 $color-category-esri: $light-green;
@@ -52,3 +55,15 @@ $padding-small:.5em;
 $layout-margin--none: $masthead-height 0 0;
 $layout-margin: $masthead-height 0 $break-large;
 $layout-width: 900px;
+
+.link {
+	color:$color-link;
+	text-decoration:none;
+	&:hover {
+		color:$color-link-focus;
+	}
+	&:focus {
+		color:$color-link-focus;
+	}
+}
+

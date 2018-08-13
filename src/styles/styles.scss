@@ -119,10 +119,8 @@ h5 {
 h6 {
 	font-size: 2rem;
 }
-
 a {
-	color:inherit;
-	text-decoration:none;
+	@extend .link;
 }
 
 p {

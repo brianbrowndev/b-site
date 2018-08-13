@@ -32,7 +32,6 @@
   letter-spacing:-1px;
   border-radius:999px;
   border: 3.5px solid $color-logo;
-  // transform:rotate(15deg);
   color:$color-logo;
   opacity:0.8;
 
@@ -56,6 +55,7 @@ nav {
     font-size:1.3rem;
     letter-spacing:0.1em;
     padding:0.2rem;
+    color:inherit;
     text-transform:uppercase;
     font-family:$font-header;
     margin-left:$break-large;
