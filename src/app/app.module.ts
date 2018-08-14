@@ -33,7 +33,6 @@ import { DclWrapper } from './maps/dcl-wrapper/dcl-wrapper.component';
 import { MapUtilities } from './maps/map-utilities';
 import { MapComponent } from './maps/map/map.component';
 import { VectorTilesComponent } from './maps/vector-tiles/vector-tiles.component';
-import { BikeCommuteComponent } from './maps/bike-commute/bike-commute.component';
 import { StatesComponent } from './maps/states/states.component';
 import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
 import { LoadingComponent } from './core/loading/loading.component';
@@ -55,7 +54,6 @@ import { AboutComponent } from './core/about/about.component';
     NotfoundComponent,
     DclWrapper,
     VectorTilesComponent,
-    BikeCommuteComponent,
     StatesComponent,
     UsDroughtComponent,
     LoadingComponent,
@@ -76,7 +74,6 @@ import { AboutComponent } from './core/about/about.component';
 
   ],
   entryComponents: [
-    BikeCommuteComponent,
     VectorTilesComponent,
     UsDroughtComponent
   ],

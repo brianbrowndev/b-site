@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post';
-import { BikeCommuteComponent } from '../maps/bike-commute/bike-commute.component';
 import { VectorTilesComponent } from '../maps/vector-tiles/vector-tiles.component';
 import { UsDroughtComponent } from '../maps/us-drought/us-drought.component';
 
@@ -8,7 +7,6 @@ import { UsDroughtComponent } from '../maps/us-drought/us-drought.component';
 export class PostsService {
   public tags: {
       Mapbox: string,
-      Leaflet: string,
       D3: string,
       TopoJSON: string,
       ArcPy: string,
@@ -17,7 +15,6 @@ export class PostsService {
       Express: string
   } = {
       Mapbox: "Mapbox",
-      Leaflet: "Leaflet",
       D3: "D3",
       TopoJSON: "TopoJSON",
       ArcPy: "ArcPy",
@@ -58,20 +55,8 @@ export class PostsService {
             url: `${this.url}/vector-tiles/post.md`,
             map: VectorTilesComponent,
             tags: [this.tags.Mapbox, this.tags.Express, this.tags.VectorTiles]
-        }),
-        Commute: new Post({
-            key: 'bike-commute',
-            title: 'Mapping a Bike Commute',
-            tldr: 'Richmond has hills and my maps are mediocre',
-            category: 'maps',
-            date: '2015-12-26',
-            cover: `${this.url}/commute/cover.jpg`,
-            url: `${this.url}/commute/post.md`,
-            map: BikeCommuteComponent,
-            tags: [this.tags.Leaflet, this.tags.D3]
-
         })
-  }
+ }
 
   getPost(post: string) {
     return this.posts[post]; 

@@ -6,7 +6,4 @@ declare module 'markdown-it';
 declare module 'moment';
 declare module 'highlightjs';
 declare module 'd3.js';
-declare module 'leaflet';
-declare module 'topojson';
-declare module 'jquery';
 declare module 'topojson-client';
