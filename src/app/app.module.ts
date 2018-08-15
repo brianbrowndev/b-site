@@ -37,6 +37,7 @@ import { StatesComponent } from './maps/states/states.component';
 import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
 import { LoadingComponent } from './core/loading/loading.component';
 import { AboutComponent } from './core/about/about.component';
+import { AboutMeMapComponent } from './maps/about-me-map/about-me-map.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AboutComponent } from './core/about/about.component';
     StatesComponent,
     UsDroughtComponent,
     LoadingComponent,
-    AboutComponent
+    AboutComponent,
+    AboutMeMapComponent
   ],
   imports: [
     CommonModule,
