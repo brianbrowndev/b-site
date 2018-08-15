@@ -41,6 +41,9 @@
   &:focus {
     opacity:1;
   }
+  & a {
+    color:inherit;
+  }
 }
 
 .masthead-nav-container {
