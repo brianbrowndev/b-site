@@ -40,7 +40,7 @@ $border-default:1px solid $color-secondary;
 $link-underline: linear-gradient(to bottom, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
 $link-underline-hover: linear-gradient(to bottom, rgba(0,0,0,0) 82%, rgba(0,0,0,1) 100%);
 
-$masthead-height:4em;
+$masthead-height: 4em;
 $masthead-border: .3em;
 $masthead-full: ($masthead-height + $masthead-border);
 
@@ -52,8 +52,7 @@ $padding-large:2em;
 $padding-medium:1em;
 $padding-small:.5em;
 
-$layout-margin--none: $masthead-height 0 0;
-$layout-margin: $masthead-height 0 $break-large;
+$layout-margin: 1em 0 $break-large;
 $layout-width: 900px;
 
 .link {
