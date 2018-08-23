@@ -1,11 +1,11 @@
-@import '../../../styles/variables.scss';
+@import '../../../styles/theme.scss';
 
 .post-card {
   display:flex;
   flex-direction:column;
-  margin-bottom:$break-small;
-  padding: $break-medium;
-  background: $color-background;
+  margin-bottom:spacing(small);
+  padding: spacing(medium);
+  background: theme(background);
   border-radius:3px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   transition:box-shadow .3s ease;
@@ -16,12 +16,12 @@
 }
 
 .post-header {
-  margin-bottom: $break-small;
+  margin-bottom: spacing(small);
 }
 .post-title {
   display:inline-block;
   font-size:3rem;
-  color: $color-primary;
+  color: theme(primary);
   margin: 0;
 }
 .post-section {

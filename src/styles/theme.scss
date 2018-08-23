@@ -1,0 +1,125 @@
+//
+// Color system
+//
+$primary: #303e4d;
+$primary-light: #ededed;
+$blue: #0058db;
+$light-blue: #00a3f5;
+$green: #4eb807;
+$yellow: #ffcc00;
+$red: #e01b1b;
+$white: #fff;
+$asphalt: #303e4d;
+$iron: #ededed;
+$grey: #f8f8f8;
+$regent-grey: #8e949f;
+$light-green: #2ecc71;
+$orange: #EBA36F;
+$dark-green: #27ae60;
+$sea-green: #16a085;
+$gray-50: #fafafa;
+$gray-100: #f5f5f5;
+$gray-200: #eeeeee;
+$gray-300: #e0e0e0;
+$gray-400: #bdbdbd;
+$gray-500: #9e9e9e;
+$gray-600: #757575;
+$gray-700: #616161;
+$gray-800: #424242;
+$gray-900: #212121;
+$dark-1: rgba(0, 0, 0, 0.87);
+$dark-2: rgba(0, 0, 0, 0.6);
+$dark-disabled: rgba(0, 0, 0, 0.38);
+$dark-divider: rgba(0, 0, 0, 0.12);
+$light-1: #ffffff;
+$light-2: rgba(255, 255, 255, 0.76);
+$light-disabled: rgba(255, 255, 255, 0.38);
+$light-divider: rgba(255, 255, 255, 0.12);
+$theme-colors: (
+  logo: $sea-green,
+  primary: $primary,
+  secondary: $primary-light,
+  success: $green,
+  info: $light-blue,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800,
+  background: $light-1
+);
+@function theme($key) {
+  @if map-has-key($theme-colors, $key) {
+    @return map-get($theme-colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in theme-colors.";
+  @return null;
+}
+
+// 
+// pallette 1
+//
+$theme-pallette-1: (
+    a: $orange,
+    b: $light-green 
+);
+@function pallete-1($key) {
+  @if map-has-key($theme-pallette-1, $key) {
+    @return map-get($theme-pallette-1, $key);
+  }
+
+  @warn "Unknown `#{$key}` in theme-colors.";
+  @return null;
+}
+
+
+//
+// fonts
+//
+$font-primary: Lato, sans-serif;
+$font-secondary: Montserrat, sans-serif;
+
+
+//
+// links
+//
+$link-primary: #3498db;
+$link-primary-focus:#8a959e;
+$link-underline: linear-gradient(to bottom, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
+$link-underline-hover: linear-gradient(to bottom, rgba(0,0,0,0) 82%, rgba(0,0,0,1) 100%);
+
+
+
+//
+// spacing
+//
+$theme-spacing: (
+    large: 2em,
+    medium: 1em,
+    small: 0.5em
+);
+@function spacing($key) {
+  @if map-has-key($theme-spacing, $key) {
+    @return map-get($theme-spacing, $key);
+  }
+
+  @warn "Unknown `#{$key}` in spacing.";
+  @return null;
+}
+
+
+//
+// layouts
+//
+$masthead-height: 4em;
+$masthead-border: .3em;
+$masthead-full: ($masthead-height + $masthead-border);
+$layout-margin--none: $masthead-height 0 0;
+$layout-margin: $masthead-height 0 spacing(large);
+$layout-width: 900px;
+
+
+//
+// borders
+//
+$border-primary:1px solid theme(secondary);

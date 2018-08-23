@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import '../../../styles/theme.scss';
 
 :host {
   display:flex;
@@ -8,8 +8,8 @@
   background: #FAFAFA;
 }
 .posts-layout {
-  margin-top: $break-medium;
-  margin-bottom: $break-medium;
+  margin-top: spacing(medium);
+  margin-bottom: spacing(medium);
   display:flex;
   flex:1;
 }

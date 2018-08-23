@@ -12,11 +12,11 @@ $orange: #EBA36F;
 $dark-green: #27ae60;
 $sea-green: #16a085;
 
-$color-background: $white;
-$color-logo: $sea-green;
-$color-primary: $asphalt;
-$color-secondary: $iron;
-$color-secondary-light: $grey;
+theme(background): $white;
+theme(logo): $sea-green;
+// theme(primary): $asphalt;
+// theme(secondary): $iron;
+// theme(secondary)-light: $grey;
 $color-layout: $grey;
 // $color-link: #3498db#2f7bbd;
 $color-link: #3498db;
@@ -27,43 +27,16 @@ $color-category-esri: $light-green;
 
 
 $color-text-light: $white;
-$color-text-dark: $asphalt;
-$color-text-weak: $regent-grey;
+theme(dark): $asphalt;
+theme(light): $regent-grey;
 
 
-$font-header: Montserrat, sans-serif;
+$font-secondary: Montserrat, sans-serif;
 $font-body: Lato, sans-serif;
-$font-light: Lato, sans-serif;
+$font-primary: Lato, sans-serif;
 
-$border-default:1px solid $color-secondary;
+$border-primary:1px solid theme(secondary);
 
 $link-underline: linear-gradient(to bottom, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
 $link-underline-hover: linear-gradient(to bottom, rgba(0,0,0,0) 82%, rgba(0,0,0,1) 100%);
-
-$masthead-height:4em;
-$masthead-border: .3em;
-$masthead-full: ($masthead-height + $masthead-border);
-
-$break-large:2em;
-$break-medium:1em;
-$break-small:.5em;
-
-$padding-large:2em;
-$padding-medium:1em;
-$padding-small:.5em;
-
-$layout-margin--none: $masthead-height 0 0;
-$layout-margin: $masthead-height 0 $break-large;
-$layout-width: 900px;
-
-.link {
-	color:$color-link;
-	text-decoration:none;
-	&:hover {
-		color:$color-link-focus;
-	}
-	&:focus {
-		color:$color-link-focus;
-	}
-}
 

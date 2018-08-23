@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import 'theme.scss';
 @import 'page/page.scss';
 @import 'post/post.scss';
 @import 'map/map.scss';
@@ -54,14 +54,15 @@ html {
 
 body {
 	margin:0;
-	font-family: $font-body;
+	font-family: $font-primary;
 	font-size:1.8rem;
 	letter-spacing:0.02em;
 	word-wrap:break-word;
 	text-rendering:optimizeLegibility;
 	line-height: 1.7;
 	-moz-font-feature-settings: "liga" on;
-	opacity: 1;
+	color: theme(dark);
+	background-color: $gray-100;
 }
 
 /**
@@ -87,7 +88,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family:$font-header;
+	font-family:$font-secondary;
 	line-height: 1.15em;
 	letter-spacing:-0.02em;
 }
@@ -97,38 +98,41 @@ h1 {
 	letter-spacing: 2px;
 	text-indent: -3px;
 }
-
 h2 {
 	font-size: 3.4rem;
 	letter-spacing: 2px;
 }
-
 h3 {
 	font-size: 3.5rem;
 }
-
 h4 {
 	font-size: 3rem;
 }
-
 h5 {
 	font-size: 2rem;
 	margin-bottom:0.2em;
 }
-
 h6 {
 	font-size: 2rem;
 }
+
 a {
-	@extend .link;
+	color:$link-primary;
+	text-decoration:none;
+	&:hover {
+		color:$link-primary-focus;
+	}
+	&:focus {
+		color:$link-primary-focus;
+	}
 }
 
 p {
 	font-size:2.1rem;
 	line-height:1.7;
-	color: rgba(0, 0, 0, 0.8);
+	color: theme(light);
 	letter-spacing:-0.003em;
-	margin-bottom: 2em;
+	margin-bottom: spacing(medium);
 	margin-top:0;
 }
 
@@ -137,7 +141,7 @@ p {
 ========================================================================== */
 
 .page-content {
-	padding:0 $break-medium;
+	padding:0 spacing(medium);
 	max-width: $layout-width;
 	margin: 0 auto;
 }
@@ -147,7 +151,7 @@ p {
 	flex-direction: column;
 	max-width: $layout-width;
 	width:100%;
-	padding: 0 $break-medium;
+	padding: 0 spacing(medium);
 }
 .layout-wrapper--margin {
 	margin: $layout-margin;
@@ -157,10 +161,6 @@ p {
 #HEADERS
 ========================================================================== */
 
-.header--strong {
-	color: $color-text-dark;
-	opacity: .9;
-}
 /* ==========================================================================
 COMPONENTS-MISC
 ========================================================================== */
@@ -176,14 +176,13 @@ COMPONENTS-MISC
 }
 .text-light {
 	font-size:1.2rem;
-	color:$color-text-weak;
-	font-family:$font-light;
+	color:theme(secondary);
 }
 .upper {
 	text-transform: uppercase;
 }
 .keyword{
-	background:$color-secondary;
+	background:theme(secondary);
 	padding:.1em;
 }
 .leading {
@@ -200,19 +199,23 @@ COMPONENTS-MISC
 
 .post-meta { @extend .text-light; }
 .post-meta-break {
-  margin-right:$break-small;
-  margin-left:$break-small;
+  margin-right:spacing(small);
+  margin-left:spacing(small);
 }
 .post-meta-icon {
   display:inline-block;
   height: 10px;
   width: 10px;
   border-radius:999px;
-  background:$color-background;
-  margin-right: $break-small;
+  background:theme(background);
+  margin-right: spacing(small);
 }
-.post-meta-category { margin-right:$break-medium; }
+.post-meta-category { margin-right:spacing(medium); }
 
-.post-meta-category--maps{ background:$color-category-maps; }
-.post-meta-category--esri{ background:$color-category-esri; }
+.post-meta-category--maps{ 
+	background:pallete-1(a);
+}
+.post-meta-category--esri{ 
+	background:pallete-2(b); 
+}
 
