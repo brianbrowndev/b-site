@@ -45,7 +45,8 @@ $theme-colors: (
   danger: $red,
   light: $gray-100,
   dark: $gray-800,
-  background: $light-1
+  background: $gray-50,
+  background-light: $light-1
 );
 @function theme($key) {
   @if map-has-key($theme-colors, $key) {

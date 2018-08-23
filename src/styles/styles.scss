@@ -62,7 +62,7 @@ body {
 	line-height: 1.7;
 	-moz-font-feature-settings: "liga" on;
 	color: theme(dark);
-	background-color: $gray-100;
+	background-color: theme(background);
 }
 
 /**
@@ -127,14 +127,57 @@ a {
 	}
 }
 
-p {
-	font-size:2.1rem;
-	line-height:1.7;
-	color: theme(light);
+strong {
+  color: theme(primary);
+}
+
+ul {
+  margin:0;
+}
+
+
+
+.t1
+.t2
+.t3 {
+	color:theme(dark);
 	letter-spacing:-0.003em;
+	line-height:1.7;
+}
+.t1 {
+	font-size:2.1rem;
+}
+
+.t2 {
+  font-size:1.4rem;
+}
+
+.t3 {
+  font-size:1.2rem;
+}
+
+p {
+	@extend .t1;
 	margin-bottom: spacing(medium);
 	margin-top:0;
 }
+
+.upper {
+	text-transform: uppercase;
+}
+.keyword{
+	background:theme(secondary);
+	padding:.1em;
+}
+.leading {
+	text-transform:uppercase;
+	font-weight:700;
+}
+
+.text-center {
+	text-align:center;
+}
+
 
 /* ==========================================================================
 #LAYOUTS
@@ -158,8 +201,86 @@ p {
 }
 
 /* ==========================================================================
-#HEADERS
+#COMPONENT-MASTHEAD
 ========================================================================== */
+:host{
+  top:0;
+  left:0;
+  z-index:10000;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  height:$masthead-height;
+  padding: 0 spacing(medium);
+  color:theme(primary);
+}
+.masthead-container {
+  position:fixed;
+  top:1.5rem;
+  left:1.5rem;
+  width:5rem;
+}
+.masthead-logo {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 1;
+  margin:0;
+  font-size:2.6rem;
+  width:40px;
+  height:40px;
+  letter-spacing:-1px;
+  border-radius:999px;
+  border: 3.5px solid theme(logo);
+  color:theme(logo);
+  opacity:0.8;
+
+  &:hover {
+    opacity:1;
+  }
+  &:focus {
+    opacity:1;
+  }
+}
+
+.masthead-nav-container {
+  display:flex;
+  flex:1;
+  align-items:center;
+  justify-content:center;
+}
+
+nav {
+  .masthead-link {
+    font-size:1.3rem;
+    letter-spacing:0.1em;
+    padding:0.2rem;
+    color:inherit;
+    text-transform:uppercase;
+    font-family:$font-secondary;
+    margin-left:spacing(large);
+
+    &:first-child {
+      margin-left:0;
+    }
+
+    &:focus {
+      background-image: $link-underline;    
+    }
+    &:hover {
+      background-image: $link-underline;
+    }
+  }
+  
+  .active-link {
+    background-image: $link-underline;
+  }
+}
+
+
+
 
 /* ==========================================================================
 COMPONENTS-MISC
@@ -174,30 +295,25 @@ COMPONENTS-MISC
 .fixed {
 	position:fixed;
 }
-.text-light {
-	font-size:1.2rem;
-	color:theme(secondary);
-}
-.upper {
-	text-transform: uppercase;
-}
-.keyword{
-	background:theme(secondary);
-	padding:.1em;
-}
-.leading {
-	text-transform:uppercase;
-	font-weight:700;
+img.user-image {
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+  height: 56px;
+  width: 56px;
+  margin-right:spacing(medium);
 }
 
-.text-center {
-	text-align:center;
+.round {
+  border-radius:8px;
 }
 /* ==========================================================================
 #GENERIC POST STYLES
 ========================================================================== */
 
-.post-meta { @extend .text-light; }
+.post-meta { 
+  @extend .t3; 
+}
 .post-meta-break {
   margin-right:spacing(small);
   margin-left:spacing(small);
@@ -216,6 +332,6 @@ COMPONENTS-MISC
 	background:pallete-1(a);
 }
 .post-meta-category--esri{ 
-	background:pallete-2(b); 
+	background:pallete-1(b); 
 }
 
