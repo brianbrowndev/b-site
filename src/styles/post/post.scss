@@ -1,8 +1,7 @@
-@import 'commute.scss';
 .post-content {
 
     h4 {
-        margin: 0 0 .5em;
+        margin: 0 0 spacing(small);
         opacity:0.8;
     }
 
@@ -21,21 +20,21 @@
         border-collapse: collapse;
         border-spacing: 0;
         word-break: keep-all;
-        margin-bottom:$break-large;
+        margin-bottom:spacing(large);
     }
     table tr th {
         padding:6px 13px;
-        border: $border-default;
+        border: $border-primary;
     }
     table tr {
-        border-top: $border-default;
+        border-top: $border-primary;
     }
     table tr td {
         padding: 6px 13px;
-        border: 1px solid $color-secondary;
+        border: 1px solid theme(secondary);
     }
     table tr:nth-child(2n) {
-        background-color: $color-secondary-light;
+        background-color: theme(secondary)-light;
     }
    img {
         display:block;
@@ -46,21 +45,21 @@
         text-align:center;
         font-size: 1.4rem;
         vertical-align:middle;
-        margin-bottom: $break-large;
+        margin-bottom: spacing(large);
     }
 
 
     pre {
         overflow:auto;
-        padding: $break-medium;
+        padding: spacing(medium);
         margin-left:-1.3em;
-        margin-bottom: $break-large;
+        margin-bottom: spacing(large);
         margin-top:0;
-        border-left: .3em solid $color-text-weak;
-        background-color:$color-secondary-light;
+        border-left: .3em solid theme(light);
+        background-color:theme(secondary)-light;
     }
     code {
-        font-family:$font-light;
+        font-family:$font-primary;
         font-size: 1.5rem;
     }
     .hljs-keyword { color: rgba(242,56,92,1); }
@@ -74,8 +73,8 @@
             text-align:center;
             font-size: 1.4rem;
             vertical-align:middle;
-            margin-top:$break-small;
-            margin-bottom:$break-large;
+            margin-top:spacing(small);
+            margin-bottom:spacing(large);
     }
 
 }
