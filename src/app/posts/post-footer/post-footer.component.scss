@@ -1,16 +1,16 @@
-@import '../../../styles/variables.scss';
+@import '../../../styles/theme.scss';
 
 :host {
   width:100%;
   text-align:center;
-  margin-top: $break-large;
-  margin-bottom: $break-medium;
+  margin-top: spacing(large);
+  margin-bottom: spacing(medium);
 }
 .tldr {
-    border-top: $border-default;
-    border-bottom: $border-default;
-    padding-top:$break-large;
-    padding-bottom:$break-large;
+    border-top: $border-primary;
+    border-bottom: $border-primary;
+    padding-top:spacing(large);
+    padding-bottom:spacing(large);
 }
 .tldr-text {
     opacity:.8;

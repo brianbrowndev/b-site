@@ -3,22 +3,22 @@
   <div class="nav-components">
     <div class="category-nav">
       <span class="nav-header">Categories</span>
-      <a class="nav-link text-light upper" routerLink="/posts/" routerLinkActive="nav-link--active" [routerLinkActiveOptions]="{exact:true}">
+      <a class="nav-link t3 upper" routerLink="/posts/" routerLinkActive="nav-link--active" [routerLinkActiveOptions]="{exact:true}">
         <div class="post-meta-category">All</div>
       </a>
-      <a *ngFor="let category of categories" class="nav-link text-light upper" [routerLink]="['/posts/category/', category]" routerLinkActive="nav-link--active">
+      <a *ngFor="let category of categories" class="nav-link t3 upper" [routerLink]="['/posts/category/', category]" routerLinkActive="nav-link--active">
         <div class="post-meta-category--{{category}} post-meta-icon"></div>
         <div class="post-meta-category">{{category}}</div>
       </a>
     </div>
     <div class="tags-nav">
       <span class="nav-header">Tags</span>
-       <a *ngFor="let tag of tags" class="nav-link text-light upper" [routerLink]="['./']" [queryParams]='{ tag:tag}' routerLinkActive="nav-link--active">
+       <a *ngFor="let tag of tags" class="nav-link t3 upper" [routerLink]="['./']" [queryParams]='{ tag:tag}' routerLinkActive="nav-link--active">
         <div class="post-meta-category">{{tag}}</div>
       </a>
    </div>
   </div>
   <div class="site-meta">
-    <span>Created by Brian Brown</span>
+    <span class="t3">Created by Brian Brown</span>
   </div>
 </nav>

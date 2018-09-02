@@ -1,14 +1,14 @@
-@import '../../../styles/variables.scss';
+@import '../../../styles/theme.scss';
 
 :host {
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top: $break-large;
-  margin-bottom: $break-large;
+  margin-top: spacing(large);
+  margin-bottom: spacing(large);
 }
 .post-title {
-  color:$color-text-dark;
+  color:theme(dark);
   margin-top: 0;
   margin-bottom: 0;
 }
