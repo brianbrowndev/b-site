@@ -2,72 +2,16 @@
 
 :host {
   display:flex;
-  flex-direction:column;
+  justify-content:center;
   align-items:center;
   flex:1;
   @extend .t2;
+  margin:0 spacing(large) $masthead-height;
 }
-
-
-.about-content {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.popup-container{
-  display:flex;
-  background:theme(secondary);
-  padding:spacing(medium);
-  flex-direction: column;
-}
-.popup-line{
-  display:flex;
-  align-items:center;
- }
-.popup-footer {
+main {
   display:flex;
   flex-direction:row;
-  justify-content:flex-end;
-  & a {
-    margin-left:spacing(small);
-  }
-  & i {
-    font-size:1.9rem;
-  }
-
-}
-.popup-title{
-  margin-bottom:spacing(small);
-}
-.arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 3rem solid transparent;
-  border-right: 3rem solid transparent;
-  border-top: 3rem solid theme(secondary);
-}
-
-.pin-container {
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  height:5rem;
-  position:relative;
-  margin-top: spacing(large);
-
-  & .fa-map-marker {
-    font-size:7.5rem;
-    position:absolute;
-    color:theme(logo);
-  }
-
-  & .marker-point {
-    height: 4rem;
-    width: 4rem;
-    border-radius:999px;
-    border: 5px solid theme(primary);
-    position:absolute;
-    bottom:-1.2rem;
-  }
+  align-items:center;
+  justify-content:space-around;
+  flex:1;
 }

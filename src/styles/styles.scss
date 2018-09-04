@@ -117,13 +117,13 @@ h6 {
 }
 
 a {
-	color:$link-primary;
+	color:theme(link);
 	text-decoration:none;
 	&:hover {
-		color:$link-primary-focus;
+		color:theme(link-secondary);
 	}
 	&:focus {
-		color:$link-primary-focus;
+		color:theme(link-secondary);
 	}
 }
 
@@ -183,6 +183,9 @@ p {
 #LAYOUTS
 ========================================================================== */
 
+.layout {
+  max-width: $layout-width;
+}
 .page-content {
 	padding:0 spacing(medium);
 	max-width: $layout-width;
@@ -203,19 +206,19 @@ p {
 /* ==========================================================================
 #COMPONENT-MASTHEAD
 ========================================================================== */
-:host{
-  top:0;
-  left:0;
-  z-index:10000;
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:space-between;
-  width:100%;
-  height:$masthead-height;
-  padding: 0 spacing(medium);
-  color:theme(primary);
-}
+// :host{
+//   top:0;
+//   left:0;
+//   z-index:10000;
+//   display:flex;
+//   flex-direction:row;
+//   align-items:center;
+//   justify-content:space-between;
+//   width:100%;
+//   height:$masthead-height;
+//   padding: 0 spacing(medium);
+//   color:theme(primary);
+// }
 .masthead-container {
   position:fixed;
   top:1.5rem;
@@ -280,6 +283,49 @@ nav {
 }
 
 
+
+/* ==========================================================================
+COMPONENTS-MAP
+========================================================================== */
+
+
+.map-boundary {
+  stroke: theme(border);
+  stroke-width:1px;
+  fill-opacity:0;
+}
+
+#map {
+  overflow:visible;
+  margin-bottom:1rem;
+}
+.map-legend {
+  position: absolute;
+  top:0;
+  left:0;
+}
+.map-point {
+  fill: theme(primary);
+  cursor:pointer;
+  &:hover {
+    fill:theme(link-secondary) !important;
+  }
+  &:focus {
+    fill:theme(link-secondary) !important;
+  }
+  &.map-point--home {
+    fill: theme(primary);
+  }
+  &.map-point--vdot {
+    fill: #f47836;
+  }
+  &.map-point--deq {
+    fill: #0049b8;
+  }
+  &.map-point--dmme {
+    fill: #38b154;
+  }
+}
 
 
 /* ==========================================================================
