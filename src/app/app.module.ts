@@ -20,7 +20,6 @@ import { MarkdownService } from './services/markdown.service';
 // front page posts
 import { PostCardComponent } from './posts/post-card/post-card.component';
 import { PostSidebarComponent } from './posts/post-sidebar/sidebar.component';
-import { MomentPipe } from './moment.pipe';
 
 // single post/page
 import { PostHeaderComponent } from './posts/post-header/post-header.component';
@@ -48,7 +47,6 @@ import { AboutMeMapComponent } from './maps/about-me-map/about-me-map.component'
     PageComponent,
     PostCardComponent,
     PostSidebarComponent,
-    MomentPipe,
     PostHeaderComponent,
     PostFooterComponent,
     MapComponent,
