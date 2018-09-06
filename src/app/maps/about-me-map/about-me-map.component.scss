@@ -29,9 +29,8 @@
   padding:spacing(medium);
   flex-direction: column;
   width:35rem;
-  & > div {
-    overflow-y:auto;
-  }
+  height:100%;
+  overflow-y:auto;
 }
 .popup-line{
   display:flex;

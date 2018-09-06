@@ -66,7 +66,7 @@ export class AboutMeMapComponent implements OnInit {
       this.g.append("path")
         .datum(richmond)
         .attr("d", this.path)
-        .each(function (d) { duration = (d.length = this.getTotalLength()) * 2 })
+        .each(function (d) { duration = (d.length = this.getTotalLength()) * 1.5 })
         .style("stroke-dasharray", (d) => `0,${d.length}`)
         .attr("class", "map-boundary")
         .transition()
