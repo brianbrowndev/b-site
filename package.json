@@ -36,7 +36,6 @@
     "mapbox-gl": "^0.28.0",
     "markdown-it": "^8.1.0",
     "rxjs": "6.2.2",
-    "topojson": "^3.0.2",
     "topojson-client": "^3.0.0",
     "zone.js": "^0.8.26"
   },
