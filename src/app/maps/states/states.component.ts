@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import * as d3 from 'd3';
+import * as d3Geo from 'd3-geo';
+import * as d3Selection from 'd3-selection';
+import * as d3Fetch from 'd3-fetch';
 import * as topojson from 'topojson-client';
+import * as d3Ease from 'd3-ease';
 import { MapUtilities } from '../map-utilities';
+import { from } from 'rxjs';
+
 @Component({
   selector: 'map-states',
   templateUrl: './states.component.html',
@@ -24,24 +29,23 @@ export class StatesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.svg = d3.select("#map").append("svg")
+    this.svg = d3Selection.select("#map").append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
 
-    this.projection = d3.geoAlbers()
+    this.projection = d3Geo.geoAlbers()
       .scale(1)
       .translate([0, 0]);
-    this.path = d3.geoPath(this.projection);
+    this.path = d3Geo.geoPath(this.projection);
     this.g = this.svg.append("g")
       .attr("class", "boundary")
     this.drawMap();
   }
 
   drawMap() {
-    d3.json(this.data.states, (error, us) => {
-      if (error) throw error;
 
-      let statesArray = topojson.feature(us, us["objects"].states).features;
+    from(d3Fetch.json(this.data.states)).subscribe(result => {
+      let statesArray = topojson.feature(result, result["objects"].states).features;
       let states = this.mu.shuffleArray(statesArray);
       let state = states.shift();
       run.call(this);
@@ -63,7 +67,7 @@ export class StatesComponent implements OnInit {
           .transition()
             .delay((d, i) => { var delay1 = delay; delay += duration; return delay1; })
             .duration(d => { return duration; })
-            .ease(d3.easeLinear)
+            .ease(d3Ease.easeLinear)
             .on("start", function (d) { this.style.stroke = "#303e4d"; })
             .style("stroke-dasharray", function (d) { return `${d.length},${d.length}`; })
           .transition()
@@ -74,7 +78,7 @@ export class StatesComponent implements OnInit {
             .on("end", run.bind(this), this);
 
         if (states.length === 0) {
-          states = this.shuffleArray(topojson.feature(us, us["objects"].states).features);
+          states = this.mu.shuffleArray(topojson.feature(result, result["objects"].states).features);
         }
         state = states.shift();
       }

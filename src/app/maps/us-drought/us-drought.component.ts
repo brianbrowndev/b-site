@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import * as d3 from 'd3';
+import * as d3Selection from 'd3-selection';
+import * as d3Fetch from 'd3-fetch';
+import * as d3Scale from 'd3-scale';
+import * as d3Geo from 'd3-geo';
+import * as d3Collection from 'd3-collection';
 import * as topojson from 'topojson-client';
+import { forkJoin, from } from 'rxjs';
 
 @Component({
   selector: 'app-us-drought',
@@ -27,26 +32,27 @@ export class UsDroughtComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.svg = d3.select("#map").append("svg")
+    this.svg = d3Selection.select("#map").append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
-    this.projection = d3.geoAlbers()
+    this.projection = d3Geo.geoAlbers()
       .scale(1000)
       .translate([this.width / 2, this.height / 2]);
 
-    this.path = d3.geoPath(this.projection);
+    this.path = d3Geo.geoPath(this.projection);
 
-    this.styles = d3.scaleQuantile<string>()
+    this.styles = d3Scale.scaleQuantile<string>()
       .domain([-4.00, -3.00, -2.00, 0])
       .range(["#7F003F", "#FE0000", "#FEAF44", "#bdc3c7"]);
 
-    d3.queue()
-      .defer(d3.json, this.data.divisions)
-      .defer(d3.csv, this.data.drought)
-      .await(this.run.bind(this));
+    forkJoin([
+      from(d3Fetch.json(this.data.divisions)),
+      from(d3Fetch.csv(this.data.drought)),
+      ]
+    ).subscribe(results => this.run(results[0], results[1]))
   }
 
-  run(e, divisions, drought) {
+  run(divisions, drought) {
     this.drought = drought;
     let droughtData = this.droughtByYear(drought, this.droughtYear);
     this.features = topojson.feature(divisions, divisions.objects.divisions).features;
@@ -84,7 +90,7 @@ export class UsDroughtComponent implements OnInit {
   } 
 
   droughtByYear(drought, year) {
-    let droughtByDiv = d3.map();
+    let droughtByDiv = d3Collection.map();
     drought.forEach(d => {
       if (d.year === year) {
         droughtByDiv.set(d.key, +d.pdsi)

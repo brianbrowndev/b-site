@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import * as d3 from 'd3';
 import * as d3Fetch from 'd3-fetch';
+import * as d3Selection from 'd3-selection';
+import * as d3Geo from 'd3-geo';
+import * as d3Ease from 'd3-ease';
+import 'd3-transition';
 import * as topojson from 'topojson-client';
 import { MapUtilities } from '../map-utilities';
+import { forkJoin, from } from 'rxjs';
 
 @Component({
   selector: 'about-me-map',
@@ -28,25 +32,25 @@ export class AboutMeMapComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.svg = d3.select("#map").append("svg")
+    this.svg = d3Selection.select("#map").append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
 
-    this.projection = d3.geoAlbers()
+    this.projection = d3Geo.geoAlbers()
       .scale(1)
       .translate([0, 0]);
-    this.path = d3.geoPath(this.projection);
+    this.path = d3Geo.geoPath(this.projection);
     this.g = this.svg.append("g")
     this.drawMap();
 
   }
 
   drawMap() {
-    Promise.all([
-      d3Fetch.json(this.data.richmond),
-      d3Fetch.json(this.data.places)
+    forkJoin([
+      from(d3Fetch.json(this.data.richmond)),
+      from(d3Fetch.json(this.data.places))
     ]
-    ).then(([richmondJson, placesJson]) => {
+    ).subscribe(([richmondJson, placesJson]) => {
 
       let richmond = topojson.feature(richmondJson, richmondJson["objects"].richmond).features[0];
       let richmondPlaces = topojson.feature(placesJson, placesJson["objects"].richmond).features;
@@ -68,10 +72,9 @@ export class AboutMeMapComponent implements OnInit {
         .transition()
           .delay((d, i) => { var delay1 = delay; delay += duration; return delay1; })
           .duration(d => { return duration; })
-          .ease(d3.easeLinear)
+          .ease(d3Ease.easeLinear)
           .style("stroke-dasharray", (d) => `${d.length},${d.length}`);
 
-      console.log(richmondPlaces)
       let points = this.g.selectAll("circle")
       .data(richmondPlaces).enter()
       .append("circle")
