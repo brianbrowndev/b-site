@@ -1,11 +1,9 @@
-:host {
-  display:flex;
-  flex-direction:column;
-  flex:1;
-  justify-content:center;
-  align-items:center;
-}
+@import '../../../styles/styles.scss';
 
-span {
-  margin:0 auto;
+:host {
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .flex-fill;
+  @extend .justify-content-center;
+  @extend .align-items-center;
 }

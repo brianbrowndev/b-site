@@ -1,12 +1,12 @@
-<div class="masthead-container">
-  <h2 class="masthead-logo">
-    <a routerLink="/">{{title}}</a>
-  </h2>
-</div>
-<div class="masthead-nav-container">
-  <nav class="masthead-nav">
+<header class="masthead-container d-flex flex-row justify-content-between align-items-center m-3">
+  <div>
+    <h2 class="d-flex justify-content-center align-items-center masthead-logo">
+      <a routerLink="/">{{title}}</a>
+    </h2>
+  </div>
+  <nav class="d-flex justify-content-center align-items-center flex-fill">
     <a class="masthead-link" routerLink="/about" routerLinkActive="active-link">About</a>
     <a class="masthead-link" routerLink="/posts" routerLinkActive="active-link">Posts</a>
     <!--<a class="masthead-link" routerLink="/maps" routerLinkActive="active-link">Maps</a>-->
   </nav>
-</div>
+</header>
