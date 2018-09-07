@@ -1,17 +1,17 @@
-<a class="post-card" [routerLink]="['/post', post.key]">
+<a class="post-card d-flex flex-column mb-3 p-3 link-none" [routerLink]="['/post', post.key]">
   <div class="post-header">
-    <h3 class="post-title">{{post.title}}</h3>
-    <div class="post-meta upper">
-      <span class="">{{post.date}}</span>
-      <span class="post-meta-break">/</span>
+    <h3 class="mb-2">{{post.title}}</h3>
+    <div class="t3 text-uppercase">
+      <span >{{post.date}}</span>
+      <span class="mx-2">/</span>
       <div class="post-meta-category--{{post.category}} post-meta-icon">
       </div>
-      <span class="post-meta-category upper">{{post.category}}</span>
+      <span class="mr-3">{{post.category}}</span>
     </div>
 
   </div>
-  <div class="post-section">
-    <div class="post-cover">
+  <div class="d-flex flex-row post-section">
+    <div class="d-flex flex-row justify-content-center align-items-center flex-fill post-cover">
       <div class="post-image" [ngStyle]="{ 'background-image': 'url(' + post.cover + ')'}"></div>
     </div>
   </div>

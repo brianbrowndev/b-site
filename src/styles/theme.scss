@@ -83,6 +83,12 @@ $theme-pallette-1: (
 $font-primary: Lato, sans-serif;
 $font-secondary: Montserrat, sans-serif;
 
+.font-primary {
+  font-family: $font-primary;
+}
+.font-secondary {
+  font-family: $font-secondary;
+}
 
 //
 // links
@@ -124,13 +130,17 @@ $theme-spacing: (
 //
 // layouts
 //
-$masthead-height: 4em;
-$masthead-border: .3em;
-$masthead-full: ($masthead-height + $masthead-border);
-$layout-margin--none: $masthead-height 0 0;
-$layout-margin: $masthead-height 0 spacing(large);
-$layout-width: 1200px;
+$masthead-height: 8rem;
+$layout-width: 120rem;
 
+.layout-margin {
+  margin-top: $masthead-height;
+  margin-bottom: $masthead-height;
+}
+
+.layout {
+  max-width:$layout-width;
+}
 //
 // borders
 //

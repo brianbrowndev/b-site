@@ -1,17 +1,9 @@
 @import '../../../styles/styles.scss';
 
 :host {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex:1;
+  @extend .d-flex;
+  @extend .justify-content-center;
+  @extend .align-items-center;
+  @extend .flex-fill;
   @extend .t2;
-  margin:0 spacing(large) $masthead-height;
-}
-main {
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:space-around;
-  flex:1;
 }

@@ -1,9 +1,5 @@
 @import '../../../styles/styles.scss';
 
-.masthead-container {
-  color:theme(primary);
-  background:theme(background);
-}
 .masthead-logo {
   flex:0 1;
   font-size:2.6rem;
@@ -28,30 +24,23 @@
 
 
 nav {
-  .masthead-link {
+  a {
     font-size:1.3rem;
     letter-spacing:0.1em;
-    @extend .p-1;
-    color:inherit;
-    text-transform:uppercase;
-    font-family:$font-secondary;
-    @extend .ml-5;
-
-    &:first-child {
-      margin-left:0;
+    @extend .link-none;
+    &:not(:last-child) {
+      @extend .mr-5;
     }
-
     &:focus {
       background-image: $link-underline;    
     }
     &:hover {
       background-image: $link-underline;
     }
+
   }
-  
   .active-link {
     background-image: $link-underline;
   }
+
 }
-
-

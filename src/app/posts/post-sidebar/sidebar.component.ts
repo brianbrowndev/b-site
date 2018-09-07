@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'post-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })

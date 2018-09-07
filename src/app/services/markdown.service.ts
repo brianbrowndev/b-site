@@ -6,8 +6,9 @@ import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
 import * as hljs from 'highlightjs';
+import * as md from 'markdown-it';
 
-const md = require('markdown-it')({
+md({
   html: true,
 
   linkify:true, 

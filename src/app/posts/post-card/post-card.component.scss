@@ -1,41 +1,19 @@
-@import '../../../styles/theme.scss';
+@import '../../../styles/styles.scss';
 
 .post-card {
-  display:flex;
-  flex-direction:column;
-  margin-bottom:spacing(small);
-  padding: spacing(medium);
-  background: theme(background);
-  border-radius:3px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  background: theme(background-light);
+  @extend .shadow;
   transition:box-shadow .3s ease;
-  max-width:900px;
   &:hover {
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3)
+    @extend .shadow-lg;
   }
-  color: inherit;
 }
 
-.post-header {
-  margin-bottom: spacing(small);
-}
-.post-title {
-  display:inline-block;
-  font-size:3rem;
-  color: theme(primary);
-  margin: 0;
-}
 .post-section {
-  display: flex;
   flex: 0 1 10em;
-  flex-direction: row;
 }
 
 .post-cover {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
   border-radius: .3em;
 }
 
@@ -45,10 +23,3 @@
   background-repeat: no-repeat;
   background-position:center;
 }
-
-
-.upper {
-  text-transform:uppercase;
-}
-
-

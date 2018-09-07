@@ -1,8 +1,10 @@
-<div class="layout-wrapper layout-wrapper-margin">
-  <div class="posts-layout">
-    <div class="posts">
+<div class="layout container-fluid layout-margin">
+  <div class="row">
+    <div class="col-8">
       <post-card *ngFor="let post of posts" [post]="post"></post-card>
     </div>
-    <sidebar></sidebar>
+    <div class="col-4">
+      <post-sidebar></post-sidebar>
+    </div>
   </div>
 </div>

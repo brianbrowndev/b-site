@@ -1,15 +1,8 @@
-@import '../../../styles/theme.scss';
+@import '../../../styles/styles.scss';
 
 :host {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-top: spacing(large);
-  margin-bottom: spacing(large);
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .align-items-center;
+  @extend .my-5;
 }
-.post-title {
-  color:theme(dark);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
