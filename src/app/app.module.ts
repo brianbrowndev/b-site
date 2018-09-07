@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './core/home/home.component';
 import { MastheadComponent } from './core/masthead/masthead.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
-import { APP_SETTINGS, AppSettings } from './app.settings';
 
 // services
 import { PagesService } from './services/pages.service';
@@ -69,9 +68,7 @@ import { AboutMeMapComponent } from './maps/about-me-map/about-me-map.component'
     MarkdownService,
     PagesService,
     PostsService,
-    MapUtilities,
-    { provide: APP_SETTINGS, useValue: AppSettings }
-
+    MapUtilities
   ],
   entryComponents: [
     VectorTilesComponent,

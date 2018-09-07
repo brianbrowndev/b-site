@@ -4,4 +4,3 @@
 declare var require: any;
 declare module 'markdown-it';
 declare module 'highlightjs';
-declare module 'topojson-client';

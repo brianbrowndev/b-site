@@ -5,7 +5,7 @@ import * as d3Geo from 'd3-geo';
 import * as d3Ease from 'd3-ease';
 import 'd3-transition';
 import * as topojson from 'topojson-client';
-import { MapUtilities } from '../map-utilities';
+import { MapUtilities } from '@app/maps/map-utilities';
 import { forkJoin, from } from 'rxjs';
 
 @Component({

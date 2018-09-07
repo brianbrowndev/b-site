@@ -1,4 +1,3 @@
-import { ComponentRef } from '@angular/core';
 export class Post {
     key: string;
     title: string;

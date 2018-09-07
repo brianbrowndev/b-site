@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MarkdownService } from '../services/markdown.service';
-import { PagesService } from '../services/pages.service';
-import { Page } from '../models/page';
+import { MarkdownService } from '@app/services/markdown.service';
+import { PagesService } from '@app/services/pages.service';
+import { Page } from '@app/models/page';
 
 @Component({
   selector: 'page',

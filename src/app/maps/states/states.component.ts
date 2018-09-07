@@ -4,7 +4,7 @@ import * as d3Selection from 'd3-selection';
 import * as d3Fetch from 'd3-fetch';
 import * as topojson from 'topojson-client';
 import * as d3Ease from 'd3-ease';
-import { MapUtilities } from '../map-utilities';
+import { MapUtilities } from '@app/maps/map-utilities';
 import { from } from 'rxjs';
 
 @Component({
