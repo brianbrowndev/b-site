@@ -49,7 +49,8 @@ $theme-colors: (
   background-light: $light-1,
   border: #666,
   link:#3498db,
-  link-secondary:#8a959e
+  link-secondary:#8a959e,
+  point-select: #81ecec
 );
 @function theme($key) {
   @if map-has-key($theme-colors, $key) {

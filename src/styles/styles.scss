@@ -177,18 +177,10 @@ p {
 	margin-top:0;
 }
 
-.upper {
-	text-transform: uppercase;
-}
 .keyword{
 	background:theme(secondary);
 	padding:.1em;
 }
-.leading {
-	text-transform:uppercase;
-	font-weight:700;
-}
-
 .text-center {
 	text-align:center;
 }
@@ -247,7 +239,10 @@ COMPONENTS-MAP
   }
   &.map-point--dmme {
     fill: #38b154;
-  }
+	}
+	&.point-select{
+		fill: theme(point-select);
+	}
 }
 
 

@@ -52,6 +52,7 @@ export class AboutMeMapComponent implements OnInit {
     ]
     ).subscribe(([richmondJson, placesJson]) => {
 
+      let self = this;
       let richmond = topojson.feature(richmondJson, richmondJson["objects"].richmond).features[0];
       let richmondPlaces = topojson.feature(placesJson, placesJson["objects"].richmond).features;
 
@@ -75,6 +76,7 @@ export class AboutMeMapComponent implements OnInit {
           .ease(d3Ease.easeLinear)
           .style("stroke-dasharray", (d) => `${d.length},${d.length}`);
 
+
       let points = this.g.selectAll("circle")
       .data(richmondPlaces).enter()
       .append("circle")
@@ -82,11 +84,21 @@ export class AboutMeMapComponent implements OnInit {
         .attr("cy", (d) => this.projection(d.geometry.coordinates)[1])
         .attr("r", "6px")
         .attr("class", "map-point")
-        .on("click", (e) => this.popup = e.properties.location)
+        .attr('data-location', (d) => d.properties.location)
+        .on("click", function(e) {
+          self.popup = e.properties.location;
+          points.each(function(d:any) {
+            this.classList.remove('point-select');
+          });
+          this.classList.add('point-select');
+        })
 
       // bind class off property, then use css to style
       points.each(function(d:any) {
         this.classList.add(`map-point--${d.properties.location}`);
+        if (this.dataset.location == 'home') {
+          this.classList.add('point-select');
+        }
       });
     });
   }
