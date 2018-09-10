@@ -160,7 +160,7 @@ ul {
 	line-height:1.7;
 }
 .t1 {
-	font-size:2.1rem;
+	font-size:1.9rem;
 }
 
 .t2 {
@@ -245,6 +245,15 @@ COMPONENTS-MAP
 	}
 }
 
+/* ==========================================================================
+COMPONENTS-CARDS
+========================================================================== */
+
+.card-primary {
+  border: 4px double theme(border);
+  @extend .p-4;
+  @extend .shadow;
+}
 
 /* ==========================================================================
 COMPONENTS-MISC
@@ -282,6 +291,16 @@ img.user-image {
   display:inline-block;
   border-radius:999px;
 }
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 5rem solid transparent;
+  border-bottom: 5rem solid transparent;
+  border-right: 5rem solid theme(secondary);
+}
+
+
 
 /* ==========================================================================
 #GENERIC POST STYLES

@@ -5,15 +5,3 @@
   @extend .flex-row;
   @extend .flex-fill;
 }
-.posts-layout {
-  margin-top: spacing(medium);
-  margin-bottom: spacing(medium);
-  display:flex;
-  flex:1;
-}
-
-.posts {
-  display:flex;
-  flex-direction:column;
-  flex:1;
-}

@@ -98,19 +98,6 @@ $link-underline: linear-gradient(to bottom, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100
 $link-underline-hover: linear-gradient(to bottom, rgba(0,0,0,0) 82%, rgba(0,0,0,1) 100%);
 
 //
-// shadows
-//
-$shadow-light: 0 .125rem .25rem rgba(0,0,0,.075) !important;
-$shadow-medium: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-
-.shadow-light {
-  box-shadow:$shadow-light;
-}
-.shadow-medium {
-  box-shadow:$shadow-medium;
-}
-
-//
 // spacing
 //
 $theme-spacing: (
@@ -142,7 +129,9 @@ $layout-width: 120rem;
 .layout {
   max-width:$layout-width;
 }
+
 //
 // borders
 //
 $border-primary:1px solid theme(secondary);
+
