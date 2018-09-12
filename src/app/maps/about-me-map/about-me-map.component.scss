@@ -5,6 +5,7 @@
   @extend .flex-row;
   @extend .card-primary;
   height:80vh;
+  width:120rem;
 }
 
 .popup-container{
@@ -12,7 +13,7 @@
   @extend .p-5;
   @extend .flex-column;
   background:theme(secondary);
-  width:35rem;
+  // width:35rem;
   height:100%;
   overflow-y:auto;
 }

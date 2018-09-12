@@ -242,6 +242,7 @@ COMPONENTS-MAP
 	}
 	&.point-select{
 		fill: theme(point-select);
+		@extend .shadow;
 	}
 }
 
