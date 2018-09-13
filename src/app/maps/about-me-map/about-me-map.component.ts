@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import * as d3Fetch from 'd3-fetch';
 import * as d3Selection from 'd3-selection';
 import * as d3Geo from 'd3-geo';
@@ -6,7 +6,8 @@ import * as d3Ease from 'd3-ease';
 import 'd3-transition';
 import * as topojson from 'topojson-client';
 import { MapUtilities } from '@app/maps/map-utilities';
-import { forkJoin, from } from 'rxjs';
+import { forkJoin, from, Subject } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'about-me-map',
@@ -27,25 +28,38 @@ export class AboutMeMapComponent implements OnInit {
   g;
   projection;
   popup: string = "home";
+  changeSize = new Subject();
   constructor(
     public mu: MapUtilities
   ) { }
 
   ngOnInit() {
+    this.drawMap();
+
+    this.changeSize
+    .asObservable().pipe(
+      throttleTime(5000)
+    )
+    .subscribe(innerWidth => this.redrawMap());
+  }
+
+  redrawMap() {
+    d3Selection.select('svg').remove();
+    this.drawMap();
+  }
+
+  drawMap() {
+    this.width = parseInt(d3Selection.select('#map').style('width'))
+
     this.svg = d3Selection.select("#map").append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
 
     this.projection = d3Geo.geoAlbers()
-      .scale(1)
-      .translate([0, 0]);
+      .scale(this.width)
+      .translate([this.width /2, this.height/2]);
     this.path = d3Geo.geoPath(this.projection);
-    this.g = this.svg.append("g")
-    this.drawMap();
-
-  }
-
-  drawMap() {
+ 
     forkJoin([
       from(d3Fetch.json(this.data.richmond)),
       from(d3Fetch.json(this.data.places))
@@ -64,7 +78,7 @@ export class AboutMeMapComponent implements OnInit {
         .scale(1)
         .translate([0, 0]);
       this.mu.zoomIn(this.projection, this.path.bounds(richmond), this.width, this.height);
-      this.g.append("path")
+      this.svg.append("path")
         .datum(richmond)
         .attr("d", this.path)
         .each(function (d) { duration = (d.length = this.getTotalLength()) * 1.5 })
@@ -77,7 +91,7 @@ export class AboutMeMapComponent implements OnInit {
           .style("stroke-dasharray", (d) => `${d.length},${d.length}`);
 
 
-      let points = this.g.selectAll("circle")
+      let points = this.svg.selectAll("circle")
       .data(richmondPlaces).enter()
       .append("circle")
         .attr("cx", (d) => this.projection(d.geometry.coordinates)[0])
@@ -101,6 +115,10 @@ export class AboutMeMapComponent implements OnInit {
         }
       });
     });
+  }
+  @HostListener('window:resize', ['$event.target'])
+  public onResize(target) {
+    this.changeSize.next(target.innerWidth);   
   }
 
 }

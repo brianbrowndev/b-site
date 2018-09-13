@@ -212,7 +212,7 @@ COMPONENTS-MAP
 
 #map {
   overflow:visible;
-  margin-bottom:1rem;
+  // margin-bottom:1rem;
 }
 .map-legend {
   position: absolute;
@@ -242,7 +242,6 @@ COMPONENTS-MAP
 	}
 	&.point-select{
 		fill: theme(point-select);
-		@extend .shadow;
 	}
 }
 

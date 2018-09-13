@@ -1,101 +1,90 @@
-<section class="d-flex flex-fill align-items-center position-relative col-md-8 ">
+<section class="d-flex flex-fill align-items-center position-relative col-lg-8 px-0">
     <h6 class="map-legend">City of Richmond - Projects</h6>
     <div class="map-item" id="map"></div>
 </section>
-<section class="d-flex flex-row align-items-center justify-center col-md-4">
+<section class="d-flex flex-row align-items-center justify-center col-lg-4 px-0">
     <div class="arrow-left"></div>
     <div class="popup-container">
         <!-- HOME -->
-        <div [hidden]="popup !== 'home'">
-            <div class="popup-line popup-title">
-                <img class="user-image" src="/assets/page/about/cover.jpg" width=70 height=70>
-                <span>BRIAN BROWN</span>
-            </div>
-            <div class="popup-line">
-                <strong>Title:&nbsp;</strong>
-                Developer
-            </div>
-            <div class="popup-line">
-                <strong>Company:&nbsp;</strong>
-                <a href="http://worldviewsolutions.com/">WorldView Solutions</a>
-            </div>
-            <div class="popup-line">
-                <strong>Location:&nbsp;</strong>
-                Richmond, Virginia
-            </div>
-            <div class="popup-line">
-                <strong>Focus:&nbsp;</strong>
-                Application Development
-            </div>
-            <div class="popup-line">
-                <strong>Speciality:&nbsp;</strong>
-                Visualizing data with maps
-            </div>
-            <div class="popup-line">
-            <div>
-                <strong>Languages:&nbsp;</strong>
-                <ul>
-                <li>Python</li>
-                <li>JavaScript and TypeScript</li>
-                <li>C#</li>
-                </ul>
-            </div>
-            </div>
-            <div class="popup-line">
-                <div>
-                <strong>Frameworks and Libraries:&nbsp;</strong>
-                <ul>
-                    <li>ASP.NET and .NET Core</li>
-                    <li>AngularJS and Angular</li>
-                    <li>ArcGIS JS API</li>
-                    <li>Leaflet</li>
-                    <li>D3.js</li>
-                </ul>
+            <div class="popup-content" [hidden]="popup !== 'home'">
+                <div class="popup-line popup-title">
+                    <img class="user-image" src="/assets/page/about/cover.jpg" width=70 height=70>
+                    <span>BRIAN BROWN</span>
                 </div>
-            </div>
-            <div class="popup-line">
-            <div>
-                <strong>Databases:&nbsp;</strong>
-                <ul>
-                <li>SQL Server</li>
-                <li>SQLite</li>
-                <li>PostgreSQL</li>
-                </ul>
-            </div>
-            </div>
-            <div class="popup-line">
-                <strong>Favorite Editor:&nbsp;</strong>
-                VS Code with Vim
-            </div>
-            <div class="popup-line">
-                <strong>Favorite OS:&nbsp;</strong>
-                Arch Linux
-            </div>
-            <div class="popup-line">
+                <div class="popup-line">
+                    <strong>Title:&nbsp;</strong>
+                    Developer
+                </div>
+                <div class="popup-line">
+                    <strong>Company:&nbsp;</strong>
+                    <a href="http://worldviewsolutions.com/">WorldView Solutions</a>
+                </div>
+                <div class="popup-line">
+                    <strong>Location:&nbsp;</strong>
+                    Richmond, Virginia
+                </div>
+                <div class="popup-line">
+                    <strong>Focus:&nbsp;</strong>
+                    Application Development
+                </div>
+                <div class="popup-line">
+                    <strong>Speciality:&nbsp;</strong>
+                    Visualizing data with maps
+                </div>
+                <div class="popup-line">
                 <div>
-                    <strong>Projects:&nbsp;</strong>
+                    <strong>Languages:&nbsp;</strong>
                     <ul>
-                        <li><a href="https://budget.bgeo.io">Budgeting App</a></li>
-                        <li><a href="https://rvau.bgeo.io">Richmond Ultimate Score Reporter</a></li>
-                        <li><a href="http://www.richmondultimate.com">Richmond Ultimate Website</a></li>
+                    <li>Python</li>
+                    <li>JavaScript and TypeScript</li>
+                    <li>C#</li>
                     </ul>
                 </div>
+                </div>
+                <div class="popup-line">
+                    <div>
+                    <strong>Frameworks and Libraries:&nbsp;</strong>
+                    <ul>
+                        <li>ASP.NET and .NET Core</li>
+                        <li>AngularJS and Angular</li>
+                        <li>ArcGIS JS API</li>
+                        <li>Leaflet</li>
+                        <li>D3.js</li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="popup-line">
+                <div>
+                    <strong>Databases:&nbsp;</strong>
+                    <ul>
+                    <li>SQL Server</li>
+                    <li>SQLite</li>
+                    <li>PostgreSQL</li>
+                    </ul>
+                </div>
+                </div>
+                <div class="popup-line">
+                    <strong>Favorite Editor:&nbsp;</strong>
+                    VS Code with Vim
+                </div>
+                <div class="popup-line">
+                    <strong>Favorite OS:&nbsp;</strong>
+                    Arch Linux
+                </div>
+                <div class="popup-line">
+                    <div>
+                        <strong>Projects:&nbsp;</strong>
+                        <ul>
+                            <li><a href="https://budget.bgeo.io">Budgeting App</a></li>
+                            <li><a href="https://rvau.bgeo.io">Richmond Ultimate Score Reporter</a></li>
+                            <li><a href="http://www.richmondultimate.com">Richmond Ultimate Website</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="list-inline text-right t1">
-                <li class="list-inline-item">
-                    <a href="https://gitlab.com/bgeo"><i class="fa fa-gitlab" aria-hidden="true"></i></a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://www.linkedin.com/in/brian-brown-20997154/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://stackoverflow.com/users/story/2564609"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
-                </li>
-            </div>
-        </div>
 
         <!-- DEQ -->
-        <div [hidden]="popup !== 'deq'">
+        <div class="popup-content" [hidden]="popup !== 'deq'">
             <div class="popup-line popup-title">
                 <!-- <img class="user-image" src="/assets/page/about/cover.jpg" width=70 height=70> -->
                 <span>DEPARTMENT OF ENVIRONMENTAL QUALITY</span>
@@ -136,7 +125,7 @@
        </div>
 
         <!-- VDOT -->
-        <div [hidden]="popup !== 'vdot'">
+        <div class="popup-content" [hidden]="popup !== 'vdot'">
             <div class="popup-line popup-title">
                 <!-- <img class="user-image" src="/assets/page/about/cover.jpg" width=70 height=70> -->
                 <span>VIRGINIA DEPARTMENT OF TRANSPORTATION</span>
@@ -176,7 +165,7 @@
        </div>
 
         <!-- DMME -->
-        <div [hidden]="popup !== 'dmme'">
+        <div class="popup-content" [hidden]="popup !== 'dmme'">
             <div class="popup-line popup-title">
                 <!-- <img class="user-image" src="/assets/page/about/cover.jpg" width=70 height=70> -->
                 <span>DEPARTMENT OF MINES, MINERALS, AND ENERGY</span>
@@ -215,9 +204,17 @@
                 </div>
             </div>
        </div>
-
-
-
+        <div class="popup-footer list-inline text-right t1">
+            <li class="list-inline-item">
+                <a href="https://gitlab.com/bgeo"><i class="fa fa-gitlab" aria-hidden="true"></i></a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/brian-brown-20997154/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://stackoverflow.com/users/story/2564609"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+            </li>
+        </div>
 
     </div>
 </section>
