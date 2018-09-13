@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './core/home/home.component';
-import { PageComponent } from './page/page.component';
-import { PostComponent } from './posts/post/post.component';
+import { PageComponent } from './core/page/page.component';
+import { PostComponent } from './core/posts/post/post.component';
 import { MapComponent } from './maps/map/map.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
 import { AboutComponent } from './core/about/about.component';

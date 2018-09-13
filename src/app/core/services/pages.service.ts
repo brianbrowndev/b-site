@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Page } from '@app/models/page';
+import { Page } from '@app/core/models/page';
 
 @Injectable()
 export class PagesService {

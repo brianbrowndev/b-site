@@ -37,18 +37,4 @@
   height:100%;
 }
 
-.flex { display:flex; }
-.flex-column{ flex-direction:column; }
-.flex-max { flex:1; }
-.flex-between { justify-content:space-between; }
-.flex-center {
-  justify-content:center;
-  align-items:center;
-}
-.flex-center--content { justify-content:center; }
-.flex-center--items { align-items:center; }
-.flex-end {
-  align-self:flex-end;
-}
-
 }

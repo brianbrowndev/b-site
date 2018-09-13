@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    /// set title of page
     this.router.events
       .pipe(
         filter(e => e instanceof NavigationEnd),

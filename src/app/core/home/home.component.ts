@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostSidebarComponent } from '@app/posts/post-sidebar/sidebar.component';
-import { Post } from '@app/models/post';
-import { PostsService } from '@app/services/posts.service';
+import { PostSidebarComponent } from '@app/core/posts/post-sidebar/sidebar.component';
+import { Post } from '@app/core/models/post';
+import { PostsService } from '@app/core/services/posts.service';
 
 @Component({
   selector: 'home',

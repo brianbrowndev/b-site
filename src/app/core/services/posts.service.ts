@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Post } from '@app/models/post';
+import { Post } from '@app/core/models/post';
 import { VectorTilesComponent } from '@app/maps/vector-tiles/vector-tiles.component';
 import { UsDroughtComponent } from '@app/maps/us-drought/us-drought.component';
 

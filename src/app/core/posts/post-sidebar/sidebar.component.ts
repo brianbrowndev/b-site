@@ -1,5 +1,4 @@
 import { Component, HostListener, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
