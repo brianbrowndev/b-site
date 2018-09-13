@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { AboutMePopupComponent } from './popup/about-me-popup.component';
 import * as d3Fetch from 'd3-fetch';
 import * as d3Selection from 'd3-selection';
 import * as d3Geo from 'd3-geo';
@@ -16,7 +17,8 @@ import { throttleTime } from 'rxjs/operators';
 })
 export class AboutMeMapComponent implements OnInit {
   //  map components
-  map;
+  @ViewChild('map') map: ElementRef;
+  @ViewChild('AboutMePopupComponent') aboutMePopupComponent: AboutMePopupComponent;
   data: {[key: string]: string } = {
     richmond: "/assets/page/about/richmond.topo.json",
     places: "/assets/page/about/places.topo.json"
@@ -25,7 +27,6 @@ export class AboutMeMapComponent implements OnInit {
   height: number = 340 * 1.5;
   svg;
   path;
-  g;
   projection;
   popup: string = "home";
   changeSize = new Subject();
@@ -35,7 +36,6 @@ export class AboutMeMapComponent implements OnInit {
 
   ngOnInit() {
     this.drawMap();
-
     this.changeSize
     .asObservable().pipe(
       throttleTime(5000)
@@ -49,9 +49,10 @@ export class AboutMeMapComponent implements OnInit {
   }
 
   drawMap() {
-    this.width = parseInt(d3Selection.select('#map').style('width'))
+    
+    this.width = this.map.nativeElement.clientWidth;
 
-    this.svg = d3Selection.select("#map").append("svg")
+    this.svg = d3Selection.select(this.map.nativeElement).append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
 
@@ -100,7 +101,7 @@ export class AboutMeMapComponent implements OnInit {
         .attr("class", "map-point")
         .attr('data-location', (d) => d.properties.location)
         .on("click", function(e) {
-          self.popup = e.properties.location;
+          self.aboutMePopupComponent.popup = e.properties.location;
           points.each(function(d:any) {
             this.classList.remove('point-select');
           });

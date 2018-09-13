@@ -9,6 +9,7 @@ import { VectorTilesComponent } from './vector-tiles/vector-tiles.component';
 import { StatesComponent } from './states/states.component';
 import { UsDroughtComponent } from './us-drought/us-drought.component';
 import { AboutMeMapComponent } from './about-me-map/about-me-map.component';
+import { AboutMePopupComponent } from './about-me-map/popup/about-me-popup.component';
 
 const components = [
     MapComponent,
@@ -16,7 +17,8 @@ const components = [
     VectorTilesComponent,
     StatesComponent,
     UsDroughtComponent,
-    AboutMeMapComponent
+    AboutMeMapComponent,
+    AboutMePopupComponent 
 ]
 
 @NgModule({

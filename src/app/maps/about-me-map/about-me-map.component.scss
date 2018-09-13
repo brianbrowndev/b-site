@@ -17,39 +17,3 @@
   @extend .flex-fill;
 }
 
-.popup-container{
-  @extend .d-flex;
-  @extend .flex-column;
-  background:theme(secondary);
-  height:100%;
-  width:100%;
-  & > .popup-content {
-    @extend .p-5;
-    overflow-y:auto;
-    flex:1;
-
-  }
-  & > .popup-footer {
-    @extend .pr-5;
-
-  }
-}
-.popup-line{
-  @extend .d-flex;
-  @extend .align-items-center;
-  &.long {
-    align-items:normal;
-    display:inline-block;
-  }
- }
-
-.list-inline {
-  .list-inline-item{
-    &:not(:last-child) {
-      @extend .mr-4;
-    }
-  }
-}
-.popup-title {
-  @extend .mb-2;
-}
