@@ -29,8 +29,8 @@
   @extend .d-flex;
   @extend .align-items-center;
   &.long {
-    align-items:normal;
-    display:inline-block;
+    align-items:normal !important;
+    display:inline-block !important;
   }
  }
 
