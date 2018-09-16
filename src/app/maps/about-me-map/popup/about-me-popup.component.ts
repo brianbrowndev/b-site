@@ -11,7 +11,6 @@ export class AboutMePopupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.popup)
   }
 
 

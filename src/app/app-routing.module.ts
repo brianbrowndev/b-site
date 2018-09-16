@@ -7,7 +7,7 @@ import { PostComponent } from './core/posts/post/post.component';
 import { MapComponent } from './maps/map/map.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
 import { AboutComponent } from './core/about/about.component';
-import { MapsComponent } from './core/maps/maps.component';
+import { VisualsComponent } from './core/visuals/visuals.component';
 import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
 
 
@@ -17,9 +17,9 @@ const appRoutes: Routes = [
   // { path: 'posts/category/:category', component: HomeComponent, data: {title: 'Posts'}},
   // { path: 'posts', component: HomeComponent ,data: {title: 'Posts'}},
   { 
-    path: 'maps', 
-    component: MapsComponent, 
-    data: {title: 'Maps'},
+    path: 'visuals', 
+    component: VisualsComponent, 
+    data: {title: 'Visuals'},
     children: [
         {
             path: 'drought',

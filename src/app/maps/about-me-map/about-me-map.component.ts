@@ -4,6 +4,7 @@ import * as d3Fetch from 'd3-fetch';
 import * as d3Selection from 'd3-selection';
 import * as d3Geo from 'd3-geo';
 import * as d3Ease from 'd3-ease';
+import * as d3Shape from 'd3-shape';
 import 'd3-transition';
 import * as topojson from 'topojson-client';
 import { MapUtilities } from '@app/maps/map-utilities';
@@ -30,6 +31,7 @@ export class AboutMeMapComponent implements OnInit {
   projection;
   popup: string = "home";
   changeSize = new Subject();
+  locations: any = [];
   constructor(
     public mu: MapUtilities
   ) { }
@@ -51,10 +53,15 @@ export class AboutMeMapComponent implements OnInit {
   drawMap() {
     
     this.width = this.map.nativeElement.clientWidth;
+    this.height = this.width * .7
+
+    // this.height = Math.ceil((this.width * 9) / 16);
 
     this.svg = d3Selection.select(this.map.nativeElement).append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
+    
+    let mapGroup = this.svg.append("g").attr("class", "map-group");
 
     this.projection = d3Geo.geoAlbers()
       .scale(this.width)
@@ -79,7 +86,7 @@ export class AboutMeMapComponent implements OnInit {
         .scale(1)
         .translate([0, 0]);
       this.mu.zoomIn(this.projection, this.path.bounds(richmond), this.width, this.height);
-      this.svg.append("path")
+      mapGroup.append("path")
         .datum(richmond)
         .attr("d", this.path)
         .each(function (d) { duration = (d.length = this.getTotalLength()) * 1.5 })
@@ -91,30 +98,82 @@ export class AboutMeMapComponent implements OnInit {
           .ease(d3Ease.easeLinear)
           .style("stroke-dasharray", (d) => `${d.length},${d.length}`);
 
+      var triangle = d3Shape.symbol()
+                  .type(d3Shape.symbolTriangle)
+                  .size(150);
 
-      let points = this.svg.selectAll("circle")
+      var star = d3Shape.symbol()
+                  .type(d3Shape.symbolStar)
+                  .size(180);
+
+
+      // POINT LOCATIONS
+      let projects = mapGroup.selectAll(null)
       .data(richmondPlaces).enter()
-      .append("circle")
-        .attr("cx", (d) => this.projection(d.geometry.coordinates)[0])
-        .attr("cy", (d) => this.projection(d.geometry.coordinates)[1])
-        .attr("r", "6px")
-        .attr("class", "map-point")
+      .append("path")
+        .filter(d => d.properties.location != 'home')
+        .attr("d", triangle)
+        .attr("transform", d => `translate(${this.projection(d.geometry.coordinates)})`)
+        // .attr("x", (d) => this.projection(d.geometry.coordinates)[0])
+        // .attr("y", (d) => this.projection(d.geometry.coordinates)[1])
+        // .attr("width", "6px")
+        // .attr("height", "6px")
+          .attr("class", d => `map-point map-point--${d.properties.location}` )
         .attr('data-location', (d) => d.properties.location)
+      let home = mapGroup.selectAll(null)
+        .data(richmondPlaces).enter()
+        .append("path")
+          .filter(d => d.properties.location == 'home')
+          .attr("d", star)
+          .attr("transform", d => `translate(${this.projection(d.geometry.coordinates)})`)
+          .attr("class", d => `map-point point-select map-point--${d.properties.location}` )
+          .attr('data-location', (d) => d.properties.location)
+      
+      // add selection event to all points
+      let locations = mapGroup.selectAll('.map-point')
         .on("click", function(e) {
           self.aboutMePopupComponent.popup = e.properties.location;
-          points.each(function(d:any) {
+          locations.each(function(d:any) {
             this.classList.remove('point-select');
           });
           this.classList.add('point-select');
         })
 
-      // bind class off property, then use css to style
-      points.each(function(d:any) {
-        this.classList.add(`map-point--${d.properties.location}`);
-        if (this.dataset.location == 'home') {
-          this.classList.add('point-select');
-        }
-      });
+        // legends..never again
+        var legend = this.svg.append("g")
+          .attr("class", "map-legend")
+          .attr("width", 30)
+          .attr("height", 30)
+
+        legend.selectAll('.map-legend').data(richmondPlaces)
+            .enter().append("path")
+          .filter(d => d.properties.location != 'home')
+            .attr("d", triangle)
+            .attr("transform", (d, i) => `translate(30,${this.height - 30 - ((i+ 1) * 20)})` )
+            .attr("class", d => `map-point--${d.properties.location}`)
+
+        legend.selectAll('.map-legend').data(richmondPlaces)
+            .enter().append("path")
+          .filter(d => d.properties.location == 'home')
+            .attr("d", star)
+            .attr("width", 18)
+            .attr("height", 18)
+            .attr("transform", (d, i) => `translate(30,${this.height - 30 - (i * 20)})` )
+            .attr("class", d => `map-point--${d.properties.location}`)
+
+        legend.selectAll('.map-legend').data(richmondPlaces)
+            .enter().append("text")
+          .filter(d => d.properties.location !== 'home')
+            .attr("x", 50)
+            .attr("y", (d, i) => this.height - 25 - ((i + 1.1)*20)) 
+            .text((d, i) => d.properties.location.toUpperCase());
+
+        legend.selectAll('.map-legend').data(richmondPlaces)
+            .enter().append("text")
+          .filter(d => d.properties.location == 'home')
+            .attr("x", 50)
+            .attr("y", (d, i) => this.height - 25) 
+            .text((d, i) => d.properties.location.toUpperCase());
     });
   }
   @HostListener('window:resize', ['$event.target'])

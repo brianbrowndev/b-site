@@ -7,3 +7,8 @@
   @extend .flex-fill;
   @extend .t2;
 }
+
+.list-group-item.active {
+  background-color: theme(logo);
+  border-color: theme(logo);
+}

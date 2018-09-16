@@ -10,6 +10,7 @@ import { NotfoundComponent } from '@app/core/notfound/notfound.component';
 import { LoadingComponent } from '@app/core/loading/loading.component';
 import { AboutComponent } from '@app/core/about/about.component';
 import { PanelComponent } from './panel/panel.component';
+import { PanelSidebarComponent } from './panel-sidebar/panel-sidebar.component';
 
 // services
 import { PagesService } from '@app/core/services/pages.service';
@@ -27,10 +28,9 @@ import { PostFooterComponent } from '@app/core/posts/post-footer/post-footer.com
 import { PageComponent } from '@app/core/page/page.component';
 import { PostComponent } from '@app/core/posts/post/post.component';
 
-// Maps
+// Visuals
 import { MapModule } from '@app/maps';
-import { MapsComponent } from './maps/maps.component';
-import { PanelSidebarComponent } from './panel-sidebar/panel-sidebar.component';
+import { VisualsComponent } from './visuals/visuals.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { PanelSidebarComponent } from './panel-sidebar/panel-sidebar.component';
     LoadingComponent,
     AboutComponent,
     PanelComponent,
-    MapsComponent,
+    VisualsComponent,
     PanelSidebarComponent
   ],
   exports: [

@@ -219,23 +219,25 @@ COMPONENTS-MAP
   }
   &:focus {
     fill:theme(link-secondary) !important;
-  }
-  &.map-point--home {
-    fill: theme(primary);
-  }
-  &.map-point--vdot {
-    fill: #f47836;
-  }
-  &.map-point--deq {
-    fill: #0049b8;
-  }
-  &.map-point--dmme {
-    fill: #38b154;
 	}
 	&.point-select{
 		fill: theme(point-select);
 	}
 }
+.map-point--home {
+	fill: #f1c40f;
+}
+.map-point--vdot {
+	fill: #f47836;
+}
+.map-point--deq {
+	fill: #0049b8;
+}
+.map-point--dmme {
+	fill: #38b154;
+}
+
+
 
 /* ==========================================================================
 COMPONENTS-CARDS
