@@ -1,24 +1,41 @@
-<div class="map-cover">
-    <div id="map"></div>
-    <div class="legend">
-        <div class="legend-wrapper">
-            <div class="legend-patch extreme"></div>
-            <span>Extreme</span>
+<map>
+    <ng-container class="map-header">
+        Drought in the Contiguous United States Since 1895
+    </ng-container>
+    <ng-container class="map-content">
+        <div id="map"></div>
+        <div class="legend">
+            <div class="legend-wrapper">
+                <div class="legend-patch extreme"></div>
+                <span>Extreme</span>
+            </div>
+            <div class="legend-wrapper">
+                <div class="legend-patch severe"></div>
+                <span>Severe</span>
+            </div>
+            <div class="legend-wrapper">
+                <div class="legend-patch moderate"></div>
+                <span>Moderate</span>
+            </div>
         </div>
-        <div class="legend-wrapper">
-            <div class="legend-patch severe"></div>
-            <span>Severe</span>
+        <div class="buttons">
+            <i (click)="leftClick($event)" class="fa fa-angle-left"></i>
+            <div class="drought-year">{{droughtYear}}</div>
+            <i (click)="rightClick($event)" class="fa fa-angle-right"></i>
         </div>
-        <div class="legend-wrapper">
-            <div class="legend-patch moderate"></div>
-            <span>Moderate</span>
-        </div>
-    </div>
-    <div class="buttons">
-        <i (click)="leftClick($event)" class="fa fa-angle-left"></i>
-        <div class="drought-year">{{droughtYear}}</div>
-        <i (click)="rightClick($event)" class="fa fa-angle-right"></i>
-    </div>
-</div>
-
-
+    </ng-container>
+    <ng-container class="map-description">
+        <p>
+            This is my first D3 map. I don't expect you to learn anything useful. This was mostly just an exercise in 
+            learning how to:
+        </p>
+        <ul>
+            <li>Draw a map of things</li>
+            <li>Visualize a secondary data source on the map</li>
+        </ul>
+    </ng-container>
+    <ng-container class="map-footer">
+        Source: <a href="https://www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_1_states_provinces_lakes.zip">Natural Earth, </a>
+        <a href="ftp://ftp.ncdc.noaa.gov/pub/data/cirs/climdiv/climdiv-pdsist-v1.0.0-2015100">NOAA</a>
+    </ng-container>
+</map>

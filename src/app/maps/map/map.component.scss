@@ -1,9 +1,9 @@
+@import 'styles';
+
 :host {
-  display:flex;
-  flex-direction:column;
-  flex:1;
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .flex-fill;
+  height:100%;
 }
 
-.flex-max {
-    flex:1;
-}

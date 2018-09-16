@@ -1,7 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Post } from '@app/core/models/post';
-import { PostsService } from '@app/core/services/posts.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 
@@ -11,26 +8,11 @@ import { PostsService } from '@app/core/services/posts.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  map;
-  constructor(
-    public route: ActivatedRoute,
-    public ps: PostsService
-  ) { }
+  @Input() hasDescription:boolean = true;
+  constructor() { }
 
 
   ngOnInit() {
-    this.route.params.subscribe(params =>  
-       Object.keys(this.ps.posts).some(k => {
-         let post = this.ps.posts[k];
-         if (post.key === params['map']) {
-            this.map = post.map
-            return true;
-         }
-         return false;
-       }) 
-   
-    )
- 
   }
 
 

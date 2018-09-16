@@ -1,7 +1,5 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'theme.scss';
-@import 'post/post.scss';
-@import 'map/map.scss';
 
 /**
  * CONTENTS
@@ -171,17 +169,9 @@ ul {
 }
 
 p {
-	@extend .t1;
+	// @extend .t1;
 	margin-bottom: spacing(medium);
 	margin-top:0;
-}
-
-.keyword{
-	background:theme(secondary);
-	padding:.1em;
-}
-.text-center {
-	text-align:center;
 }
 
 
@@ -213,11 +203,14 @@ COMPONENTS-MAP
   overflow:visible;
   // margin-bottom:1rem;
 }
-.map-legend {
-  position: absolute;
-  top:0;
-  left:0;
+.map-body {
+	overflow-y: auto;
+	@extend.p-4;
 }
+.map-footer {
+	@extend .pl-4;
+}
+
 .map-point {
   fill: theme(primary);
   cursor:pointer;
@@ -250,8 +243,12 @@ COMPONENTS-CARDS
 
 .card-primary {
   border: 4px double theme(border);
-  @extend .p-4;
-  @extend .shadow;
+	@extend .shadow;
+	background-color:theme(background-light);
+}
+
+.card-sidebar-right {
+	border-left: 4px solid theme(secondary);
 }
 
 /* ==========================================================================

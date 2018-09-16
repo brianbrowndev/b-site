@@ -1,20 +1,9 @@
+@import 'styles';
 :host {
-    display:flex;
     flex:1;
-    justify-content:center;
-    align-items:center;
+    height:100%;
 }
 
-.map-cover {
-    background: #FFFFFF;
-}
-
-#map {
-    display:flex;
-    flex:1;
-    justify-content:center;
-    align-items:center;
-}
 .legend {
   display:flex;
   flex-direction:row;

@@ -3,11 +3,8 @@
 :host {
   @extend .d-flex;
   @extend .flex-row;
-  @extend .card-primary;
-  @extend .mx-4;
-  height:80vh;
-  max-width:130rem;
-  flex:1;
+  @extend .flex-fill;
+  @extend .h-100;
 }
 
 #map {

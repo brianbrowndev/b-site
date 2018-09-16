@@ -1,7 +1,15 @@
-<section class="d-flex flex-fill align-items-center position-relative col-lg-8 px-0">
-    <h6 class="map-legend">City of Richmond - Projects</h6>
-    <div class="map-item" id="map" #map></div>
-</section>
+<!-- <section class="d-flex flex-fill align-items-center position-relative col-lg-8 px-0">
+    <h6 class="map-legend"></h6>
+</section> -->
+<map class="col-lg-8 px-0 h-100" [hasDescription]="false">
+    <ng-container class="map-header">
+        City of Richmond - Projects
+    </ng-container>
+    <ng-container class="map-content">
+        <div class="map-item h-100" id="map" #map></div>
+    </ng-container>
+</map>
 <section class="d-flex col-lg-4 px-0">
     <about-me-popup></about-me-popup>
 </section>
+

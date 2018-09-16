@@ -9,6 +9,7 @@ import { MastheadComponent } from '@app/core/masthead/masthead.component';
 import { NotfoundComponent } from '@app/core/notfound/notfound.component';
 import { LoadingComponent } from '@app/core/loading/loading.component';
 import { AboutComponent } from '@app/core/about/about.component';
+import { PanelComponent } from './panel/panel.component';
 
 // services
 import { PagesService } from '@app/core/services/pages.service';
@@ -28,6 +29,8 @@ import { PostComponent } from '@app/core/posts/post/post.component';
 
 // Maps
 import { MapModule } from '@app/maps';
+import { MapsComponent } from './maps/maps.component';
+import { PanelSidebarComponent } from './panel-sidebar/panel-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { MapModule } from '@app/maps';
     PostFooterComponent,
     NotfoundComponent,
     LoadingComponent,
-    AboutComponent
+    AboutComponent,
+    PanelComponent,
+    MapsComponent,
+    PanelSidebarComponent
   ],
   exports: [
     MastheadComponent

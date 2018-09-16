@@ -1,1 +1,17 @@
-<dcl-wrapper [type]="map" class="post-map flex-max"></dcl-wrapper>
+<div class="map-body d-flex flex-column h-100">
+    <h6 class="map-legend">
+        <ng-content select=".map-header"></ng-content>
+    </h6>
+    <div class="map-content my-5 flex-fill">
+        <ng-content select=".map-content"></ng-content>
+    </div>
+    <div class="map-description d-flex flex-fill flex-column pb-5 t1" *ngIf="hasDescription">
+        <div class="col-8 mx-auto ">
+            <ng-content select=".map-description"></ng-content>
+        </div>
+    </div>
+</div>
+
+<div class="map-footer">
+    <ng-content select=".map-footer"></ng-content>
+</div>
