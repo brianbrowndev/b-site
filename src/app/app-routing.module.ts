@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './core/home/home.component';
-import { PageComponent } from './core/page/page.component';
-import { PostComponent } from './core/posts/post/post.component';
-import { VisualComponent } from './visuals/visual/visual.component';
+// Core
 import { NotfoundComponent } from './core/notfound/notfound.component';
 import { AboutComponent } from './core/about/about.component';
 import { VisualsComponent } from './core/visuals/visuals.component';
+
+
+// Visuals
+import { SpendingHistoryComponent } from './visuals/spending-history/spending-history.component';
 import { UsDroughtComponent } from './visuals/us-drought/us-drought.component';
 
 
@@ -22,13 +23,18 @@ const appRoutes: Routes = [
     data: {title: 'Visuals'},
     children: [
         {
+            path: 'spending',
+            component: SpendingHistoryComponent,
+            data: {title: 'Visual - Spending'},
+        },
+        {
             path: 'drought',
             component: UsDroughtComponent,
             data: {title: 'Maps - Drought'},
         },
         { 
           path: '', 
-          redirectTo: 'drought', 
+          redirectTo: 'spending', 
           pathMatch: 'full'
         }
 
