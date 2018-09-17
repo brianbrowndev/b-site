@@ -1,0 +1,17 @@
+<div class="visual-body d-flex flex-column h-100">
+    <h6 class="visual-legend">
+        <ng-content select=".visual-header"></ng-content>
+    </h6>
+    <div class="visual-content my-5 flex-fill">
+        <ng-content select=".visual-content"></ng-content>
+    </div>
+    <div class="visual-description d-flex flex-fill flex-column pb-5 t1" *ngIf="hasDescription">
+        <div class="col-8 mx-auto ">
+            <ng-content select=".visual-description"></ng-content>
+        </div>
+    </div>
+</div>
+
+<div class="visual-footer">
+    <ng-content select=".visual-footer"></ng-content>
+</div>

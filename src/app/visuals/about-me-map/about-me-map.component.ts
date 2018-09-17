@@ -7,7 +7,7 @@ import * as d3Ease from 'd3-ease';
 import * as d3Shape from 'd3-shape';
 import 'd3-transition';
 import * as topojson from 'topojson-client';
-import { MapUtilities } from '@app/maps/map-utilities';
+import { MapUtilities } from '../map-utilities';
 import { forkJoin, from, Subject } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 

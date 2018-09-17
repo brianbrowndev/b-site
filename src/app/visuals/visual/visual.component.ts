@@ -3,11 +3,11 @@ import { Component, OnInit, Input } from '@angular/core';
 
 
 @Component({
-  selector: 'map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  selector: 'visual',
+  templateUrl: './visual.component.html',
+  styleUrls: ['./visual.component.scss']
 })
-export class MapComponent implements OnInit {
+export class VisualComponent implements OnInit {
   @Input() hasDescription:boolean = true;
   constructor() { }
 

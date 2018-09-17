@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // modules
 import { CoreModule } from './core';
-import { MapModule } from './maps';
+import { VisualModule } from './visuals';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { MapModule } from './maps';
     CommonModule,
     BrowserModule,
     CoreModule,
-    MapModule,
+    VisualModule,
     HttpClientModule,
     AppRoutingModule
   ],

@@ -189,6 +189,19 @@ p {
 }
 
 /* ==========================================================================
+COMPONENTS-VISUALS
+========================================================================== */
+
+.visual-body {
+	overflow-y: auto;
+	@extend.p-4;
+}
+.visual-footer {
+	@extend .pl-4;
+}
+
+
+/* ==========================================================================
 COMPONENTS-MAP
 ========================================================================== */
 
@@ -203,14 +216,6 @@ COMPONENTS-MAP
   overflow:visible;
   // margin-bottom:1rem;
 }
-.map-body {
-	overflow-y: auto;
-	@extend.p-4;
-}
-.map-footer {
-	@extend .pl-4;
-}
-
 .map-point {
   fill: theme(primary);
   cursor:pointer;

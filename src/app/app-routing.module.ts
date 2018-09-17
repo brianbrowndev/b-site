@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
 import { PageComponent } from './core/page/page.component';
 import { PostComponent } from './core/posts/post/post.component';
-import { MapComponent } from './maps/map/map.component';
+import { VisualComponent } from './visuals/visual/visual.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
 import { AboutComponent } from './core/about/about.component';
 import { VisualsComponent } from './core/visuals/visuals.component';
-import { UsDroughtComponent } from './maps/us-drought/us-drought.component';
+import { UsDroughtComponent } from './visuals/us-drought/us-drought.component';
 
 
 const appRoutes: Routes = [

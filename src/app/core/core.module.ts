@@ -29,7 +29,7 @@ import { PageComponent } from '@app/core/page/page.component';
 import { PostComponent } from '@app/core/posts/post/post.component';
 
 // Visuals
-import { MapModule } from '@app/maps';
+import { VisualModule } from '@app/visuals';
 import { VisualsComponent } from './visuals/visuals.component';
 
 @NgModule({
@@ -56,7 +56,7 @@ import { VisualsComponent } from './visuals/visuals.component';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    MapModule
+    VisualModule
   ],
   providers: [
     MarkdownService,
