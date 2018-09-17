@@ -166,14 +166,14 @@ export class AboutMeMapComponent implements OnInit {
           .filter(d => d.properties.location !== 'home')
             .attr("x", 50)
             .attr("y", (d, i) => this.height - 25 - ((i + 1.1)*20)) 
-            .text((d, i) => d.properties.location.toUpperCase());
+            .text((d, i) => d.properties.label);
 
         legend.selectAll('.map-legend').data(richmondPlaces)
             .enter().append("text")
           .filter(d => d.properties.location == 'home')
             .attr("x", 50)
             .attr("y", (d, i) => this.height - 25) 
-            .text((d, i) => d.properties.location.toUpperCase());
+            .text((d, i) => d.properties.label);
     });
   }
   @HostListener('window:resize', ['$event.target'])
