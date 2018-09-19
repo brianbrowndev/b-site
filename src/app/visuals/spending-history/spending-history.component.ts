@@ -47,7 +47,7 @@ export class SpendingHistoryComponent implements OnInit {
   draw() {
     
     this.width = this.graph.nativeElement.clientWidth - this.margin;
-    this.height = this.cellSize * 10 - this.margin
+    this.height = this.cellSize * 10 + this.margin
     // this.height = Math.ceil((this.width * 9) / 16);
 
     this.svg = d3Selection.select(this.graph.nativeElement).append("svg")
@@ -57,29 +57,64 @@ export class SpendingHistoryComponent implements OnInit {
     from<Array<{transactionCount: number, date:string}>>(d3Fetch.json(this.spendingUrl))
       .subscribe(data => {
         const formatTime = d3TimeFormat.timeFormat("%Y-%m-%d");
+        const formatMonth = d3TimeFormat.timeFormat("%b");
 
         const today = d3Time.timeMonth.offset(new Date(), -3);
         const yearAgo = d3Time.timeYear.offset(today, -1);
-        const days = d3Time.timeDay.range(yearAgo, today);
+        const months = d3Time.timeMonth.range(yearAgo, d3Time.timeMonth.ceil(today));
+         this.svg.append("g")
+          .selectAll('text')
+          .data(months)
+          .enter().append("text")
+              .attr("transform", (d) => `translate(${d3Time.timeMonth.count(yearAgo, d) * (this.cellSize * 4.25)},${this.margin/2})`)
+              .attr("font-family", "sans-serif")
+              .attr("font-size", 12)
+              .attr("text-anchor", "middle")
+              .text((d) => formatMonth(d) );
+
+        let days = d3Time.timeDay.range(yearAgo, today).map(d => {return {date: d, count:0}});
         let recentTransactions = data.filter(d => d.date > formatTime(yearAgo));
+        days.forEach(d => {
+            let transaction = recentTransactions.find(r => r.date == formatTime(d.date));
+            d.count = transaction != null ? transaction.transactionCount : 0;
+        })
         let max = recentTransactions.reduce((a,b) => a.transactionCount > b.transactionCount ? a : b).transactionCount;
-        let colors = d3ScaleChromatic.schemeGreens[9];
+        let colors = ["#fafafa", ...d3ScaleChromatic.schemeGreens[max+1]];
+
+
+        let tooltip = d3Selection.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("opacity", 0);
 
         let rect = this.svg.append("g")
-            .attr("stroke", "#ccc")
           .selectAll("rect")
           .data(days)
           .enter().append("rect")
-            // TODO data joins the d3 way
-            .attr("fill", (d) => {
-              let transaction = recentTransactions.find(r => r.date == formatTime(d))
-              return colors[transaction != null ? transaction.transactionCount : 0];
-            })
+            // TODO data joins the d3 way`
+            .attr("fill", (d) => colors[d.count])
             .attr("width", this.cellSize)
             .attr("height", this.cellSize)
-            .attr("x", (d) => d3Time.timeWeek.count(yearAgo, d) * this.cellSize) 
-            .attr("y", (d) => d.getDay() * this.cellSize)
-            .datum(d3TimeFormat.timeFormat("%Y-%m-%d"));
+            .attr("x", (d) => d3Time.timeWeek.count(yearAgo, d.date) * this.cellSize) 
+            .attr("y", (d) => d.date.getDay() * this.cellSize + this.margin)
+            .on('click', d => console.log(d))
+            .on("mouseover", d => {
+              tooltip.transition()
+                .duration(200)
+                .style("opacity", 1)
+              let count = "No transactions";
+              if (d.count == 1) count = `${d.count} transaction`;
+              if (d.count > 1) count = `${d.count} transactions`;
+              tooltip.html(`${count} on ${formatTime(d.date)}`)
+                .style("left", (d3Selection.event.pageX) + "px")
+                .style("top", (d3Selection.event.pageY - 28) + "px");
+            })
+            .on("mouseout", (d) =>
+              tooltip.transition()
+                .duration(500)
+                .style("opacity", 0)
+            );
+
+
 
 
 

@@ -200,6 +200,18 @@ COMPONENTS-VISUALS
 	@extend .pl-4;
 }
 
+.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 15rem;					
+    height:5rem;					
+    padding: 0.5rem;				
+    font-size:1.2rem;
+    border-radius:8px;
+    pointer-events: none;			
+    border: 1px solid rgba(1,1,1,0.05);
+    background:#fff;
+}
 
 /* ==========================================================================
 COMPONENTS-MAP
