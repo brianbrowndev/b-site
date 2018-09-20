@@ -194,19 +194,48 @@ COMPONENTS-VISUALS
 
 .visual-body {
 	overflow-y: auto;
-	@extend.p-4;
+	@extend .p-4;
 }
 .visual-footer {
 	@extend .pl-4;
+}
+
+.visual-text {
+	font-family: $font-primary;
+	font-size:1.2rem;
+}
+
+.visual-legend {
+	@extend .d-flex;
+	@extend .flex-row;
+	@extend .w-100;
+	@extend .t3;
+}
+
+.legend-item {
+	@extend .d-flex;
+	@extend .flex-row;
+	@extend .align-items-center;
+	& > span {
+		@extend .ml-2;
+	}
+}
+
+.patch {
+	width:16px;
+	height:16px;
+}
+.patch--red {
+	border:3px solid #e74c3c;
 }
 
 .tooltip {	
     position: absolute;			
     text-align: center;			
     width: 15rem;					
-    height:5rem;					
-    padding: 0.5rem;				
-    font-size:1.2rem;
+	height:5rem;					
+	@extend .p-3;
+	@extend .t3;
     border-radius:8px;
     pointer-events: none;			
     border: 1px solid rgba(1,1,1,0.05);

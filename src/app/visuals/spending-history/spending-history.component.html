@@ -3,13 +3,19 @@
         Credit Card Swipes Per Day
     </ng-container>
     <ng-container class="visual-content">
-        <div class="d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex h-100 flex-column align-items-center justify-content-center">
             <div class="w-100" id="graph" #graph></div>
+            <div class="visual-legend">
+                <div class="legend-item">
+                    <div class="patch patch--red"></div>
+                    <span>Major Holiday</span>
+                </div>
+            </div>
         </div>
     </ng-container>
     <ng-container class="visual-description">
         <p>
-            Work in progress. Inspired by the <a href="https://gitlab.com/bgeo">Gitlab activity chart</a>, see how often
+            Inspired by the <a href="https://gitlab.com/bgeo">Gitlab activity chart</a>, see how often
             I am swiping the credit card by hovering over the squares.
         </p>
     </ng-container>

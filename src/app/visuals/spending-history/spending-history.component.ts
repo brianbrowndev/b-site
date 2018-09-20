@@ -27,6 +27,8 @@ export class SpendingHistoryComponent implements OnInit {
   svg;
   changeSize = new Subject();
   spendingUrl: string = `${environment.budget}/api/public/finance/transactions-per-day`;
+
+  readonly holidays = ["01-01", "05-28", "07-04", "09-03", "12-25", "11-22", "12-30"]
   constructor(
   ) { }
 
@@ -58,29 +60,31 @@ export class SpendingHistoryComponent implements OnInit {
         const formatTime = d3TimeFormat.timeFormat("%Y-%m-%d");
         const formatMonth = d3TimeFormat.timeFormat("%b");
         const formatDay = d3TimeFormat.timeFormat("%a %b %d, %Y");
+        const formatHoliday = d3TimeFormat.timeFormat("%m-%d");
 
         const today = d3Time.timeMonth.offset(new Date(), -3);
         const yearAgo = d3Time.timeYear.offset(today, -1);
-        const months = d3Time.timeMonth.range(yearAgo, d3Time.timeMonth.ceil(today));
-         this.svg.append("g")
+        const months = d3Time.timeMonth.range(yearAgo, d3Time.timeMonth.ceil(today)).map(d => d3Time.timeDay.offset(d, 15));
+
+        this.svg.append("g")
+          .attr("transform", `translate(${this.margin},0)`)
           .selectAll('text')
           .data(months)
           .enter().append("text")
-              .attr("transform", (d) => `translate(${d3Time.timeMonth.count(yearAgo, d) * (this.cellSize * 4.4)},${this.margin/2})`)
-              .attr("font-family", "sans-serif")
-              .attr("font-size", 12)
+              // .attr("transform", (d) => `translate(${d3Time.timeMonth.count(yearAgo, d) * (this.cellSize * 4.4)},${this.margin/2})`)
+              .attr("transform", (d) => `translate(${d3Time.timeWeek.count(yearAgo, d) * (this.cellSize)},${this.margin/2})`)
               .attr("text-anchor", "middle")
+              .attr("class", "visual-text")
               .text((d) => formatMonth(d) );
 
-        let days = d3Time.timeDay.range(yearAgo, today).map(d => {return {date: d, count:0}});
+        let days = d3Time.timeDay.range(yearAgo, today).map(d => {return {date: d, count:0, holiday:false}});
         let recentTransactions = data.filter(d => d.date > formatTime(yearAgo));
         days.forEach(d => {
             let transaction = recentTransactions.find(r => r.date == formatTime(d.date));
             d.count = transaction != null ? transaction.transactionCount : 0;
+            if (this.holidays.includes(formatHoliday(d.date))) d.holiday = true;
         })
         let max = recentTransactions.reduce((a,b) => a.transactionCount > b.transactionCount ? a : b).transactionCount;
-        let colors = ["#fafafa", ...d3ScaleChromatic.schemeGreens[max+1]];
-
 
         let tooltip = d3Selection.select("body").append("div")
           .attr("class", "tooltip")
@@ -89,11 +93,11 @@ export class SpendingHistoryComponent implements OnInit {
         let rect = this.svg.append("g")
           .attr("transform", `translate(${this.margin},0) `)
           .selectAll("rect")
-          .data(days)
+          .data(days.sort((a,b) => a.holiday ? 1 : 0))
           .enter().append("rect")
-            .attr("stroke", "#FFFFFF")
+            .attr("stroke", d => d.holiday ? "#e74c3c" : "#FFFFFF")
             .attr("stroke-width", "3")
-            .attr("fill", (d) => colors[d.count])
+            .attr("class", (d) => `transaction-${d.count}`)
             .attr("width", this.cellSize)
             .attr("height", this.cellSize)
             .attr("x", (d) => d3Time.timeWeek.count(yearAgo, d.date) * this.cellSize) 
