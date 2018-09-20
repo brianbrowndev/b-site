@@ -48,7 +48,6 @@ export class SpendingHistoryComponent implements OnInit {
     
     this.width = this.graph.nativeElement.clientWidth - this.margin;
     this.height = this.cellSize * 10 + this.margin
-    // this.height = Math.ceil((this.width * 9) / 16);
 
     this.svg = d3Selection.select(this.graph.nativeElement).append("svg")
       .attr("width", this.width)
@@ -58,6 +57,7 @@ export class SpendingHistoryComponent implements OnInit {
       .subscribe(data => {
         const formatTime = d3TimeFormat.timeFormat("%Y-%m-%d");
         const formatMonth = d3TimeFormat.timeFormat("%b");
+        const formatDay = d3TimeFormat.timeFormat("%a %b %d, %Y");
 
         const today = d3Time.timeMonth.offset(new Date(), -3);
         const yearAgo = d3Time.timeYear.offset(today, -1);
@@ -66,7 +66,7 @@ export class SpendingHistoryComponent implements OnInit {
           .selectAll('text')
           .data(months)
           .enter().append("text")
-              .attr("transform", (d) => `translate(${d3Time.timeMonth.count(yearAgo, d) * (this.cellSize * 4.25)},${this.margin/2})`)
+              .attr("transform", (d) => `translate(${d3Time.timeMonth.count(yearAgo, d) * (this.cellSize * 4.4)},${this.margin/2})`)
               .attr("font-family", "sans-serif")
               .attr("font-size", 12)
               .attr("text-anchor", "middle")
@@ -87,16 +87,17 @@ export class SpendingHistoryComponent implements OnInit {
           .style("opacity", 0);
 
         let rect = this.svg.append("g")
+          .attr("transform", `translate(${this.margin},0) `)
           .selectAll("rect")
           .data(days)
           .enter().append("rect")
-            // TODO data joins the d3 way`
+            .attr("stroke", "#FFFFFF")
+            .attr("stroke-width", "3")
             .attr("fill", (d) => colors[d.count])
             .attr("width", this.cellSize)
             .attr("height", this.cellSize)
             .attr("x", (d) => d3Time.timeWeek.count(yearAgo, d.date) * this.cellSize) 
             .attr("y", (d) => d.date.getDay() * this.cellSize + this.margin)
-            .on('click', d => console.log(d))
             .on("mouseover", d => {
               tooltip.transition()
                 .duration(200)
@@ -104,7 +105,7 @@ export class SpendingHistoryComponent implements OnInit {
               let count = "No transactions";
               if (d.count == 1) count = `${d.count} transaction`;
               if (d.count > 1) count = `${d.count} transactions`;
-              tooltip.html(`${count} on ${formatTime(d.date)}`)
+              tooltip.html(`${count} on </br> ${formatDay(d.date)}`)
                 .style("left", (d3Selection.event.pageX) + "px")
                 .style("top", (d3Selection.event.pageY - 28) + "px");
             })
