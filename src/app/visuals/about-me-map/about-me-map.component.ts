@@ -75,8 +75,8 @@ export class AboutMeMapComponent implements OnInit {
     ).subscribe(([richmondJson, placesJson]) => {
 
       let self = this;
-      let richmond = topojson.feature(richmondJson, richmondJson["objects"].richmond).features[0];
-      let richmondPlaces = topojson.feature(placesJson, placesJson["objects"].richmond).features;
+      let richmond = topojson.feature(richmondJson, richmondJson["objects"]['richmond']).features[0];
+      let richmondPlaces = topojson.feature(placesJson, placesJson["objects"]['richmond']).features;
 
       let delay = 0;
       let duration = 0;

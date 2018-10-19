@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
+import { Observable ,  throwError } from 'rxjs';
+import { catchError ,  map } from 'rxjs/operators';
 
 import * as hljs from 'highlightjs';
 import * as md from 'markdown-it';
@@ -32,12 +30,7 @@ export class MarkdownService {
   ) { 
   }
   getContent(path): Observable<any> {
-    return this.http.get(path, {responseType: 'text'})
-      .pipe(
-          map(this.extractData),
-          catchError(this.handleError)
-      );
-
+    return this.http.get(path, {responseType: 'text'});
   }
 
   extractData(res: Response) {
