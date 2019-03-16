@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  tilesEndpoint: "https://tiles.bgeo.io",
-  budget: "https://budgetapi.bgeo.io"
+  tilesEndpoint: "https://tiles.brianbrown.dev",
+  budget: "https://budgetapi.brianbrown.dev"
 };

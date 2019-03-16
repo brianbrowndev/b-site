@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  tilesEndpoint: "https://tiles.bgeo.io",
+  tilesEndpoint: "https://tiles.brianbrown.dev",
   budget: "http://localhost:5000"
 };
