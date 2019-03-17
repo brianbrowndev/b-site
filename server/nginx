@@ -1,5 +1,5 @@
-# sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-# sudo ln -s /etc/nginx/sites-avalable/brianbrown.dev /etc/nginx/sites-enabled/brianbrown.dev
+# sudo vim /etc/nginx/sites-available/brianbrown.dev
+# sudo ln -s /etc/nginx/sites-available/brianbrown.dev /etc/nginx/sites-enabled/brianbrown.dev
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
