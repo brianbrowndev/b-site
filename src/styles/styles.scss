@@ -148,6 +148,23 @@ ul {
 
 }
 
+.link-primary {
+	font-size:1.3rem;
+	letter-spacing:0.1em;
+	@extend .link-none;
+	&:not(:last-child) {
+		@extend .mr-5;
+	}
+	&:focus {
+		background-image: $link-underline;    
+	}
+	&:hover {
+		background-image: $link-underline;
+	}
+
+}
+
+
 
 .t1
 .t2

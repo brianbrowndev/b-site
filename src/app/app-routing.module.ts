@@ -10,6 +10,7 @@ import { VisualsComponent } from './core/visuals/visuals.component';
 // Visuals
 import { SpendingHistoryComponent } from './visuals/spending-history/spending-history.component';
 import { UsDroughtComponent } from './visuals/us-drought/us-drought.component';
+import { AppsOverviewComponent } from './core/apps/apps-overview/apps-overview.component';
 
 
 const appRoutes: Routes = [
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
 
     ]
   },
+  { path: 'apps', component: AppsOverviewComponent, data: {title: 'Apps'}},
   { path: 'about', component: AboutComponent, data: {title: 'About'}},
   { path: '', redirectTo: '/about', pathMatch: 'full'},
   { path: '**', component: NotfoundComponent, data: {title: 'Not Found'}}

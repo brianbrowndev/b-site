@@ -27,6 +27,7 @@ import { PostHeaderComponent } from '@app/core/posts/post-header/post-header.com
 import { PostFooterComponent } from '@app/core/posts/post-footer/post-footer.component';
 import { PageComponent } from '@app/core/page/page.component';
 import { PostComponent } from '@app/core/posts/post/post.component';
+import { AppsOverviewComponent } from './apps/apps-overview/apps-overview.component';
 
 // Visuals
 import { VisualModule } from '@app/visuals';
@@ -49,7 +50,8 @@ import { FooterComponent } from './footer/footer.component';
     PanelComponent,
     VisualsComponent,
     PanelSidebarComponent,
-    FooterComponent
+    FooterComponent,
+    AppsOverviewComponent
   ],
   exports: [
     MastheadComponent
