@@ -3,12 +3,17 @@ import { Title }     from '@angular/platform-browser';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { mergeMap, map, filter } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-root',
   template: `
     <masthead></masthead>
-    <router-outlet></router-outlet>
-  `
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <footer></footer>
+  `,
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   constructor(
@@ -33,7 +38,7 @@ export class AppComponent implements OnInit {
         map((data) => {
           return data.title
         })
-    ).subscribe(title => this.titleService.setTitle(`${title} | bgeo`));
+    ).subscribe(title => this.titleService.setTitle(`${title} | brian brown`));
   }
 
 }

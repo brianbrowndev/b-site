@@ -1,15 +1,20 @@
 @import 'styles';
 
+header {
+  background: theme(background-light);
+  border-bottom:2px solid theme(secondary);
+}
+
+.content-top {
+  z-index:2;
+
+}
+
 .masthead-logo {
-  flex:0 1;
-  font-size:2.6rem;
-  width:40px;
-  height:40px;
-  letter-spacing:-1px;
-  border-radius:999px;
-  border: 3.5px solid theme(logo);
-  color:theme(logo);
-  opacity:0.8;
+    opacity:0.9;
+    font-size:1.8rem;
+    letter-spacing:0.01px;
+    @extend .link-none;
 
   &:hover {
     opacity:1;
@@ -20,6 +25,9 @@
   & a {
     @extend .link-none;
     color:inherit;
+  }
+  & span {
+    white-space: nowrap;
   }
 }
 
@@ -44,4 +52,15 @@ nav {
     background-image: $link-underline;
   }
 
+}
+
+.link-list {
+  z-index:2;
+}
+.list-inline {
+  .list-inline-item{
+    &:not(:last-child) {
+      @extend .mr-4;
+    }
+  }
 }

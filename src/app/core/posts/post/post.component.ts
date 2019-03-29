@@ -28,7 +28,7 @@ export class PostComponent implements OnInit {
     this.route.params.subscribe(params =>  
        Object.keys(this.ps.posts).some(k => {
          let post = this.ps.posts[k];
-         this.titleService.setTitle(`${post.title} | bgeo`);
+         this.titleService.setTitle(`${post.title} | brian brown`);
          if (post.key === params['post']) {
             this.post = post;
             if (this.post.map) {

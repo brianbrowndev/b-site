@@ -21,7 +21,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/material-icons/iconfont/material-icons.scss",
               "src/styles/styles.scss"
             ],
             "stylePreprocessorOptions": {
@@ -78,9 +78,7 @@
               "node_modules/mapbox-gl/dist/mapbox-gl.js"
             ],
             "styles": [
-              "src/styles/styles.scss",
-              "node_modules/mapbox-gl/dist/mapbox-gl.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "src/styles/styles.scss"
             ],
             "assets": [
               "src/assets",

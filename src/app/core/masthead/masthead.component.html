@@ -1,18 +1,26 @@
-<header class="fixed-top-absolute d-flex flex-row justify-content-between align-items-center m-3">
-  <div>
-    <h2 class="d-flex justify-content-center align-items-center masthead-logo">
-      <a routerLink="/">{{title}}</a>
+<header class="fixed-top-absolute ">
+  <div class="d-flex flex-row justify-content-between align-items-center m-4">
+    <h2 class="content-top masthead-logo mb-0 text-uppercase font-secondary t1 d-flex">
+      <a routerLink="/" class=" d-flex align-items-center">
+        <i class="material-icons">navigation</i>
+        <span>{{title}}</span>
+      </a>
     </h2>
-  </div>
-  <!-- <nav class="d-flex justify-content-center align-items-center flex-fill text-uppercase">
-    <a class="masthead-link" routerLink="/about" routerLinkActive="active-link">About</a>
-    <a class="masthead-link" routerLink="/posts" routerLinkActive="active-link">Posts</a> -->
-    <!--<a class="masthead-link" routerLink="/maps" routerLinkActive="active-link">Maps</a>-->
-  <!-- </nav> -->
-  <nav class="list-inline container-fluid text-center text-uppercase font-secondary">
-    <a class="list-inline-item" routerLink="/about" routerLinkActive="active-link">About</a>
-    <!-- <a class="list-inline-item" routerLink="/posts" routerLinkActive="active-link">Posts</a> -->
-    <a class="list-inline-item" routerLink="/visuals" routerLinkActive="active-link">Visuals</a>
-  </nav>
+    <!-- <nav class="d-flex justify-content-center align-items-center flex-fill text-uppercase">
+      <a class="masthead-link" routerLink="/about" routerLinkActive="active-link">About</a>
+      <a class="masthead-link" routerLink="/posts" routerLinkActive="active-link">Posts</a> -->
+      <!--<a class="masthead-link" routerLink="/maps" routerLinkActive="active-link">Maps</a>-->
+    <!-- </nav> -->
+    <nav class="list-inline text-center text-uppercase font-secondary w-100 position-fixed">
+      <a class="list-inline-item" routerLink="/about" routerLinkActive="active-link">About</a>
+      <!-- <a class="list-inline-item" routerLink="/posts" routerLinkActive="active-link">Posts</a> -->
+      <a class="list-inline-item" routerLink="/visuals" routerLinkActive="active-link">Visuals</a>
+    </nav>
 
+    <nav class="content-top list-inline text-right text-uppercase font-secondary d-flex">
+      <a class="list-inline-item" href="https://gitlab.com/bgeo"><i class="material-icons">code</i></a>
+      <a class="list-inline-item" href="https://www.linkedin.com/in/brian-brown-20997154/"><i class="material-icons">account_circle</i></a>
+      <!-- <a class="list-inline-item" href="https://stackoverflow.com/users/story/2564609">so</a> -->
+    </nav>
+  </div>
 </header>

@@ -31,6 +31,7 @@ import { PostComponent } from '@app/core/posts/post/post.component';
 // Visuals
 import { VisualModule } from '@app/visuals';
 import { VisualsComponent } from './visuals/visuals.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { VisualsComponent } from './visuals/visuals.component';
     AboutComponent,
     PanelComponent,
     VisualsComponent,
-    PanelSidebarComponent
+    PanelSidebarComponent,
+    FooterComponent
   ],
   exports: [
     MastheadComponent

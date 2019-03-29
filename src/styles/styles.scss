@@ -318,7 +318,11 @@ img.user-image {
   display: block;
   height: 56px;
   width: 56px;
-  margin-right:spacing(medium);
+	margin-right:spacing(medium);
+	&.user-image-full {
+		height:159px;
+		width:159px;
+	}
 }
 
 .round {
@@ -326,7 +330,7 @@ img.user-image {
 }
 
 .fixed-top-absolute {
-  position:absolute;
+  position:fixed;
   left:0;
   right:0;
 }

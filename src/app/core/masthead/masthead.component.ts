@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MastheadComponent implements OnInit {
 
-  title:string  = "b";
+  title:string  = "brian brown";
   constructor() { }
 
   ngOnInit() {
