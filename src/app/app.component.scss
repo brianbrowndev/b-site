@@ -1,10 +1,16 @@
 @import 'styles';
 
 main {
-  @extend .d-flex;
-  @extend .justify-content-center;
-  @extend .align-items-center;
-  @extend .flex-fill;
-  @extend .p-4;
-  height:100vh;
+  // @extend .d-flex;
+  // @extend .justify-content-center;
+  // @extend .align-items-center;
+  // @extend .flex-fill;
+  // @extend .p-4;
+  position:absolute;
+  top:62px;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow-y:auto;
+
 }

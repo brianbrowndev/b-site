@@ -6,21 +6,15 @@
   @extend .align-items-center;
   @extend .flex-fill;
   @extend .t2;
+  overflow-y:auto;
 }
 
 
-a {
-  @extend .d-flex;
-  @extend .flex-row;
-  @extend .card-primary;
-  @extend .link-none;
-  flex:1;
 
-  &:hover {
-      @extend .shadow-lg;
-  }
-  &:focus {
-      @extend .shadow-lg;
-  }
+.spacer {
+  display:flex;
+  flex: 1 1 auto;
+  border-top:2px solid theme(secondary);
+  height:1px;
+  @extend .my-5;
 }
-
