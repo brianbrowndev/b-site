@@ -9,7 +9,24 @@
   height:100%;
 }
 
-.about-image {
-  @extend .shadow-lg;
-  @extend .card-primary;
+
+
+.next {
+  position:fixed;
+  @extend .d-flex;
+  @extend .align-items-center;
+  @extend .justify-content-center;
+  @extend .mr-5;
+  width:5rem;
+  &.right {
+    right:0;
+
+  }
+  &.left {
+    left:0;
+  }
+}
+
+p {
+  @extend .t1;
 }

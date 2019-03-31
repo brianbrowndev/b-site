@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
         map((data) => {
           return data.title
         })
-    ).subscribe(title => this.titleService.setTitle(`${title} | brian brown`));
+    ).subscribe(title => this.titleService.setTitle(`${title} | Brian Brown`));
   }
 
 }

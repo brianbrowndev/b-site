@@ -204,6 +204,25 @@ p {
 	margin-top:0;
 }
 
+.i1 {
+	font-size:5rem;
+}
+
+.icon-link {
+	cursor:pointer;
+	@extend .link-none;
+	opacity:0.85;
+	transition: opacity 0.3s ease;
+	&:focus {
+		opacity:1;
+	}
+	&:hover {
+		opacity:1;
+	}
+}
+
+
+
 
 /* ==========================================================================
 #LAYOUTS
@@ -343,16 +362,18 @@ COMPONENTS-MISC
 	position:fixed;
 }
 img.user-image {
+}
+
+img.image {
+  @extend .shadow-lg;
+	@extend .card-primary;
   -moz-border-radius: 50%;
   border-radius: 50%;
   display: block;
   height: 56px;
   width: 56px;
-	margin-right:spacing(medium);
-	&.user-image-full {
-		height:159px;
-		width:159px;
-	}
+	height:150px;
+	width:150px;
 }
 
 .round {
