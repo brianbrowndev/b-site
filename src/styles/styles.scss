@@ -59,7 +59,7 @@ body {
 	text-rendering:optimizeLegibility;
 	line-height: 1.7;
 	-moz-font-feature-settings: "liga" on;
-	color: theme(dark);
+	color: theme(font);
 	background-color: theme(background);
 }
 
@@ -69,7 +69,6 @@ body {
 app-root {
 	display:flex;
 	flex-direction:column;
-	min-height: 100vh;
 }
 
 
@@ -182,7 +181,7 @@ ul {
 .t1
 .t2
 .t3 {
-	color:theme(dark);
+	color:theme(font);
 	letter-spacing:-0.003em;
 	line-height:1.7;
 }
@@ -243,11 +242,8 @@ COMPONENTS-VISUALS
 
 .visual-body {
 	overflow-y: auto;
-	@extend .p-4;
 }
-.visual-footer {
-	@extend .pl-4;
-}
+
 
 .visual-text {
 	font-family: $font-primary;
@@ -352,6 +348,31 @@ COMPONENTS-CARDS
 COMPONENTS-MISC
 ========================================================================== */
 
+.chip-list {
+	@extend .d-flex;
+	@extend .flex-wrap;
+	& .chip {
+		@extend .mt-1;
+		@extend .mr-1;
+		transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+		border-radius:16px;
+		font-weight:bold;
+		align-items:center;
+		min-height:32px;
+		padding: 0px 12px;
+		display:inline-flex;
+		background: theme(light);
+		font-size:14px;
+
+		&:hover {
+			background: theme(dark);
+		}
+		&:focus {
+			background: theme(dark);
+		}
+	}
+}
+
 .full-width {
 	position:relative;
 	width:100vw;
@@ -361,21 +382,26 @@ COMPONENTS-MISC
 .fixed {
 	position:fixed;
 }
-img.user-image {
-}
 
-img.image {
-  @extend .shadow-lg;
-	@extend .card-primary;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  display: block;
-  height: 56px;
-  width: 56px;
-	height:150px;
-	width:150px;
-}
 
+img {
+ &.image {
+		@extend .shadow-lg;
+		@extend .card-primary;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		display: block;
+		height: 56px;
+		width: 56px;
+		height:150px;
+		width:150px;
+	}
+	&.image.image-small {
+		height:70px;
+		width:70px;
+	}
+
+}
 .round {
   border-radius:8px;
 }

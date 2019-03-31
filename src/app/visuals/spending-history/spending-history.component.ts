@@ -48,7 +48,8 @@ export class SpendingHistoryComponent implements OnInit {
 
   draw() {
     
-    this.width = this.graph.nativeElement.clientWidth - this.margin;
+    // this.width = this.graph.nativeElement.clientWidth - this.margin;
+    this.width = 1000;
     this.height = this.cellSize * 10 + this.margin
 
     this.svg = d3Selection.select(this.graph.nativeElement).append("svg")

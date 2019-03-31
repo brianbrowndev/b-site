@@ -11,6 +11,7 @@ import { VisualsComponent } from './core/visuals/visuals.component';
 import { SpendingHistoryComponent } from './visuals/spending-history/spending-history.component';
 import { UsDroughtComponent } from './visuals/us-drought/us-drought.component';
 import { AppsOverviewComponent } from './core/apps/apps-overview/apps-overview.component';
+import { AboutMeMapComponent } from './visuals/about-me-map/about-me-map.component';
 
 
 const appRoutes: Routes = [
@@ -23,6 +24,11 @@ const appRoutes: Routes = [
     component: VisualsComponent, 
     data: {title: 'Visuals'},
     children: [
+        {
+            path: 'about-me-map',
+            component: AboutMeMapComponent,
+            data: {title: 'Visual - About Me Map'},
+        },
         {
             path: 'spending',
             component: SpendingHistoryComponent,
