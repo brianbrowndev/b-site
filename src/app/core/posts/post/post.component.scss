@@ -1,9 +1,0 @@
-@import 'styles';
-
-:host {
-  @extend .d-flex;
-  @extend .flex-column;
-  @extend .align-items-center;
-  @extend .flex-fill;
-  background:theme(background-light);
-}

@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule }   from '@angular/common';
 
 // Maps
-import { DclWrapper } from './dcl-wrapper/dcl-wrapper.component';
 import { MapUtilities } from './map-utilities';
 import { VisualComponent } from './visual/visual.component';
-import { VectorTilesComponent } from './vector-tiles/vector-tiles.component';
 import { StatesComponent } from './states/states.component';
 import { UsDroughtComponent } from './us-drought/us-drought.component';
 import { AboutMeMapComponent } from './about-me-map/about-me-map.component';
@@ -14,8 +12,6 @@ import { SpendingHistoryComponent } from './spending-history/spending-history.co
 
 const components = [
     VisualComponent,
-    DclWrapper,
-    VectorTilesComponent,
     StatesComponent,
     UsDroughtComponent,
     AboutMeMapComponent,
@@ -32,7 +28,6 @@ const components = [
     MapUtilities
   ],
   entryComponents: [
-    VectorTilesComponent,
     UsDroughtComponent
   ],
 })

@@ -11,7 +11,6 @@ import { mergeMap, map, filter } from 'rxjs/operators';
     <main>
       <router-outlet></router-outlet>
     </main>
-    <footer></footer>
   `,
   styleUrls: ['./app.component.scss']
 })
