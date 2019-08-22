@@ -54,6 +54,6 @@
     "tslint": "~5.11.0",
     "typescript": "3.2.2"
   },
-  "repository": "git@gitlab.com:bgeo/bgeo-site.git",
+  "repository": "git@github.com:brianbrowndev/b-site.git",
   "author": "bgeo <brbrowngeo@gmail.com>"
 }
