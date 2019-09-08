@@ -5,6 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "run": "ng serve --aot",
+    "build": "ng build --prod --aot",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\""
   },
