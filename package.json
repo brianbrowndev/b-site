@@ -1,10 +1,11 @@
 {
   "name": "bgeo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
     "run": "ng serve --aot",
+    "build": "ng build --prod --aot",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\""
   },
