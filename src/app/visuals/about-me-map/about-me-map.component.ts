@@ -18,8 +18,8 @@ import { throttleTime } from 'rxjs/operators';
 })
 export class AboutMeMapComponent implements OnInit {
   //  map components
-  @ViewChild('map') map: ElementRef;
-  @ViewChild(AboutMePopupComponent) aboutMePopupComponent: AboutMePopupComponent;
+  @ViewChild('map', { static: true }) map: ElementRef;
+  @ViewChild(AboutMePopupComponent, { static: true }) aboutMePopupComponent: AboutMePopupComponent;
   data: {[key: string]: string } = {
     richmond: "/assets/page/about/richmond.topo.json",
     places: "/assets/page/about/places.topo.json"

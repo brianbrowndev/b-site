@@ -18,7 +18,7 @@ import { environment } from '@env/environment';
 export class SpendingHistoryComponent implements OnInit {
 
   //  map components
-  @ViewChild('graph') graph: ElementRef;
+  @ViewChild('graph', { static: true }) graph: ElementRef;
 
   width: number;
   height: number;
@@ -79,7 +79,7 @@ export class SpendingHistoryComponent implements OnInit {
               .text((d) => formatMonth(d) );
 
         let days = d3Time.timeDay.range(yearAgo, today).map(d => {return {date: d, count:0, holiday:false}});
-        let recentTransactions = data.filter(d => d.date > formatTime(yearAgo));
+        let recentTransactions = (data as any).filter(d => d.date > formatTime(yearAgo));
         days.forEach(d => {
             let transaction = recentTransactions.find(r => r.date == formatTime(d.date));
             d.count = transaction != null ? transaction.transactionCount : 0;
