@@ -28,5 +28,5 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
         SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
       with: 
-        args: $GITHUB_WORKSPACE/build/ jenkins@$HOST_NAME:/var/www/bgeo/
+        args: $GITHUB_WORKSPACE/dist/ jenkins@$HOST_NAME:/var/www/bgeo/
 
