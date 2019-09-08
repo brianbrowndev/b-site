@@ -17,7 +17,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Assets
 
 Assets are sourced from my Dropbox, e.g. 
-ln -s ~/Dropbox/Programming/Websites/bgeo-site/assets/ ~/Documents/gitlab/bgeo-site/src
+ln -s /home/mara/box/websites/bgeo-site/assets/ /home/mara/git/b-site/src
 
 
 ## Further help

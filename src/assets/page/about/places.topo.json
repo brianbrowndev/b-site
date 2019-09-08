@@ -1,0 +1,37 @@
+{
+  "type": "Topology",
+  "objects": {
+    "richmond": {
+      "type": "GeometryCollection",
+      "geometries": [{
+        "type": "Point",
+        "coordinates": [-77.411704, 37.528466],
+        "properties": {
+          "location": "home",
+          "label": "Me"
+        }
+      }, {
+        "type": "Point",
+        "coordinates": [-77.424773, 37.539164],
+        "properties": {
+          "location": "vdot",
+          "label": "Virginia Department of Transportation"
+        }
+      },{
+        "type": "Point",
+        "coordinates": [-77.438852,37.531611],
+        "properties": {
+          "location": "deq",
+          "label": "Department of Environmental Quality"
+        }
+      },{
+        "type": "Point",
+        "coordinates": [-77.433293, 37.537638 ],
+        "properties": {
+          "location": "dmme",
+          "label": "Department of Mines, Minerals, and Energy"
+        }
+      }]
+    }
+  }
+}
