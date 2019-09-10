@@ -8,7 +8,7 @@
     "build": "ng build --prod --aot",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
-    "publish": "rsync -a ./dist/ bgeo@159.203.127.52:/var/www/bgeo/"
+    "publish": "rsync -a ./dist/ bgeo@brianbrow.dev:/var/www/bgeo/"
   },
   "private": true,
   "dependencies": {
