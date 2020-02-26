@@ -44,9 +44,11 @@
     "material-icons": "^0.3.0",
     "rxjs": "6.5.3",
     "topojson-client": "^3.0.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "tslib": "1.11.0"
   },
   "devDependencies": {
+    "@angular-devkit/schematics": "9.0.3",
     "@angular-devkit/build-angular": "~0.803.3",
     "@angular/cli": "8.3.3",
     "@angular/compiler-cli": "^8.2.5",
