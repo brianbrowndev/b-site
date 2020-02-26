@@ -15,10 +15,10 @@ jobs:
 
     - uses: actions/checkout@master
 
-    - name: Use Node.js 10.x
+    - name: Use Node.js 12.x
       uses: actions/setup-node@master
       with:
-        version: 10.x
+        version: 12.x
     - run: npm install
     - run: npm run build
 

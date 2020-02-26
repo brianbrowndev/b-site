@@ -5,13 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './core/notfound/notfound.component';
 import { AboutComponent } from './core/about/about.component';
 import { VisualsComponent } from './core/visuals/visuals.component';
-
-
-// Visuals
-import { SpendingHistoryComponent } from './visuals/spending-history/spending-history.component';
-import { UsDroughtComponent } from './visuals/us-drought/us-drought.component';
 import { AppsOverviewComponent } from './core/apps/apps-overview/apps-overview.component';
-import { AboutMeMapComponent } from './visuals/about-me-map/about-me-map.component';
+
 
 
 const appRoutes: Routes = [
@@ -24,27 +19,6 @@ const appRoutes: Routes = [
     component: VisualsComponent, 
     data: {title: 'Visuals'},
     children: [
-        {
-            path: 'about-me-map',
-            component: AboutMeMapComponent,
-            data: {title: 'Visual - About Me Map'},
-        },
-        {
-            path: 'spending',
-            component: SpendingHistoryComponent,
-            data: {title: 'Visual - Spending'},
-        },
-        {
-            path: 'drought',
-            component: UsDroughtComponent,
-            data: {title: 'Maps - Drought'},
-        },
-        { 
-          path: '', 
-          redirectTo: 'spending', 
-          pathMatch: 'full'
-        }
-
     ]
   },
   { path: 'apps', component: AppsOverviewComponent, data: {title: 'Apps'}},
