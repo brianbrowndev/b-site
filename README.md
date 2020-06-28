@@ -1,5 +1,8 @@
 # Brian Brown
 
-A brief about me, highlighting who I am and various apps I've built.
+A [brief about me](https://brianbrown.dev/about), highlighting who I am and various apps I've built.
 
 
+## Stack
+
+Unnecessarily built with Angular (the expansion vision of this site found a home [elsewhere](https://me.brianbrown.dev)).
