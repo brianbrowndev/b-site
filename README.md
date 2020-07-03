@@ -5,4 +5,4 @@ A [brief about me](https://brianbrown.dev/about), highlighting who I am and vari
 
 ## Stack
 
-Unnecessarily built with Angular (the expansion vision of this site found a home [elsewhere](https://me.brianbrown.dev)).
+Unnecessarily built with Angular (the expansion vision of this site found a home [elsewhere](https://brianbrown.dev/me)).

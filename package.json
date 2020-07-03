@@ -1,14 +1,13 @@
 {
   "name": "bgeo",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
     "run": "ng serve --aot",
     "build": "ng build --prod --aot",
     "start": "ng serve",
-    "lint": "tslint \"src/**/*.ts\"",
-    "publish": "rsync -a ./dist/ bgeo@brianbrow.dev:/var/www/bgeo/"
+    "lint": "tslint \"src/**/*.ts\""
   },
   "private": true,
   "dependencies": {
