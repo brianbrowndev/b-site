@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // modules
 import { CoreModule } from './core';
-import { VisualModule } from './visuals';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { VisualModule } from './visuals';
     CommonModule,
     BrowserModule,
     CoreModule,
-    VisualModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

@@ -16,5 +16,16 @@
   flex: 1 1 auto;
   border-top:2px solid theme(secondary);
   height:1px;
-  @extend .my-5;
+  @extend .my-3;
+}
+
+@media (max-width: 767.98px) { 
+  .bottom-spacing {
+    margin-bottom:3rem;
+  }
+
+}
+
+.t2 {
+  margin-bottom:0;
 }

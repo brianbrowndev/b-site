@@ -12,5 +12,8 @@ main {
   right:0;
   bottom:0;
   overflow-y:auto;
+  @extend .pt-5;
+  @extend .pb-5;
+  @extend .mb-5;
 
 }

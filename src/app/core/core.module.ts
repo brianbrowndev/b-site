@@ -6,32 +6,26 @@ import { RouterModule } from '@angular/router';
 import { MastheadComponent } from '@app/core/masthead/masthead.component';
 import { NotfoundComponent } from '@app/core/notfound/notfound.component';
 import { AboutComponent } from '@app/core/about/about.component';
-import { PanelComponent } from './panel/panel.component';
-import { PanelSidebarComponent } from './panel-sidebar/panel-sidebar.component';
 
 import { AppsOverviewComponent } from './apps/apps-overview/apps-overview.component';
 
 // Visuals
-import { VisualModule } from '@app/visuals';
-import { VisualsComponent } from './visuals/visuals.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     MastheadComponent,
     NotfoundComponent,
     AboutComponent,
-    PanelComponent,
-    VisualsComponent,
-    PanelSidebarComponent,
-    AppsOverviewComponent
+    AppsOverviewComponent,
+    MainComponent
   ],
   exports: [
     MastheadComponent
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    VisualModule
+    RouterModule
   ],
   providers: [],
 })

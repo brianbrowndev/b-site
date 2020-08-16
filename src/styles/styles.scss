@@ -107,10 +107,11 @@ h2,
 .h2 {
 	font-size: 3.4rem;
 	letter-spacing: 2px;
+	margin-bottom:2rem;
 }
 h3,
 .h3 {
-	font-size: 3.5rem;
+	font-size: 3.2rem;
 }
 h4,
 .h4 {
@@ -235,101 +236,6 @@ p {
 	max-width: $layout-width;
 	margin: 0 auto;
 }
-
-/* ==========================================================================
-COMPONENTS-VISUALS
-========================================================================== */
-
-.visual-body {
-	overflow-y: auto;
-}
-
-
-.visual-text {
-	font-family: $font-primary;
-	font-size:1.2rem;
-}
-
-.visual-legend {
-	@extend .d-flex;
-	@extend .flex-row;
-	@extend .w-100;
-	@extend .t3;
-}
-
-.legend-item {
-	@extend .d-flex;
-	@extend .flex-row;
-	@extend .align-items-center;
-	& > span {
-		@extend .ml-2;
-	}
-}
-
-.patch {
-	width:16px;
-	height:16px;
-}
-.patch--red {
-	border:3px solid #e74c3c;
-}
-
-.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width: 15rem;					
-	height:5rem;					
-	@extend .p-3;
-	@extend .t3;
-    border-radius:8px;
-    pointer-events: none;			
-    border: 1px solid rgba(1,1,1,0.05);
-    background:#fff;
-}
-
-/* ==========================================================================
-COMPONENTS-MAP
-========================================================================== */
-
-
-.map-boundary {
-  stroke: theme(border);
-  stroke-width:1px;
-  fill-opacity:0;
-}
-
-#map {
-  overflow:visible;
-  // margin-bottom:1rem;
-}
-.map-point {
-  fill: theme(primary);
-  cursor:pointer;
-  &:hover {
-    fill:theme(link-secondary) !important;
-  }
-  &:focus {
-    fill:theme(link-secondary) !important;
-	}
-	&.point-select{
-		fill: theme(point-select);
-	}
-}
-.map-point--home {
-	fill: #f1c40f;
-}
-.map-point--vdot {
-	fill: #f47836;
-}
-.map-point--deq {
-	fill: #0049b8;
-}
-.map-point--dmme {
-	fill: #38b154;
-}
-
-
-
 /* ==========================================================================
 COMPONENTS-CARDS
 ========================================================================== */
