@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    container_name: b-site-dev
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./src:/opt/app/src
