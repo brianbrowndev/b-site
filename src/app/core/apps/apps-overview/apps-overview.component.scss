@@ -1,11 +1,9 @@
-@import 'styles';
 
 :host {
-  @extend .d-flex;
-  @extend .justify-content-center;
-  @extend .align-items-center;
-  @extend .flex-fill;
-  @extend .t2;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  flex:1;
   overflow-y:auto;
 }
 
@@ -14,9 +12,8 @@
 .spacer {
   display:flex;
   flex: 1 1 auto;
-  border-top:2px solid theme(secondary);
+  border-top:2px solid #ededed;
   height:1px;
-  @extend .my-3;
 }
 
 @media (max-width: 767.98px) { 

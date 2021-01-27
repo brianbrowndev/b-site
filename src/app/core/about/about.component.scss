@@ -1,15 +1,4 @@
-@import 'styles';
-
-:host {
-  @extend .d-flex;
-  @extend .justify-content-center;
-  @extend .t2;
-}
-
 .imagery {
   justify-content: space-evenly;
 }
 
-p {
-  @extend .t1;
-}

@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 
 // app components
 import { MastheadComponent } from '@app/core/masthead/masthead.component';
-import { NotfoundComponent } from '@app/core/notfound/notfound.component';
 import { AboutComponent } from '@app/core/about/about.component';
 
 import { AppsOverviewComponent } from './apps/apps-overview/apps-overview.component';
@@ -15,7 +14,6 @@ import { MainComponent } from './main/main.component';
 @NgModule({
   declarations: [
     MastheadComponent,
-    NotfoundComponent,
     AboutComponent,
     AppsOverviewComponent,
     MainComponent

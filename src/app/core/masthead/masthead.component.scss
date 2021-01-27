@@ -1,8 +1,7 @@
-@import 'styles';
 
 header {
-  background: theme(background-light);
-  border-bottom:2px solid theme(secondary);
+  background: #ffffff;
+  border-bottom:2px solid #ededed;
   height:62px;
 }
 
@@ -15,7 +14,6 @@ header {
     opacity:0.9;
     font-size:1.8rem;
     letter-spacing:0.01px;
-    @extend .link-none;
 
   &:hover {
     opacity:1;
@@ -24,7 +22,6 @@ header {
     opacity:1;
   }
   & a {
-    @extend .link-none;
     color:inherit;
   }
   & span {
@@ -35,7 +32,7 @@ header {
 
 nav {
  .active-link {
-    background-image: $link-underline;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
   }
 
 }
@@ -46,7 +43,7 @@ nav {
 .list-inline {
   .list-inline-item{
     &:not(:last-child) {
-      @extend .mr-4;
+      margin-right:4rem;
     }
   }
 }
