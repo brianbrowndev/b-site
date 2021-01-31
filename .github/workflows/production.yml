@@ -1,9 +1,9 @@
-name: ci
+name: production workflow
 
 on:
   push:
     tags:
-      - v.*
+      - v*
     
 
 jobs:
