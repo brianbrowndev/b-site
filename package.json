@@ -6,9 +6,12 @@
   "scripts": {
     "run": "ng serve --aot",
     "build": "ng build --prod --aot",
-    "docker-build": "docker-compose -f docker-compose.dev.yml build",
-    "start": "docker-compose -f docker-compose.dev.yml up",
-    "lint": "tslint \"src/**/*.ts\""
+    "docker-build": "docker-compose build",
+    "docker-start": "docker-compose up",
+    "docker-test-build": "docker build -t b-site .",
+    "docker-test-start": "docker run --name b-site -d -p 8080:80 b-site",
+    "lint": "tslint \"src/**/*.ts\"",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
